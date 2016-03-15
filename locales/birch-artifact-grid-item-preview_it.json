@@ -1,0 +1,8 @@
+{
+  "duplicate": "Questo file è stato già caricato.",
+  "failure": "Caricamento non riuscito.",
+  "restricted": "Accesso limitato",
+  "retry": "Riprova.",
+  "size": "La dimensione del file supera i 15 MB.",
+  "unsupported": "Tipo di file non supportato"
+}

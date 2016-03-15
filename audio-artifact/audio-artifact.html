@@ -1,0 +1,127 @@
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/layout/layout.html">
+
+<dom-module id='audio-artifact'>
+  <link rel="import" type="css" href="styles.css">
+  <template>
+    <audio src$="[[audioUrl]]" id="audio" preload="auto" on-timeupdate="_updateTimers" on-loadedmetadata="_setDuration" on-ended="_audioReset" on-canplay="_audioReady"></audio>
+    <div class="layout vertical full">
+      <h1 class="story-content-title">[[title]]</h1>
+      <!-- AUDIO CONTROLS -->
+      <div class="layout horizontal center-justified center relative full">
+        <!-- ELAPSED TIME -->
+        <span class="layout horizontal center center-justified audio-timer" hidden$="{{!_audioObj.initialized}}">{{_audioObj.elapsed}}</span>
+        <!-- PLAY BUTTON -->
+        <span id="actionplay" class="audio-control layout horizontal">
+          <i class="audio-icon play-icon"  hidden$="{{_audioObj.playing}}" on-tap="toggleAudio"></i>
+          <i class="audio-icon pause-icon" hidden$="{{!_audioObj.playing}}" on-tap="toggleAudio"></i>
+        </span>
+        <!-- AUDIO DURATION -->
+        <span class="layout horizontal center center-justified audio-timer" hidden$="{{!_audioObj.initialized}}">{{_audioObj.duration}}</span>
+        <i class="loading-icon playing-animation" hidden="{{_audioObj.ready}}"></i>
+        <!-- PLAYING ANIMATION -->
+        <div id="bars" hidden$="{{!_showBars(_audioObj.initialized, _audioObj.elapsed, _audioObj.duration, _audioObj.ready)}}" class$="{{_barActive(_audioObj.playing)}}">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <!-- TIME DISPLAY -->
+        <div class="audio-meta layout horizontal center center-justified" hidden$="{{_audioObj.initialized}}">
+          <i class="audio-icon-small"></i>
+          <span>{{_audioObj.duration}}</span>
+        </div>
+      </div>
+    </div>
+  </template>
+</dom-module>
+<script>
+(function() {
+  var playingAudioNode = null;
+
+  function pad(n) {
+    return (n < 10) ? ("0" + n) : n;
+  }
+  var buildTime = function(time) {
+    var minutes = time / 60;
+    var seconds = Math.floor((minutes % 1) * 60);
+    return Math.floor(time / 60) + ':' + pad(seconds);
+  }
+  Polymer({
+    is: 'audio-artifact',
+    properties: {
+      audioUrl: {
+        type: String,
+        value: null
+      },
+      title: {
+        type: String,
+        value: null
+      },
+      _audioObj: {
+        type: Object,
+        value: function() { return {}; }
+      }
+    },
+    ready: function() {
+      this._setupAudioObj();
+    },
+    _setupAudioObj: function() {
+      this._audioObj = {
+        elapsed: '0:00',
+        duration: '0:00',
+        ready: false,
+        playing: false,
+        initialized: false
+      };
+    },
+    _updateTimers: function() {
+      this.set('_audioObj.elapsed', buildTime(this.$.audio.currentTime));
+    },
+    _setDuration: function() {
+      this.set('_audioObj.duration', buildTime(this.$.audio.duration));
+      if (/^((?!chrome).)*safari/i.test(navigator.userAgent)) {
+        this.set('_audioObj.ready', true);
+      }
+    },
+    _audioReset: function() {
+      this.set('_audioObj.playing', false);
+    },
+    _audioReady: function() {
+      this.set('_audioObj.ready', true);
+    },
+    _showBars: function(audioInitialized, elapsed, remaining, audioReady) {
+      if (!audioInitialized) return false;
+      if (!audioReady) return false;
+      if (elapsed === remaining) return false;
+      return true;
+    },
+    _barActive: function(playing) {
+      var staticClasses = 'playing-animation';
+      if (!playing) staticClasses += ' paused';
+      return staticClasses;
+    },
+    toggleAudio: function(e) {
+      var self = this;
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (!this._audioObj.initialized) this.set('_audioObj.initialized', true);
+      if (this.$.audio.paused) {
+        if (playingAudioNode) playingAudioNode.toggleAudio();
+        this.$.audio.play();
+        playingAudioNode = this;
+        this.addEventListener('ended', function(){
+          playingAudioNode = null;
+          self.removeEventListener('ended');
+        });
+      } else {
+        this.$.audio.pause();
+        playingAudioNode = null;
+      }
+      this.set('_audioObj.playing', !this.$.audio.paused);
+    }
+  });
+})();
+</script>

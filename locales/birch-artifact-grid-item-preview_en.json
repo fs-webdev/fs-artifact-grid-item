@@ -1,0 +1,8 @@
+{
+  "failure":"Upload failed.",
+  "retry":"Retry.",
+  "restricted":"Restricted",
+  "duplicate":"This file was previously uploaded.",
+  "size":"The file size exceeds 15MB.",
+  "unsupported":"Unsupported File Type"
+}

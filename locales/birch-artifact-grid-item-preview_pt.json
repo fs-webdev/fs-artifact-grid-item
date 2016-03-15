@@ -1,0 +1,8 @@
+{
+  "duplicate": "Este arquivo foi enviado anteriormente.",
+  "failure": "Falha no envio.",
+  "restricted": "Material Restrito",
+  "retry": "Tentar novamente.",
+  "size": "O arquivo excede o limite de 15MB.",
+  "unsupported": "O tipo de arquivo é incompatível"
+}

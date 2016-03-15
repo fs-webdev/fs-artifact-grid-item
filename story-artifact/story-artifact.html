@@ -1,0 +1,42 @@
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="../../../components/layout/layout.html">
+
+<dom-module id='story-artifact'>
+  <link rel="import" type="css" href="styles.css">
+  <template>
+    <div class="layout vertical">
+      <h1 class="story-content-title">[[title]]</h1>
+      <div class="story-content-body">
+        <div class="story-content-body-overlay"></div>
+        <div class="story-content-thumbnail" hidden$="{{!imageUrl}}">
+          <img src$="[[imageUrl]]"/>
+        </div>
+        <span>[[description]]</span>
+      </div>
+    </div>
+  </template>
+</dom-module>
+<script>
+(function() {
+  Polymer({
+    is: 'story-artifact',
+    properties: {
+      imageUrl: {
+        type: String,
+        value: null
+      },
+      description: {
+        type: String,
+        value: null
+      },
+      title: {
+        type: String,
+        value: null
+      }
+    },
+    ready: function() {
+      console.log('Woohoo!');
+    }
+  });
+})();
+</script>

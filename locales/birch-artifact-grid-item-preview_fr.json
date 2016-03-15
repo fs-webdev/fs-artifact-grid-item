@@ -1,0 +1,8 @@
+{
+  "duplicate": "Ce fichier a déjà été téléversé.",
+  "failure": "Echec du téléversement.",
+  "restricted": "Accès restreint",
+  "retry": "Ressayer.",
+  "size": "La taille du fichier dépasse 15 Mo.",
+  "unsupported": "Type de fichier non compatible"
+}

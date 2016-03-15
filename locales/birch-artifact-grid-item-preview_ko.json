@@ -1,0 +1,8 @@
+{
+  "duplicate": "이 파일은 이전에 업로드되었습니다.",
+  "failure": "업로드 실패",
+  "restricted": "제한됨",
+  "retry": "재시도",
+  "size": "파일 크기가 15MB를 초과합니다.",
+  "unsupported": "지원되지 않는 파일 유형"
+}

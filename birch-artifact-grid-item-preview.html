@@ -1,0 +1,167 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/wc-i18n/wc-i18n.html">
+<link rel="import" href="../../components/fs-behavior/fs-behavior.html">
+<link rel="import" href="./birch-artifact-grid-item.html">
+
+<dom-module id='birch-artifact-grid-item-preview'>
+  <link rel="import" type="css" href="birch-artifact-grid-item-preview.css">
+  <template>
+    <div class="relative">
+    <wc-i18n-src locale='[[_lang]]' locale-dir='[[localeDir()]]' domain='birch-artifact-grid-item-preview'></wc-i18n-src>
+    <birch-artifact-grid-item data="[[data]]"></birch-artifact-grid-item>
+    <div class="grid-item-preview-overlay">
+      <div class="spinner" hidden="[[!loading]]"></div>
+      <div class="error-uploading full layout horizontal end" hidden="[[!data.uploadError]]">
+        <div class="error-text" hidden="[[!data.failure]]">
+          <span>
+            <wc-i18n key='birch-artifact-grid-item-preview.failure'></wc-i18n>
+          </span>
+          <!-- <a href="javascript:;" on-tap="_retryUpload">
+            <wc-i18n key='birch-artifact-grid-item-preview.retry'></wc-i18n>
+          </a> -->
+        </div>
+        <div class="error-text" hidden="[[!data.duplicate]]">
+          <span>
+            <wc-i18n key='birch-artifact-grid-item-preview.duplicate'></wc-i18n>
+          </span>
+        </div>
+        <div class="error-text" hidden="[[!data.tooBig]]">
+          <span>
+            <wc-i18n key='birch-artifact-grid-item-preview.size'></wc-i18n>
+          </span>
+        </div>
+        <div class="error-text" hidden="[[!data.unsupported]]">
+          <span>
+            <wc-i18n key='birch-artifact-grid-item-preview.unsupported'></wc-i18n>
+          </span>
+        </div>
+      </div>
+      <div id="memory-title" hidden="[[!data.uploadError]]"></div>
+    </div>
+    </div>
+  </template>
+</dom-module>
+<script>
+(function() {
+
+  var getScaledImage = function(dataUrl) {
+    return new Promise(function(resolve, reject) {
+      var size = 170;
+      var canvas = document.createElement("canvas");
+      var c = canvas.getContext("2d");
+      var img = new Image();
+      img.onload = function(e) {
+        var scale = size / (this.width > this.height ? this.width : this.height);
+        canvas.width = this.width * scale;
+        canvas.height = this.height * scale;
+        c.drawImage(this, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", 1));
+      }
+      img.src = dataUrl;
+    });
+  }
+
+  Polymer({
+    is: 'birch-artifact-grid-item-preview',
+    behaviors: [
+      WCI18nBehavior,
+      FSBehavior
+    ],
+    properties: {
+      /**
+       * A file upload object containing two properties 
+       * ```
+       * {
+       *   file: FileObject,
+       *   promise: PromiseObject
+       * }
+       * ```
+       *
+       * If the promise resolves with an object with an `err`
+       * property **or** rejects then error handling will occur
+       * based on the err type
+       *
+       * Otherwise the promise should resolve with an object 
+       * containing an `artifact` property. This property will be
+       * used to bootstrap the underlying `birch-artifact-grid-item`
+       * @type {Object}
+       */
+      data: {
+        type: Object,
+        value: function(){ return {}; },
+        observer: '_attachPromiseHandler',
+        notify: true
+      },
+      loading: {
+        type: Boolean,
+        value: true
+      },
+    },
+    listeners: {
+      tap: '_stopPropagation',
+      contextmenu: '_stopPropagation'
+    },
+    /**
+     * Handles the updating of data we need this
+     * because iron-list listens for changes to items.*
+     * and an actual item changing breaks it. Therefore
+     * we set all of the properties individually and it fixes
+     * the issue
+     */
+    _stopPropagation: function(e) {
+      e.stopPropagation();
+    },
+    _updateData: function(artifact) {
+      var keys = Object.keys(artifact);
+      keys.forEach(function(key) {
+        var path = 'data.' + key;
+        this.set(path, artifact[key]);
+      }.bind(this));
+    },
+    _attachPromiseHandler: function() {
+      if (!this.data || !this.data.promise || typeof this.data.promise.then !== 'function') return;
+      this.data.promise.then(function (result){
+        if(result.err){
+          this._handleUploadError(result.err);
+          return;
+        }
+        var artifact = (Array.isArray(result)) ? result[0] : result.artifact;
+        artifact.thumbUrl = this.data.thumbUrl || result.artifact.thumbSquareUrl;
+        if(!this.data.thumbUrl){
+          setTimeout(function(){
+            this._updateData(artifact);
+          }.bind(this), 5000);
+        } else {
+          this._updateData(artifact);
+        }
+        return result;
+      }.bind(this), this._handleUploadError.bind(this));
+      this._getDataUrl(this.data.file);
+    },
+    _handleUploadError: function(err){
+      if(err.includes('already exists')) err = 'duplicate';
+      switch(err){
+        case 'size':      this.set('data.tooBig', true);      break;
+        case 'fileType':  this.set('data.unsupported', true); break;
+        case 'duplicate': this.set('data.duplicate', true);   break;
+        default:          this.set('data.failure', true);     break;
+      }
+      this.loading = false;
+      this.set('data.uploadError', true);
+      if (this.data.file.name) this.$['memory-title'].innerText = this.data.file.name;
+    },
+    _getDataUrl: function(file){
+      var _this = this;
+      var reader = new FileReader();
+      reader.onload = (function() {
+        return function(e) {
+          getScaledImage(e.target.result).then(function(image) {
+            _this.set('data.thumbUrl', image);
+          });
+        };
+      })();
+      reader.readAsDataURL(file);
+    }
+  });
+})();
+</script>

@@ -1,0 +1,8 @@
+{
+  "duplicate": "Esta carpeta ya se ha cargado anteriormente.",
+  "failure": "No se pudo cargar el archivo.",
+  "restricted": "Restringido",
+  "retry": "Volver a intentarlo",
+  "size": "El tamaño de esta carpeta excede los 15MB.",
+  "unsupported": "Tipo de archivo no compatible"
+}

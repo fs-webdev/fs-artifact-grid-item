@@ -1,0 +1,178 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/fs-card/fs-card.html">
+<link rel="import" href="../../components/wc-i18n/wc-i18n.html">
+<link rel="import" href="../../components/fs-behavior/fs-behavior.html">
+<link rel="import" href="audio-artifact/audio-artifact.html">
+<link rel="import" href="image-artifact/image-artifact.html">
+<link rel="import" href="story-artifact/story-artifact.html">
+
+<!-- @demo demo/index.html -->
+
+<dom-module id='birch-artifact-grid-item'>
+  <link rel="import" type="css" href="birch-artifact-grid-item.css">
+  <template>
+    <wc-i18n-src locale='[[_lang]]' locale-dir='[[localeDir()]]' domain='birch-artifact-grid-item'></wc-i18n-src>
+    <fs-card>
+      <div class="relative">
+        <div id='artifact' class="artifact">
+
+          <!-- IMAGE/DOCUMENT RENDERER -->
+          <template is='dom-if' if="{{_isImage(data.category)}}">
+            <image-artifact image-url='[[data.thumbUrl]]'></image-artifact>
+          </template>
+
+          <!-- AUDIO RENDERER -->
+          <template is='dom-if' if="{{_is(data.category, 'AUDIO')}}">
+            <audio-artifact audio-url='[[data.url]]' title='[[data.title]]'></audio-artifact>
+          </template>
+
+          <!-- STORY RENDERER -->
+          <template is='dom-if' if="{{_isStory(data.category)}}">
+            <story-artifact image-url='[[data.thumbUrl]]' description='[[data.description]]' title='[[data.title]]'></story-artifact>
+          </template>
+
+          <wc-i18n key='birch-artifact-grid-item.not_tagged' provider value='{{_notTaggedText}}'></wc-i18n>
+          <i class='not-tagged-icon' hidden='[[!_is(data.photoTagCount, 0)]]' title='[[_notTaggedText]]'></i>
+          <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
+        </div>
+
+        <div class="title" title='[[data.title]]' on-tap="_stopProp">
+          <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
+          <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(data.title, data.contributorCisUserId, owner)]]'>
+            <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
+          </a>
+        </div>
+
+        <div class="error-uploading full layout horizontal end" hidden="[[!_isRestricted(data.screeningState)]]">
+          <div class="error-text">
+            <span>
+              <wc-i18n key='birch-artifact-grid-item.restricted'></wc-i18n>
+            </span>
+        </div>
+      </div>
+
+    </fs-card>
+  </template>
+</dom-module>
+<script>
+ (function() {
+  Polymer({
+    is: 'birch-artifact-grid-item',
+    behaviors: [
+      WCI18nBehavior,
+      FSBehavior,
+    ],
+    properties: {
+      /**
+       *
+       * An artifactmanager artifact
+       *
+       * ```javascript
+       * {
+       *   "href": "./images/19687650",
+       *   "category": "IMAGE",
+       *   "url": "https://familysearch.org/patron/v2/TH-904-58554-804-13/dist.jpg?ctx=ArtCtxPublic",
+       *   "thumbUrl": "https://familysearch.org/patron/v2/TH-904-58554-804-13/thumb200.jpg?ctx=ArtCtxPublic",
+       *   "title": "Demo Title",
+       *   "description": "",
+       *   "id": 19687650,
+       *   "uploadDatetime": 1444242182000,
+       *   "datesPlaces": null,
+       *   "deepZoomLiteUrl": "https://familysearch.org/dzpatron/v1/TH-904-58554-804-13/scale?width=800&ctx=ArtCtxPublic",
+       *   "screeningState": "APPROVED",
+       *   "originalFilename": "Josh (BYU Football).jpg",
+       *   "photoTagCount": 0,
+       * }
+       * ```
+       *
+       * @type {Object}
+       */
+      data: {
+        type: Object,
+        value: function() { return {}; }
+      },
+      selectMode: {
+        type: Boolean,
+        value: false
+      },
+      _href: {
+        type: String,
+        computed: '_computeHref(data.id)'
+      },
+      view: {
+        type: String,
+        value: null
+      },
+      owner: {
+        type: String,
+        value: ''
+      }
+    },
+    listeners: {
+      'artifact.tap': '_goToItem'
+    },
+    _computeHref: function(id) {
+      var origin = window.location.origin;
+      var path = (origin === 'http://localhost:5000') ? '' : '/photos';
+      return origin + path + '/artifacts/' + id;
+    },
+    _deselectItem: function() {
+      this.data.selected = false;
+      this.fire('gallery-deselect-all');
+    },
+    _hideAddTitle: function(title, dataOwner, inputtedOwner) {
+      if (title) return true;
+      if (inputtedOwner) {
+        return dataOwner !== inputtedOwner;
+      }
+      return false;
+    },
+    _isDefault: function(category) {
+      return category === 'IMAGE' || category === 'DOCUMENT'
+    },
+    _is: function(a, b) {
+      return a == b;
+    },
+    _isRestricted: function(screeningState) {
+      return screeningState === 'RESTRICTED';
+    },
+    _isImage: function(category) {
+      if (!category) return true;
+      return category === 'IMAGE' || category === 'PORTRAIT' || category === 'UNKNOWN' || category === 'ANY' ||
+             category === 'DOCUMENT' || category === 'PDF';
+    },
+    _isStory: function(category) {
+      if (!category) return false;
+      return category === 'STORY' || category === 'TEXT';
+    },
+    _isDocument: function(category) {
+      if (!category) return false;
+      return category === 'DOCUMENT' || category === 'PDF';
+    },
+    _goToItem: function(e) {
+      if (this.selectMode) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var url = this._href;
+
+      var newTab = false;
+      if (e && e.detail && e.detail.sourceEvent) {
+        newTab = e.detail.sourceEvent.ctrlKey || e.detail.sourceEvent.metaKey
+      } 
+      if (this.view === 'my-memories' || this.view === 'my-archive' || this.view === 'my-favorites') {
+        url = url + "?c="+this.view;
+      } else if(parseInt(this.view)) {
+        url = url + "?a="+this.view;
+      }
+      if (newTab){
+        window.open(url, '_blank').focus();
+      } else {
+        location = url;
+      }
+    },
+    _stopProp: function(e) {
+      if (!this.selectMode) e.stopPropagation();
+    }
+  });
+})();
+</script>

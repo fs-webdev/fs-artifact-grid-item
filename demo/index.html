@@ -1,0 +1,41 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>birch-artifact-grid Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../birch-artifact-grid-item-preview.html" async>
+  </head>
+  <body unresolved>
+    <birch-artifact-grid-item data='{"href":"./documents/7674953","category":"STORY","url":"https://beta.familysearch.org/patron/v2/TH-903-54976-6-2/dist.txt?ctx=ArtCtxPublic","thumbUrl":"https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic","title":"All About Josh Crowther","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum porta massa. Nunc vestibulum imperdiet ipsum, eu varius turpis facilisis vel. Suspendisse maximus aliquet erat, a pretium","id":7674953,"uploadDatetime":1431361794000,"datesPlaces":null,"deepZoomLiteUrl":"https://beta.familysearch.org/dzpatron/v1/TH-903-54976-6-2/scale?width=800&ctx=ArtCtxPublic","screeningState":"APPROVED","originalFilename":"story.txt","photoTagCount":0, "contributorCisUserId":"A guy with a hat"}'></birch-artifact-grid-item>
+    <birch-artifact-grid-item data='{"id":20524333,"apid":"TH-904-59400-312-51","url":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/dist.jpg?ctx=ArtCtxPublic","title":"Crowther Kids enjoying the fall","uploadState":"UPLOADED","screeningState":"APPROVED","imageProcessingState":"PROCESSED","description":"","mimeType":"image/jpeg","originalFilename":"IMG_0268.JPG","photoTagCount":5,"commentCount":0,"contributorPatronId":556427,"category":"IMAGE","uploadDatetime":1447287013000,"size":553974,"thumbUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/thumb200.jpg?ctx=ArtCtxPublic","thumbSquareUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/thumb200s.jpg?ctx=ArtCtxPublic","thumbIconUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/thumb64.jpg?ctx=ArtCtxPublic","thumbMobileUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/thumbMobile.jpg?ctx=ArtCtxPublic","thumbTabletUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/dist.jpg?ctx=ArtCtxPublic","deepZoomUrl":"https://beta.familysearch.org/dzpatron/v1/TH-904-59400-312-51/image.xml","deepZoomLiteUrl":"https://beta.familysearch.org/dzpatron/v1/TH-904-59400-312-51/scale?width=800&ctx=ArtCtxPublic","photoTags":null,"associatedArtifacts":null,"width":1118,"height":1676,"dzWidth":800,"dzHeight":1199,"slug":"crowther-kids-enjoying-the-fall","visibility":"PUBLIC","visitCount":10,"softTagCount":0,"contentCategory":"PHOTO","structure":"SIMPLE","rotationAngle":0,"language":"en","seoIndexable":false,"contentCategories":["PHOTO","UNKNOWN"],"contributorCisUserId":"cis.user.MMM3-Z11V","features":"","hash":"52192850721c9126251b72daf4132af7","datesPlaces":null,"archived":false,"uploaderId":556427,"photoSoftTagCount":0,"first":true,"editableByCaller":true}'></birch-artifact-grid-item>
+    <birch-artifact-grid-item data='{"id":291868,"apid":"TH-501-62059-618-33","url":"https://integration.familysearch.org/sandbox/v2/TH-501-62059-618-33/dist.m4a?ctx=ArtCtxPublic","title":"Audio 250","uploadState":"UPLOADED","screeningState":"APPROVED","imageProcessingState":"UNPROCESSED","description":"This is a description for Audio 250","mimeType":"audio/x-m4a","originalFilename":"taleOfTwoPhotos.m4a","photoTagCount":0,"commentCount":0,"contributorPatronId":1492,"category":"AUDIO","uploadDatetime":1456861138000,"size":167363,"thumbUrl":"","thumbSquareUrl":null,"thumbIconUrl":null,"thumbMobileUrl":null,"thumbTabletUrl":null,"deepZoomUrl":"https://integration.familysearch.org/dz/v1/TH-501-62059-618-33/image.xml","deepZoomLiteUrl":"https://integration.familysearch.org/dz/v1/TH-501-62059-618-33/scale?width=800&ctx=ArtCtxPublic","photoTags":null,"associatedArtifacts":null,"width":0,"height":0,"dzWidth":800,"dzHeight":0,"slug":"audio-250","visibility":"PUBLIC","visitCount":1,"softTagCount":0,"contentCategory":"STORY","structure":"SIMPLE","rotationAngle":0,"language":"en","seoIndexable":false,"contentCategories":["STORY","UNKNOWN"],"contributorCisUserId":"cis.user.MMMM-DT6K","features":"","hash":"1cb89917ca55a9d70730c3cbbe49f891","datesPlaces":null,"first":true,"editableByCaller":true,"archived":false,"uploaderId":1492,"photoSoftTagCount":0}'></birch-artifact-grid-item>
+    <div>
+      <template id='upload' is='dom-bind'>
+        <input id='file' type="file" files='{{files::change}}' value='{{value::input}}' on-change='_handleChange'>
+        <div id='output'></div>
+      </template>
+    </div>
+    <script>
+      var app = document.querySelector('#upload');
+      app._handleChange = function(e) {
+        var el = document.createElement('birch-artifact-grid-item-preview');
+        el.data = {
+          file: this.$.file.files[0],
+          promise: new Promise(function(resolve, reject) {})
+        };
+        this.$.output.appendChild(el);
+      };
+    </script>
+  </body>
+</html>

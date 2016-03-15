@@ -1,0 +1,38 @@
+{
+  "name": "birch-artifact-grid-item",
+  "authors": [
+    "Josh Crowther <jshcrowthe@gmail.com>"
+  ],
+  "description": "An element that renders any artifact in the gallery grid format",
+  "main": "birch-artifact-grid-item.html",
+  "moduleType": [],
+  "keywords": [
+    "button",
+    "styleguide"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "/demo"
+  ],
+  "dependencies": {
+    "fs-card": "jshcrowthe/fs-card",
+    "layout": "Polymer/layout",
+    "polymer": "Polymer/polymer#~1.2.0",
+    "fs-behavior": "jshcrowthe/fs-behavior",
+    "wc-i18n": "jshcrowthe/wc-i18n#^1.1.0",
+    "iron-image": "PolymerElements/iron-image#^1.2.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.6",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.0.6"
+  },
+  "resolutions": {
+    "polymer": "^1.2.0"
+  }
+}

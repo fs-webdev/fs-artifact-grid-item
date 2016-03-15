@@ -1,0 +1,8 @@
+{
+  "duplicate": "此檔案先前已上傳過了。",
+  "failure": "上傳失敗。",
+  "restricted": "受限",
+  "retry": "重試。",
+  "size": "檔案大小超過15MB。",
+  "unsupported": "不支援的檔案類型"
+}

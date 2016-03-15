@@ -1,0 +1,8 @@
+{
+  "failure": "Hochladen fehlgeschlagen.",
+  "retry": "Erneut versuchen.",
+  "restricted": "Nicht freigegeben",
+  "duplicate": "Diese Datei wurde bereits einmal hochgeladen.",
+  "size": "Die Dateigröße übersteigt 15MB.",
+  "unsupported": "Nicht unterstützter Dateityp"
+}
