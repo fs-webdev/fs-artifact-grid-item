@@ -38,7 +38,7 @@
 
         <div class="title" title='[[data.title]]' on-tap="_stopProp">
           <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
-          <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(data.title, data.contributorCisUserId, owner)]]'>
+          <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
             <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
           </a>
         </div>
@@ -106,6 +106,10 @@
       owner: {
         type: String,
         value: ''
+      },
+      readOnly: {
+        type: Boolean,
+        value: false
       }
     },
     listeners: {
@@ -120,8 +124,8 @@
       this.data.selected = false;
       this.fire('gallery-deselect-all');
     },
-    _hideAddTitle: function(title, dataOwner, inputtedOwner) {
-      if (title) return true;
+    _hideAddTitle: function(readOnly, title, dataOwner, inputtedOwner) {
+      if (readOnly || title) return true;
       if (inputtedOwner) {
         return dataOwner !== inputtedOwner;
       }
