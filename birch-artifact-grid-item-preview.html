@@ -1,13 +1,13 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../wc-i18n/wc-i18n.html">
-<link rel="import" href="../fs-behavior/fs-behavior.html">
+<link rel="import" href="../oak-i18n-behavior/oak-i18n-behavior.html">
 <link rel="import" href="./birch-artifact-grid-item.html">
 
 <dom-module id='birch-artifact-grid-item-preview'>
   <link rel="import" type="css" href="birch-artifact-grid-item-preview.css">
   <template>
     <div class="relative">
-    <wc-i18n-src locale='[[_lang]]' locale-dir='[[localeDir()]]' domain='birch-artifact-grid-item-preview'></wc-i18n-src>
+    <wc-i18n-src locale='[[lang]]' locale-dir='[[localeDir()]]' domain='birch-artifact-grid-item-preview'></wc-i18n-src>
     <birch-artifact-grid-item data="[[data]]"></birch-artifact-grid-item>
     <div class="grid-item-preview-overlay">
       <div class="spinner" hidden="[[!loading]]"></div>
@@ -65,7 +65,7 @@
     is: 'birch-artifact-grid-item-preview',
     behaviors: [
       WCI18nBehavior,
-      FSBehavior
+      OakI18nBehavior
     ],
     properties: {
       /**
