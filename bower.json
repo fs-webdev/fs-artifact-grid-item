@@ -21,7 +21,7 @@
     "/demo"
   ],
   "dependencies": {
-    "fs-card": "jshcrowthe/fs-card",
+    "cedar-card": "FamilySearchElements/cedar-card",
     "layout": "Polymer/layout",
     "polymer": "Polymer/polymer#~1.2.0",
     "wc-i18n": "jshcrowthe/wc-i18n#^1.1.0",
