@@ -1,0 +1,231 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="../birch-artifact-grid-item.html">
+  </head>
+  <body>
+
+    <!-- You can use the document as a place to set up your fixtures. -->
+    <test-fixture id="grid-item-fixture">
+      <template>
+        <birch-artifact-grid-item></birch-artifact-grid-item>
+      </template>
+    </test-fixture>
+
+
+    <script>
+    var dataObj = {};
+    dataObj.standardAudio = {"id":291868,"apid":"TH-501-62059-618-33","url":"https://integration.familysearch.org/sandbox/v2/TH-501-62059-618-33/dist.m4a?ctx=ArtCtxPublic","title":"Audio 250","uploadState":"UPLOADED","screeningState":"APPROVED","imageProcessingState":"UNPROCESSED","description":"This is a description for Audio 250","mimeType":"audio/x-m4a","originalFilename":"taleOfTwoPhotos.m4a","photoTagCount":0,"commentCount":0,"contributorPatronId":1492,"category":"AUDIO","uploadDatetime":1456861138000,"size":167363,"thumbUrl":"","thumbSquareUrl":null,"thumbIconUrl":null,"thumbMobileUrl":null,"thumbTabletUrl":null,"deepZoomUrl":"https://integration.familysearch.org/dz/v1/TH-501-62059-618-33/image.xml","deepZoomLiteUrl":"https://integration.familysearch.org/dz/v1/TH-501-62059-618-33/scale?width=800&ctx=ArtCtxPublic","photoTags":null,"associatedArtifacts":null,"width":0,"height":0,"dzWidth":800,"dzHeight":0,"slug":"audio-250","visibility":"PUBLIC","visitCount":1,"softTagCount":0,"contentCategory":"STORY","structure":"SIMPLE","rotationAngle":0,"language":"en","seoIndexable":false,"contentCategories":["STORY","UNKNOWN"],"contributorCisUserId":"cis.user.MMMM-DT6K","features":"","hash":"1cb89917ca55a9d70730c3cbbe49f891","datesPlaces":null,"first":true,"editableByCaller":true,"archived":false,"uploaderId":1492,"photoSoftTagCount":0};
+    dataObj.standardImage = {"id":20524333,"apid":"TH-904-59400-312-51","url":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/dist.jpg?ctx=ArtCtxPublic","title":"Crowther Kids enjoying the fall","uploadState":"UPLOADED","screeningState":"APPROVED","imageProcessingState":"PROCESSED","description":"","mimeType":"image/jpeg","originalFilename":"IMG_0268.JPG","photoTagCount":5,"commentCount":0,"contributorPatronId":556427,"category":"IMAGE","uploadDatetime":1447287013000,"size":553974,"thumbUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/thumb200.jpg?ctx=ArtCtxPublic","thumbSquareUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/thumb200s.jpg?ctx=ArtCtxPublic","thumbIconUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/thumb64.jpg?ctx=ArtCtxPublic","thumbMobileUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/thumbMobile.jpg?ctx=ArtCtxPublic","thumbTabletUrl":"https://beta.familysearch.org/patron/v2/TH-904-59400-312-51/dist.jpg?ctx=ArtCtxPublic","deepZoomUrl":"https://beta.familysearch.org/dzpatron/v1/TH-904-59400-312-51/image.xml","deepZoomLiteUrl":"https://beta.familysearch.org/dzpatron/v1/TH-904-59400-312-51/scale?width=800&ctx=ArtCtxPublic","photoTags":null,"associatedArtifacts":null,"width":1118,"height":1676,"dzWidth":800,"dzHeight":1199,"slug":"crowther-kids-enjoying-the-fall","visibility":"PUBLIC","visitCount":10,"softTagCount":0,"contentCategory":"PHOTO","structure":"SIMPLE","rotationAngle":0,"language":"en","seoIndexable":false,"contentCategories":["PHOTO","UNKNOWN"],"contributorCisUserId":"cis.user.MMM3-Z11V","features":"","hash":"52192850721c9126251b72daf4132af7","datesPlaces":null,"archived":false,"uploaderId":556427,"photoSoftTagCount":0,"first":true,"editableByCaller":true};
+    dataObj.standardStory = {"href":"./documents/7674953","category":"STORY","url":"https://beta.familysearch.org/patron/v2/TH-903-54976-6-2/dist.txt?ctx=ArtCtxPublic","thumbUrl":"https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic","title":"All About Josh Crowther","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum porta massa. Nunc vestibulum imperdiet ipsum, eu varius turpis facilisis vel. Suspendisse maximus aliquet erat, a pretium","id":7674953,"uploadDatetime":1431361794000,"datesPlaces":null,"deepZoomLiteUrl":"https://beta.familysearch.org/dzpatron/v1/TH-903-54976-6-2/scale?width=800&ctx=ArtCtxPublic","screeningState":"APPROVED","originalFilename":"story.txt","photoTagCount":0, "contributorCisUserId":"A guy with a hat"};
+
+
+      suite('<birch-artifact-grid-item>', function() {
+        var el;
+
+        setup(function() {
+          var rootEl;
+          el = fixture('grid-item-fixture');
+        });
+
+        test('Overall Artifact Element Testing', function() {
+          el.data = dataObj.standardAudio;
+          rootEl = Polymer.dom(el.root);
+          var titleText = rootEl.querySelector('.title-text');
+          assert.isAtLeast(titleText.innerHTML.length, 1, "Title contains text");
+
+          var showNotTaggedIcon = rootEl.querySelector('.not-tagged-icon').hidden;
+          assert.isFalse(showNotTaggedIcon);
+
+          el.data = dataObj.standardImage;
+          var hideTaggedIcon = rootEl.querySelector('.not-tagged-icon').hidden;
+          assert.isTrue(hideTaggedIcon);
+
+        });
+        test('Audio Element Testing', function(done) {
+          el.data = dataObj.standardAudio;
+          flush(function(){
+            rootEl = Polymer.dom(el.root);
+            //Check that audio artifact has been generated
+            var audioA = rootEl.querySelector('audio-artifact');
+            assert.isTrue(Boolean(audioA));
+
+            //Check that audio artifact elements have rendered correctly
+            var header = audioA.$$('h1');
+
+            assert.isTrue(Boolean(header), "H1 exists");
+            assert.isAtLeast(header.innerHTML.length, 1, "H1 contains text");
+
+            var playButton = audioA.$$('#actionplay');
+            assert.isTrue(Boolean(playButton), "Play button exists");
+
+            var audioTime = audioA.$$('.audio-meta');
+            assert.isTrue(Boolean(audioTime), "Audio time exists");
+
+            done();
+
+          });
+
+        });
+
+        test('Image Element Testing', function(done) {
+          flush(function(){
+            el.data = dataObj.standardImage;
+            rootEl = Polymer.dom(el.root);
+            var imageA = rootEl.querySelector('image-artifact');
+            assert.isTrue(Boolean(imageA));
+
+            var ironImage = imageA.$$('iron-image');
+            assert.isTrue(Boolean(ironImage));
+            
+            //See if "thumbnail" is a class on iron-image
+            var checkClassList = Array.prototype.indexOf.call(ironImage.classList, "thumbnail");
+            assert.isAtLeast(checkClassList, 0)
+
+            var innerImg = ironImage.$$('img');
+            var urlRegEx = /^https:.+\.(jpg|png|jpe?g|gif|bmp)/;
+            assert.match(innerImg.src, urlRegEx);
+
+            var typeBoolean = el._isImage('IMAGE');
+            assert.isTrue(typeBoolean);
+
+            typeBoolean = el._isDocument('PDF');
+            assert.isTrue(typeBoolean);
+
+            typeBoolean = el._isDocument();
+            assert.isFalse(typeBoolean);
+
+            done();
+          });
+        });
+
+        test('Story Element Testing', function(done) {
+          el.data = dataObj.standardStory;
+          flush(function(){
+            rootEl = Polymer.dom(el.root);
+            var storyA = rootEl.querySelector('story-artifact');
+            var header = storyA.$$('h1');
+            assert.isTrue(Boolean(header), "H1 exists");
+            assert.isAtLeast(header.innerHTML.length, 1, "H1 contains text");
+
+            var innerImg = storyA.$$('img');
+            var urlRegEx = /^https:.+\.(jpg|png|jpe?g|gif|bmp)/;
+            assert.match(innerImg.src, urlRegEx);
+
+            var typeBoolean = el._isStory('STORY');
+            assert.isTrue(typeBoolean);
+
+            done();
+          });
+        });
+
+        test('Hide/Show Add Title',function() {
+          el.data = {"title": "Sample Title", "contributorCisUserId":"A guy with a hat"};
+          rootEl = Polymer.dom(el.root);
+          el.readOnly = true;
+          el.owner = "A guy with no hat";
+
+          var hideTitle = el._hideAddTitle(el.readOnly, el.data.title, el.data.contributorCisUserId, el.owner);
+          assert.isTrue(hideTitle);
+
+          el.data = {"contributorCisUserId":"A guy with a hat"};
+          el.readOnly = false;
+          el.owner = "A guy with a hat";
+
+          hideTitle = el._hideAddTitle(el.readOnly, el.data.title, el.data.contributorCisUserId, el.owner);
+          assert.isFalse(hideTitle);
+
+          hideTitle = el._hideAddTitle(el.readOnly, el.data.title, el.data.contributorCisUserId, null);
+          assert.isFalse(hideTitle);
+
+        });
+
+        test('Go to Item, Href Building', function(){
+          el.selectMode = false;
+          el.view = "my-archive";
+          el._href = "";
+          el.data = dataObj.standardImage;
+          rootEl = Polymer.dom(el.root);
+          
+          var artifact = rootEl.querySelector('#artifact');
+
+          var stub = sinon.stub(window, "open", function(url, prop){ return mockElement; });
+          
+          var mockElement = document.createElement("div");
+          var mockEvent = {detail:{"sourceEvent": {ctrlKey: true} }, preventDefault: function(){}, stopPropagation: function(){}};
+
+          el._goToItem(mockEvent);
+
+          assert.isTrue(stub.calledOnce);
+
+          el.selectMode = true;
+          el._goToItem();
+
+          assert.isFalse(stub.calledTwice);
+
+        });
+
+        test("Is Default Function", function(){
+          rootEl = Polymer.dom(el.root);
+          var imgBool = el._isDefault("IMAGE");
+          assert.isTrue(imgBool);
+
+          var docBool = el._isDefault("DOCUMENT");
+          assert.isTrue(docBool);
+        });
+
+        test("Deselect Event Testing", function(done){
+          el.data = {"selected":true};
+          rootEl = Polymer.dom(el.root);
+          assert.isTrue(el.data.selected);
+
+          el.addEventListener('gallery-deselect-all', function(event){
+            assert.isTrue(Boolean(event));
+            assert.isFalse(this.data.selected);
+            done();
+          });
+          el._deselectItem();
+        });
+
+        test("Stop propogation gets called in right circumstances", function(){
+          el.selectMode = false;
+          rootEl = Polymer.dom(el.root);
+
+          var spy = sinon.spy();
+          var mockEvent = {stopPropagation:spy} 
+
+         el._stopProp(mockEvent);
+
+          assert.isTrue(spy.calledOnce);
+
+          spy.reset();
+          el.selectMode = true;
+
+          el._stopProp(mockEvent);
+
+          assert.isFalse(spy.calledOnce)
+        });
+
+
+
+      });
+    </script>
+
+  </body>
+</html>
