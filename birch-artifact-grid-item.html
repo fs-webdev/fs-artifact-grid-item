@@ -32,7 +32,7 @@
           </template>
 
           <wc-i18n key='birch-artifact-grid-item.not_tagged' provider value='{{_notTaggedText}}'></wc-i18n>
-          <i class='not-tagged-icon' hidden='[[_hideTagging(data.photoTagCount, readOnly)]]' title='[[_notTaggedText]]'></i>
+          <i class='not-tagged-icon' hidden='[[!_is(data.photoTagCount, 0)]]' title='[[_notTaggedText]]'></i>
           <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
         </div>
 
@@ -129,14 +129,6 @@
       if (inputtedOwner) {
         return dataOwner !== inputtedOwner;
       }
-      return false;
-    },
-    /*
-      * For determining whether to hide not-tagged-icon element. Hide if there are photo tags or if
-      * readOnly property is set.
-    */
-    _hideTagging: function(photoTagCount, readOnly) {
-      if (photoTagCount !== 0 || readOnly) return true
       return false;
     },
     _isDefault: function(category) {
