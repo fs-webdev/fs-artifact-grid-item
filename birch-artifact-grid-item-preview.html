@@ -139,7 +139,7 @@
       this._getDataUrl(this.data.file);
     },
     _handleUploadError: function(err){
-      if(err.includes('already exists')) err = 'duplicate';
+      if(err.indexOf('already exists') > -1) err = 'duplicate';
       switch(err){
         case 'size':      this.set('data.tooBig', true);      break;
         case 'fileType':  this.set('data.unsupported', true); break;
