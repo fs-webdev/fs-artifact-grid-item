@@ -1,5 +1,6 @@
 {
   "not_tagged":"This memory is not tagged.",
   "add_title":"Add Title",
-  "restricted": "Restricted"
+  "restricted": "Restricted",
+  "contributed_by": "By: {0}"
 }
