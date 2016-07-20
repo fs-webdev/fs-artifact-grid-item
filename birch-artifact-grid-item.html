@@ -37,8 +37,8 @@
         </div>
 
         <div class="title" title='[[data.title]]' on-tap="_stopProp">
-          <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
-          <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
+          <a class='title-text' href$='[[_href]][[_calcParams(view)]]' hidden='[[!data.title]]'>[[data.title]]</a>
+          <a href$='[[_href]][[_calcParams(view)]]&focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
             <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
           </a>
         </div>
@@ -114,6 +114,15 @@
     },
     listeners: {
       'artifact.tap': '_goToItem'
+    },
+    _calcParams: function(view) {
+      if (this.view === 'my-memories' || this.view === 'my-archive' || this.view === 'my-favorites') {
+        return "?c="+this.view;
+      } else if(parseInt(this.view)) {
+        return "?a="+this.view;
+      } else {
+        return "?a=none";
+      }
     },
     _computeHref: function(id) {
       var origin = window.location.origin;
