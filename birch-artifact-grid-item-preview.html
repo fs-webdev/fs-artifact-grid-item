@@ -138,13 +138,13 @@
       }.bind(this), this._handleUploadError.bind(this));
       this._getDataUrl(this.data.file);
     },
-    _handleUploadError: function(err){
-      if(err.indexOf('already exists') > -1) err = 'duplicate';
-      switch(err){
-        case 'size':      this.set('data.tooBig', true);      break;
-        case 'fileType':  this.set('data.unsupported', true); break;
-        case 'duplicate': this.set('data.duplicate', true);   break;
-        default:          this.set('data.failure', true);     break;
+    _handleUploadError: function(status){
+      switch(status){
+        case 409:   this.set('data.duplicate', true);     break;
+        case 413:   this.set('data.tooBig', true);        break;
+        case 415:   this.set('data.unsupported', true);   break;
+        case 422:   this.set('data.unsupported', true);   break;
+        default:    this.set('data.failure', true);       break;
       }
       this.loading = false;
       this.set('data.uploadError', true);
