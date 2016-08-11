@@ -22,7 +22,7 @@
   border-top: 1px solid #CFD6D7;
   display:block;
   font-size:14px;
-  font-size:0.9286rem;
+  font-size:0.875rem;
   height: 27px;
   line-height: 1.1;
   overflow:hidden;
@@ -33,11 +33,38 @@
   @apply(--grid-item-title);
 }
 
-.title a {
+.artifact-meta {
+  border-top: 1px solid #CFD6D7;
+  padding: 2px;
+  display:block;
+  height: 34px;
+  overflow: hidden;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.title-2 {
+  height: 19px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contributor {
+  height: 14px;
+  overflow: hidden;
+  line-height:1.1;
+  text-overflow: ellipsis;
+}
+
+.contributor a {
+  color: blue;
+}
+
+.title a, .title-2 a {
   text-decoration: none;
 }
 
-.title a:hover {
+.title a:hover, title-2 a:hover {
   text-decoration: underline;
 }
 

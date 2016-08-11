@@ -36,12 +36,28 @@
           <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
         </div>
 
-        <div class="title" title='[[data.title]]' on-tap="_stopProp">
-          <a class='title-text' href$='[[_href]][[_calcParams(view)]]' hidden='[[!data.title]]'>[[data.title]]</a>
-          <a href$='[[_href]][[_calcParams(view)]]&focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
-            <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
-          </a>
-        </div>
+        <template is='dom-if' if='[[_hideContributorName(view)]]'>
+          <div class="title" title='[[data.title]]' on-tap="_stopProp">
+            <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
+            <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
+              <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
+            </a>
+          </div>
+        </template>
+        <!-- Contributor Name -->
+        <template is='dom-if' if='[[!_hideContributorName(view)]]'>
+          <div class="artifact-meta">
+            <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
+              <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
+              <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
+                <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
+              </a>
+            </div>
+            <div class="contributor">
+              By <a>[[data.ftUserInfo.contactName]]</a>
+            </div>
+          </div>
+        </template> 
 
         <div class="error-uploading full layout horizontal end" hidden="[[!_isRestricted(data.screeningState)]]">
           <div class="error-text">
@@ -95,6 +111,10 @@
         type: Boolean,
         value: false
       },
+      showContributed: {
+        type: Boolean,
+        value: false
+      },
       _href: {
         type: String,
         computed: '_computeHref(data.id)'
@@ -139,6 +159,11 @@
         return dataOwner !== inputtedOwner;
       }
       return false;
+    },
+    _hideContributorName: function(view) {
+      console.log('view ', view)
+      if (!this.showContributed) return true;
+      return (view != 'my-favorites' && !Number(view))
     },
     _isDefault: function(category) {
       return category === 'IMAGE' || category === 'DOCUMENT'
