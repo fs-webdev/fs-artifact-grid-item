@@ -36,7 +36,7 @@
           <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
         </div>
 
-        <template is='dom-if' if='[[_hideContributorName(view)]]'>
+        <template is='dom-if' if='[[_hideContributorName(view, showContributed)]]'>
           <div class="title" title='[[data.title]]' on-tap="_stopProp">
             <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
             <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
@@ -45,7 +45,8 @@
           </div>
         </template>
         <!-- Contributor Name -->
-        <template is='dom-if' if='[[!_hideContributorName(view)]]'>
+        <wc-i18n key='birch-artifact-grid-item.contributed_by' provider value='{{_contributedBy}}'></wc-i18n>
+        <template is='dom-if' if='[[!_hideContributorName(view, showContributed)]]'>
           <div class="artifact-meta">
             <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
               <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
@@ -53,8 +54,8 @@
                 <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
               </a>
             </div>
-            <div class="contributor">
-              By <a>[[data.ftUserInfo.contactName]]</a>
+            <div class="contributor" title='[[data.ftUserInfo.contactName]]'>
+               <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name'>[[data.ftUserInfo.contactName]]</span>
             </div>
           </div>
         </template> 
@@ -132,6 +133,9 @@
         value: false
       }
     },
+    observers: [
+      ''
+    ],
     listeners: {
       'artifact.tap': '_goToItem'
     },
@@ -160,9 +164,9 @@
       }
       return false;
     },
-    _hideContributorName: function(view) {
+    _hideContributorName: function() {
       if (!this.showContributed) return true;
-      return (view != 'my-favorites' && !Number(view))
+      return (this.view != 'my-favorites' && !Number(this.view))
     },
     _isDefault: function(category) {
       return category === 'IMAGE' || category === 'DOCUMENT'
@@ -209,6 +213,11 @@
     },
     _stopProp: function(e) {
       if (!this.selectMode) e.stopPropagation();
+    },
+    _translateContributor: function(val) {
+      var string;
+      if (val) string = val.replace('{0}', '');
+      return string;
     }
   });
 })();

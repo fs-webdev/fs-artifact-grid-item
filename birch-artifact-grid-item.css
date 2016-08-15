@@ -54,10 +54,17 @@
   overflow: hidden;
   line-height:1.1;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: .88rem;
 }
 
-.contributor a {
+.contributor .contributor-name {
   color: blue;
+  text-overflow: ellipsis;
+}
+
+.contributor-name:hover {
+  text-decoration: underline;
 }
 
 .title a, .title-2 a {
