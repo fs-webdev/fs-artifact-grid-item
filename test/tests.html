@@ -44,20 +44,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           el = fixture('grid-item-fixture');
         });
 
-        test('Overall Artifact Element Testing', function() {
+        test('Overall Artifact Element Testing', function(done) {
           el.data = dataObj.standardAudio;
           rootEl = Polymer.dom(el.root);
-          var titleText = rootEl.querySelector('.title-text');
-          assert.isAtLeast(titleText.innerHTML.length, 1, "Title contains text");
+          flush(function() {
+            var titleText = rootEl.querySelector('.title-text');
+            assert.isAtLeast(titleText.innerHTML.length, 1, "Title contains text");
 
-          var showNotTaggedIcon = rootEl.querySelector('.not-tagged-icon').hidden;
-          assert.isFalse(showNotTaggedIcon);
+            var showNotTaggedIcon = rootEl.querySelector('.not-tagged-icon').hidden;
+            assert.isFalse(showNotTaggedIcon);
 
-          el.data = dataObj.standardImage;
-          var hideTaggedIcon = rootEl.querySelector('.not-tagged-icon').hidden;
-          assert.isTrue(hideTaggedIcon);
-
+            el.data = dataObj.standardImage;
+            var hideTaggedIcon = rootEl.querySelector('.not-tagged-icon').hidden;
+            assert.isTrue(hideTaggedIcon);
+            done();
+          });
         });
+
         test('Audio Element Testing', function(done) {
           el.data = dataObj.standardAudio;
           flush(function(){
@@ -68,7 +71,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             //Check that audio artifact elements have rendered correctly
             var header = audioA.$$('h1');
-
             assert.isTrue(Boolean(header), "H1 exists");
             assert.isAtLeast(header.innerHTML.length, 1, "H1 contains text");
 
@@ -79,9 +81,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             assert.isTrue(Boolean(audioTime), "Audio time exists");
 
             done();
-
           });
-
         });
 
         test('Image Element Testing', function(done) {
@@ -222,7 +222,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           assert.isFalse(spy.calledOnce)
         });
 
+        test('Show or hide contributor name', function() {
+          // hide by default
+          expect(el._hideContributorName()).to.be.true;
+          el.view = '9000';
+          el.showContributed = true;
+          expect(el._hideContributorName()).to.be.false;
+        });
 
+        test('Contributed translations are correct', function() {
+          expect(el._contributedBy).to.equal('By: {0}');
+          expect(el._translateContributor('By: {0}')).to.equal('By: ')
+        });
 
       });
     </script>
