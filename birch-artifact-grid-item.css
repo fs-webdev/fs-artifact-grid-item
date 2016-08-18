@@ -26,7 +26,7 @@
   height: 27px;
   line-height: 1.1;
   overflow:hidden;
-  padding: 4px 3px 6px;
+  padding: 4px 3px 4px;
   position:relative;
   text-align:center;
   text-overflow: ellipsis;
@@ -206,4 +206,10 @@ cedar-card {
 
 .error-text strong {
   font-weight: bold;
+}
+
+@media all and (max-width: 979px) {
+  .title {
+    padding: 4px 3px 0px; 
+  }
 }
