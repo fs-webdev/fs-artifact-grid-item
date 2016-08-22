@@ -45,8 +45,14 @@
 
 .title-2 {
   height: 19px;
+}
+
+.title-2 a {
+  height: 19px;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  display: block;
 }
 
 .contributor {
