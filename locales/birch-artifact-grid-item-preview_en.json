@@ -3,5 +3,6 @@
   "restricted":"Restricted",
   "duplicate":"File Previously Uploaded",
   "size":"File Over 15MB",
-  "unsupported":"Unsupported File Type"
+  "unsupported":"Unsupported File Type",
+  "uploading": "Uploading"
 }
