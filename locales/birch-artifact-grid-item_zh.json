@@ -1,7 +1,10 @@
 {
-  "_LRM_PKTAG197": "birch-artifact-grid-item_1_156 - CHANGES-ONLY",
+  "_LRM_PKTAG626": "birch-artifact-grid-item_2_156 - CHANGES-ONLY",
   "add_title": "加入標題",
   "contributed_by": "建立者：{0}",
   "not_tagged": "此回憶未加上標籤。",
-  "restricted": "受限"
+  "processing": "處理中",
+  "processing_fail": "處理失敗。刪除且重新上傳或聯絡支援",
+  "restricted": "受限",
+  "screening": "檢測中"
 }
