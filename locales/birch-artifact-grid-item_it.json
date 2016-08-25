@@ -1,7 +1,10 @@
 {
-  "_LRM_PKTAG350": "birch-artifact-grid-item_1_151 - CHANGES-ONLY",
+  "_LRM_PKTAG909": "birch-artifact-grid-item_2_151 - CHANGES-ONLY",
   "add_title": "Aggiungi titolo",
   "contributed_by": "Da: {0}",
   "not_tagged": "Questo ricordo non è taggato.",
-  "restricted": "Accesso limitato"
+  "processing": "In elaborazione",
+  "processing_fail": "Elaborazione non riuscita. Cancella e ricarica oppure contatta l’assistenza.",
+  "restricted": "Accesso limitato",
+  "screening": "Controllo in corso"
 }

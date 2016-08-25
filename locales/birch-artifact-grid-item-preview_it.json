@@ -1,8 +1,10 @@
 {
+  "_LRM_PKTAG909": "birch-artifact-grid-item_2_151 - CHANGES-ONLY",
   "duplicate": "Questo file è stato già caricato.",
   "failure": "Caricamento non riuscito.",
   "restricted": "Accesso limitato",
   "retry": "Riprova.",
   "size": "La dimensione del file supera i 15 MB.",
-  "unsupported": "Tipo di file non supportato"
+  "unsupported": "Tipo di file non supportato",
+  "uploading": "Caricamento in corso"
 }
