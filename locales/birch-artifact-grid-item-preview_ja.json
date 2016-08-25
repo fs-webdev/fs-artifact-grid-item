@@ -1,8 +1,10 @@
 {
+  "_LRM_PKTAG801": "birch-artifact-grid-item_2_152 - CHANGES-ONLY",
   "duplicate": "このファイルは以前にアップロードされています。",
   "failure": "アップロードできませんでした。",
   "restricted": "制限付き",
   "retry": "再試行する。",
   "size": "ファイルのサイズが15ＭＢを超えています。",
-  "unsupported": "サポートしていないファイルの種類"
+  "unsupported": "サポートしていないファイルの種類",
+  "uploading": "アップロード中"
 }
