@@ -1,7 +1,10 @@
 {
-  "_LRM_PKTAG887": "birch-artifact-grid-item_1_154 - CHANGES-ONLY",
+  "_LRM_PKTAG424": "birch-artifact-grid-item_2_154 - CHANGES-ONLY",
   "add_title": "Acrescentar um Título",
   "contributed_by": "Por: {0}",
   "not_tagged": "Esta recordação não está marcada.",
-  "restricted": "Material Restrito"
+  "processing": "Processando",
+  "processing_fail": "Falha no Processamento Remova e reenvie o artefato ou entre em contato com o suporte.",
+  "restricted": "Material Restrito",
+  "screening": "Avaliando"
 }

@@ -1,8 +1,10 @@
 {
+  "_LRM_PKTAG424": "birch-artifact-grid-item_2_154 - CHANGES-ONLY",
   "duplicate": "Este arquivo foi enviado anteriormente.",
   "failure": "Falha no envio.",
   "restricted": "Material Restrito",
   "retry": "Tentar novamente.",
   "size": "O arquivo excede o limite de 15MB.",
-  "unsupported": "O tipo de arquivo é incompatível"
+  "unsupported": "O tipo de arquivo é incompatível",
+  "uploading": "Enviando"
 }
