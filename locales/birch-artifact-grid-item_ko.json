@@ -1,7 +1,10 @@
 {
-  "_LRM_PKTAG825": "birch-artifact-grid-item_1_153 - CHANGES-ONLY",
+  "_LRM_PKTAG855": "birch-artifact-grid-item_2_153 - CHANGES-ONLY",
   "add_title": "제목 추가",
   "contributed_by": "작성자: {0}",
   "not_tagged": "이 추억은 태그되어 있지 않습니다.",
-  "restricted": "제한됨"
+  "processing": "작업 중",
+  "processing_fail": "처리 실패 삭제하고 다시 업로드하거나 지원 팀에 연락하십시오.",
+  "restricted": "제한됨",
+  "screening": "심사 중"
 }
