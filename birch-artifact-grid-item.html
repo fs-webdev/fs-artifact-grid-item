@@ -71,11 +71,9 @@
 
         <template is='dom-if' if='[[showMessages]]'>
           <!--Processing-->
-          <div class="overlay" hidden="[[!_isProcessing('PROCESSING', data.screeningState)]]">
+          <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('PROCESSING', data.screeningState)]]">
             <div class='processing'>
-              <span>
                 <wc-i18n key='birch-artifact-grid-item.processing'></wc-i18n>
-              </span>
             </div>
           </div>
 
@@ -91,9 +89,7 @@
           <!--Screening-->
           <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('APPROVED', data.screeningState)]]">
             <div class='processing '>
-                <i class='icon'></i>
                 <wc-i18n key='birch-artifact-grid-item.screening'></wc-i18n>
-
             </div>
           </div>
         </template>
