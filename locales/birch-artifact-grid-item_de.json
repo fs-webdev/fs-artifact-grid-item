@@ -1,7 +1,10 @@
 {
-  "_LRM_PKTAG204": "birch-artifact-grid-item_1_157 - CHANGES-ONLY",
+  "_LRM_PKTAG297": "birch-artifact-grid-item_2_157 - CHANGES-ONLY",
   "add_title": "Titel hinzufügen",
   "contributed_by": "Von: {0}",
   "not_tagged": "Diese Erinnerung enthält keine Markierungen.",
-  "restricted": "Nicht freigegeben"
+  "processing": "Wird verarbeitet",
+  "processing_fail": "Verarbeitung fehlgeschlagen. Versuchen Sie es bitte später noch einmal oder setzen Sie sich mit dem Support in Verbindung.",
+  "restricted": "Nicht freigegeben",
+  "screening": "Überprüfung läuft"
 }
