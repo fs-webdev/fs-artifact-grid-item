@@ -1,7 +1,10 @@
 {
-  "_LRM_PKTAG3": "birch-artifact-grid-item_1_150 - CHANGES-ONLY",
+  "_LRM_PKTAG297": "birch-artifact-grid-item_2_150 - CHANGES-ONLY",
   "add_title": "Ajouter le titre",
   "contributed_by": "Par : {0}",
   "not_tagged": "Ce souvenir n’a pas de signet.",
-  "restricted": "Accès restreint"
+  "processing": "Traitement en cours",
+  "processing_fail": "Échec du traitement. Supprimez et téléversez de nouveau le fichier, ou prenez contact avec l’assistance.",
+  "restricted": "Accès restreint",
+  "screening": "Vérification"
 }
