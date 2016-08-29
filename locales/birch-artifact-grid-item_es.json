@@ -1,7 +1,10 @@
 {
-  "_LRM_PKTAG289": "birch-artifact-grid-item_1_149 - CHANGES-ONLY",
+  "_LRM_PKTAG251": "birch-artifact-grid-item_2_149 - CHANGES-ONLY",
   "add_title": "Agregar título",
   "contributed_by": "Por: {0}",
   "not_tagged": "Este recuerdo no está etiquetado",
-  "restricted": "Restringido"
+  "processing": "Procesando",
+  "processing_fail": "No se pudo procesar. Eliminar y volver a cargar o contactar a Soporte",
+  "restricted": "Restringido",
+  "screening": "Verificando"
 }
