@@ -70,6 +70,9 @@
         </div>
 
         <template is='dom-if' if='[[showMessages]]'>
+          <!-- Dim the thumbnail for error messages-->
+          <div class='overlay' hidden="[[!_isProcessing('FAILED', data.screeningState)]]"></div>
+
           <!--Processing-->
           <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('PROCESSING', data.screeningState)]]">
             <div class='processing'>

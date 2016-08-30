@@ -180,7 +180,6 @@ cedar-card {
 }
 
 .overlay {
-  z-index: 2;
   position: absolute;
   top:0;
   bottom:35px;
