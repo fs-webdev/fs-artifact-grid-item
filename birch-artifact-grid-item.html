@@ -61,12 +61,10 @@
         </template> 
 
         <!--Restricted-->
-        <div class="error-uploading full layout horizontal end" hidden="[[!_isProcessing('RESTRICTED', data.screeningState)]]">
-          <div class="error-text">
+        <div class="restricted" hidden="[[!_isProcessing('RESTRICTED', data.screeningState)]]">
             <span>
               <wc-i18n key='birch-artifact-grid-item.restricted'></wc-i18n>
             </span>
-          </div>
         </div>
 
         <template is='dom-if' if='[[showMessages]]'>
@@ -142,10 +140,18 @@
         type: Boolean,
         value: false
       },
+      /**
+       * A flag to allow the contibutor
+       * name to be shown
+       */
       showContributed: {
         type: Boolean,
         value: false
       },
+      /**
+       * A flag to allow messages
+       * to be shown
+       */
       showMessages: {
         type: Boolean,
         value: false

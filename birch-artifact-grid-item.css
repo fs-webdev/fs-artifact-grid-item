@@ -189,6 +189,20 @@ cedar-card {
   background: rgba(0, 0, 0, 0.45);
 }
 
+.restricted {
+  position: absolute;
+  top: 75px;
+  width: 100%;
+  background: rgba(0,0,0, 0.45);
+  padding: 10px 0px;
+  text-align: center;
+  color: white;
+}
+
+.restricted span {
+  text-transform: uppercase;
+}
+
 .processing {
   color: white;
   text-transform: uppercase;
