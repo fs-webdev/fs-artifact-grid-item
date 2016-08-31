@@ -37,7 +37,7 @@
   border-top: 1px solid #CFD6D7;
   padding: 2px;
   display:block;
-  height: 34px;
+  height: 32px;
   overflow: hidden;
   font-size: 0.875rem;
   text-align: center;
@@ -182,7 +182,7 @@ cedar-card {
 .overlay {
   position: absolute;
   top:0;
-  bottom:35px;
+  bottom:36px;
   left:0;
   right:0;
   padding: 10px 10px 15px;
@@ -199,13 +199,8 @@ cedar-card {
   color: white;
 }
 
-.restricted span {
-  text-transform: uppercase;
-}
-
 .processing {
   color: white;
-  text-transform: uppercase;
   text-align: center;
 }
 
@@ -238,7 +233,11 @@ cedar-card {
     padding: 4px 3px 0px; 
   }
 
+  .artifact-meta {
+    height: 29px;
+  }
+
   .overlay {
-    bottom: 32px;
+    bottom: 33px;
   }
 }

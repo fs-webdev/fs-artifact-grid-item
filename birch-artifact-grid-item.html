@@ -62,9 +62,7 @@
 
         <!--Restricted-->
         <div class="restricted" hidden="[[!_isProcessing('RESTRICTED', data.screeningState)]]">
-            <span>
-              <wc-i18n key='birch-artifact-grid-item.restricted'></wc-i18n>
-            </span>
+            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
         </div>
 
         <template is='dom-if' if='[[showMessages]]'>
@@ -81,16 +79,14 @@
           <!--Error Processing-->
           <div class="error-uploading full layout horizontal end" hidden="[[!_isProcessing('FAILED', data.screeningState)]]">
             <div class="error-text">
-              <span>
-                <wc-i18n key='birch-artifact-grid-item.processing_fail'></wc-i18n>
-              </span>
+              <wc-i18n key='birch-artifact-grid-item.processing_fail'></wc-i18n>
             </div>
           </div>
 
           <!--Screening-->
-          <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('APPROVED', data.screeningState)]]">
+          <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('APPROVED', data.screeningState)]]" on-tap='_goToItem'>
             <div class='processing '>
-                <wc-i18n key='birch-artifact-grid-item.screening'></wc-i18n>
+                <wc-i18n class='fs-h5' key='birch-artifact-grid-item.screening'></wc-i18n>
             </div>
           </div>
         </template>
