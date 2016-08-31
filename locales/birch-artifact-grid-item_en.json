@@ -4,6 +4,6 @@
   "restricted": "Restricted",
   "contributed_by": "By: {0}",
   "processing": "Processing",
-  "processing_fail": "Processing Failed. Delete and re-upload or contact support",
+  "processing_fail": "Processing Failed. Delete and re-upload or contact support.",
   "screening": "Screening"
 }
