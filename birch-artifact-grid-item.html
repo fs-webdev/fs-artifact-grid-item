@@ -60,14 +60,38 @@
           </div>
         </template> 
 
-        <div class="error-uploading full layout horizontal end" hidden="[[!_isRestricted(data.screeningState)]]">
-          <div class="error-text">
-            <span>
-              <wc-i18n key='birch-artifact-grid-item.restricted'></wc-i18n>
-            </span>
+        <!--Restricted-->
+        <div class="restricted" hidden="[[!_isProcessing('RESTRICTED', data.screeningState)]]">
+            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
         </div>
-      </div>
 
+        <template is='dom-if' if='[[showMessages]]'>
+          <!-- Dim the thumbnail for error messages-->
+          <div class='overlay' hidden="[[!_isProcessing('FAILED', data.screeningState)]]"></div>
+
+          <!--Processing-->
+          <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('PROCESSING', data.screeningState)]]">
+            <div class='processing'>
+                <wc-i18n key='birch-artifact-grid-item.processing'></wc-i18n>
+            </div>
+          </div>
+
+          <!--Error Processing-->
+          <div class="error-uploading full layout horizontal end" hidden="[[!_isProcessing('FAILED', data.screeningState)]]">
+            <div class="error-text">
+              <wc-i18n key='birch-artifact-grid-item.processing_fail'></wc-i18n>
+            </div>
+          </div>
+
+          <!--Screening-->
+          <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('APPROVED', data.screeningState)]]" on-tap='_goToItem'>
+            <div class='processing '>
+                <wc-i18n class='fs-h5' key='birch-artifact-grid-item.screening'></wc-i18n>
+            </div>
+          </div>
+        </template>
+
+      </div>
     </cedar-card>
   </template>
 </dom-module>
@@ -112,7 +136,19 @@
         type: Boolean,
         value: false
       },
+      /**
+       * A flag to allow the contibutor
+       * name to be shown
+       */
       showContributed: {
+        type: Boolean,
+        value: false
+      },
+      /**
+       * A flag to allow messages
+       * to be shown
+       */
+      showMessages: {
         type: Boolean,
         value: false
       },
@@ -171,8 +207,9 @@
     _is: function(a, b) {
       return a == b;
     },
-    _isRestricted: function(screeningState) {
-      return screeningState === 'RESTRICTED';
+     _isProcessing: function(message, screeningState) {
+      if (message !== 'APPROVED') return screeningState === message;
+      return (screeningState !== 'APPROVED' && screeningState !== 'FAILED' && screeningState !== 'PROCESSING' && screeningState !== 'RESTRICTED')
     },
     _isImage: function(category) {
       if (!category) return true;

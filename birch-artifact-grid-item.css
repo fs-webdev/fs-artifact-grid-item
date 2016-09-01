@@ -37,7 +37,7 @@
   border-top: 1px solid #CFD6D7;
   padding: 2px;
   display:block;
-  height: 34px;
+  height: 32px;
   overflow: hidden;
   font-size: 0.875rem;
   text-align: center;
@@ -180,14 +180,28 @@ cedar-card {
 }
 
 .overlay {
-  z-index: 2;
   position: absolute;
   top:0;
-  bottom:0;
+  bottom:36px;
   left:0;
   right:0;
   padding: 10px 10px 15px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.restricted {
+  position: absolute;
+  top: 75px;
+  width: 100%;
+  background: rgba(0,0,0, 0.45);
+  padding: 10px 0px;
+  text-align: center;
+  color: white;
+}
+
+.processing {
+  color: white;
+  text-align: center;
 }
 
 .error-uploading {
@@ -217,5 +231,13 @@ cedar-card {
 @media all and (max-width: 979px) {
   .title {
     padding: 4px 3px 0px; 
+  }
+
+  .artifact-meta {
+    height: 29px;
+  }
+
+  .overlay {
+    bottom: 33px;
   }
 }
