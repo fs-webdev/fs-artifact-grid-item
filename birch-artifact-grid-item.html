@@ -61,30 +61,37 @@
         </template> 
 
         <!--Restricted-->
-        <div class="restricted" hidden="[[!_isProcessing('RESTRICTED', data.screeningState)]]">
+        <div class="restricted" hidden="[[!restricted]]">
             <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
         </div>
 
         <template is='dom-if' if='[[showMessages]]'>
           <!-- Dim the thumbnail for error messages-->
-          <div class='overlay' hidden="[[!_isProcessing('FAILED', data.screeningState)]]"></div>
+          <div class='overlay' hidden="[[!_displayMessage]]"></div>
+
+          <!--Uploading-->
+          <div class="overlay layout horizontal center center-justified" hidden="[[!uploading]]">
+            <div class='processing'>
+                <wc-i18n key='birch-artifact-grid-item.uploading'></wc-i18n>
+            </div>
+          </div>
 
           <!--Processing-->
-          <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('PROCESSING', data.screeningState)]]">
+          <div class="overlay layout horizontal center center-justified" hidden="[[!processing]]">
             <div class='processing'>
                 <wc-i18n key='birch-artifact-grid-item.processing'></wc-i18n>
             </div>
           </div>
 
           <!--Error Processing-->
-          <div class="error-uploading full layout horizontal end" hidden="[[!_isProcessing('FAILED', data.screeningState)]]">
+          <div class="error-uploading full layout horizontal end" hidden="[[!processingFailed]]">
             <div class="error-text">
               <wc-i18n key='birch-artifact-grid-item.processing_fail'></wc-i18n>
             </div>
           </div>
 
           <!--Screening-->
-          <div class="overlay layout horizontal center center-justified" hidden="[[!_isProcessing('APPROVED', data.screeningState)]]" on-tap='_goToItem'>
+          <div class="overlay layout horizontal center center-justified" hidden="[[!screening]]" on-tap='_goToItem'>
             <div class='processing '>
                 <wc-i18n class='fs-h5' key='birch-artifact-grid-item.screening'></wc-i18n>
             </div>
@@ -152,6 +159,34 @@
         type: Boolean,
         value: false
       },
+      /**
+       * A state message is being displayed
+       */
+      _displayMessage: {
+        type: Boolean,
+        value: false
+      },
+      // State Messages
+      screening: {
+        type: Boolean,
+        value: false
+      },
+      restricted: {
+        type: Boolean,
+        value: false
+      },
+      processing: {
+        type: Boolean,
+        value: false
+      },
+      processingFailed: {
+        type: Boolean,
+        value: false
+      },
+      uploading: {
+        type: Boolean,
+        value: false
+      },
       _href: {
         type: String,
         computed: '_computeHref(data.id)'
@@ -169,6 +204,9 @@
         value: false
       }
     },
+    observers: [
+      '_checkState(data.*)'
+    ],
     listeners: {
       'artifact.tap': '_goToItem'
     },
@@ -180,6 +218,31 @@
       } else {
         return "?a=none";
       }
+    },
+    _checkState: function() {
+      this.uploading = false;
+      this.processing = false;
+      this.processingFailed = false;
+      this.screening = false;
+      this.restricted = false;
+      this._displayMessage = false;
+
+      // Check upload state first and if it is not UPLOADED, display either UPLOADING or FAILED message as appropriate
+      // Check processing state next.  If not PROCESSED, display appropriate state message
+      // Check screening state. If not APPROVED, display RESTRICTED or SCREENING message as appropriate
+      if (this.data.uploadState == 'UPLOADING') {
+        this.uploading = true;
+      } else if (this.data.imageProcessingState !== 'PROCESSED' && this.data.imageProcessingState !== 'FAILED') {
+        this.processing = true;
+      } else if (this.data.imageProcessingState === 'FAILED') {
+        this.processingFailed = true;
+      } else if (this.data.screeningState !== 'APPROVED' || this.data.screeningState !== 'ESCALATE' || this.data.screeningState !== 'RESTRICTED') {
+        this.screening = true;
+      } else if (this.data.screeningState !== 'RESTRICTED') {
+        this.restricted = true;
+      }
+
+      if (this.uploading || this.processing || this.screening || this.processingFailed) this._displayMessage = true;
     },
     _computeHref: function(id) {
       var origin = window.location.origin;
@@ -206,10 +269,6 @@
     },
     _is: function(a, b) {
       return a == b;
-    },
-     _isProcessing: function(message, screeningState) {
-      if (message !== 'APPROVED') return screeningState === message;
-      return (screeningState !== 'APPROVED' && screeningState !== 'FAILED' && screeningState !== 'PROCESSING' && screeningState !== 'RESTRICTED')
     },
     _isImage: function(category) {
       if (!category) return true;

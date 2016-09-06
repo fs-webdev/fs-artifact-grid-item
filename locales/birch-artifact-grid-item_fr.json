@@ -6,5 +6,6 @@
   "processing": "Traitement en cours",
   "processing_fail": "Échec du traitement. Supprimez et téléversez de nouveau le fichier, ou prenez contact avec l’assistance.",
   "restricted": "Accès restreint",
-  "screening": "Vérification"
+  "screening": "Vérification",
+  "uploading": "Téléversement en cours"
 }

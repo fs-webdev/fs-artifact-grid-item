@@ -6,5 +6,6 @@
   "processing": "処理中",
   "processing_fail": "処理できませんでした。削除して再度アップロードするか，サポートに連絡してください",
   "restricted": "制限付き",
-  "screening": "検査中"
+  "screening": "検査中",
+  "uploading": "アップロード中"
 }

@@ -6,5 +6,6 @@
   "processing": "處理中",
   "processing_fail": "處理失敗。刪除且重新上傳或聯絡支援",
   "restricted": "受限",
-  "screening": "檢測中"
+  "screening": "檢測中",
+  "uploading": "上傳中"
 }
