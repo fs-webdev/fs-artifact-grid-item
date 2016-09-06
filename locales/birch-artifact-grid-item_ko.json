@@ -6,5 +6,6 @@
   "processing": "작업 중",
   "processing_fail": "처리 실패 삭제하고 다시 업로드하거나 지원 팀에 연락하십시오.",
   "restricted": "제한됨",
-  "screening": "심사 중"
+  "screening": "심사 중",
+  "uploading": "업로드 중"
 }

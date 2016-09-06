@@ -6,5 +6,6 @@
   "processing": "In elaborazione",
   "processing_fail": "Elaborazione non riuscita. Cancella e ricarica oppure contatta l’assistenza.",
   "restricted": "Accesso limitato",
-  "screening": "Controllo in corso"
+  "screening": "Controllo in corso",
+  "uploading": "Caricamento in corso"
 }

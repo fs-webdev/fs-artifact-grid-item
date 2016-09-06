@@ -6,5 +6,6 @@
   "processing": "Wird verarbeitet",
   "processing_fail": "Verarbeitung fehlgeschlagen. Versuchen Sie es bitte später noch einmal oder setzen Sie sich mit dem Support in Verbindung.",
   "restricted": "Nicht freigegeben",
-  "screening": "Überprüfung läuft"
+  "screening": "Überprüfung läuft",
+  "uploading": "Wird hochgeladen"
 }
