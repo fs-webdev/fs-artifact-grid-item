@@ -225,6 +225,7 @@
       this.processingFailed = false;
       this.screening = false;
       this.restricted = false;
+      this._displayMessage = false;
 
       // Check upload state first and if it is not UPLOADED, display either UPLOADING or FAILED message as appropriate
       // Check processing state next.  If not PROCESSED, display appropriate state message
@@ -241,7 +242,7 @@
         this.restricted = true;
       }
 
-      if (this.uplading || this.processing || this.screening || this.processingFailed) this._displayMessage = true;
+      if (this.uploading || this.processing || this.screening || this.processingFailed) this._displayMessage = true;
       return;
     },
     _computeHref: function(id) {
