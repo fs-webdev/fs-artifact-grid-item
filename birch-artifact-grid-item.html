@@ -205,7 +205,7 @@
       }
     },
     observers: [
-      '_checkState(data.*)'
+      '_checkState(data.*, showMessages)'
     ],
     listeners: {
       'artifact.tap': '_goToItem'
@@ -219,7 +219,8 @@
         return "?a=none";
       }
     },
-    _checkState: function() {
+    _checkState: function(data, showMessages) {
+      if(!showMessages) return;
       this.uploading = false;
       this.processing = false;
       this.processingFailed = false;
