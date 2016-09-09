@@ -221,12 +221,16 @@
     },
     _checkState: function(data, showMessages) {
       if(!showMessages) return;
+      // Reset the states
       this.uploading = false;
       this.processing = false;
       this.processingFailed = false;
       this.screening = false;
       this.restricted = false;
       this._displayMessage = false;
+      // If just uploaded without refresh
+      // don't check for the state
+      if (this.data.recentlyUploaded) return;
 
       // Check upload state first and if it is not UPLOADED, display either UPLOADING or FAILED message as appropriate
       // Check processing state next.  If not PROCESSED, display appropriate state message
