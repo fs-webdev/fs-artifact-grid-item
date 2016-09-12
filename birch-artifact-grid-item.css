@@ -204,12 +204,8 @@ cedar-card {
   text-align: center;
 }
 
-.error-uploading {
-  width: 100%;
-  position: absolute;
-  bottom: 52px;
+.error-processing {
   padding: 0 5px;
-  box-sizing: border-box;
 }
 
 .error-text {
@@ -240,5 +236,11 @@ cedar-card {
 
   .overlay {
     bottom: 33px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .error-processing {
+    font-size: .88rem;
   }
 }
