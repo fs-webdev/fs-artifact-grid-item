@@ -235,6 +235,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           expect(el._translateContributor('By: {0}')).to.equal('By: ')
         });
 
+        test('Check State for error messages', function() {
+          el.showMessages = true;
+          // Processing
+          var unprocessedItem = {} 
+          unprocessedItem.imageProcessingState = 'UNPROCESSED';
+          el.data = unprocessedItem;
+          expect(el.processing).to.be.true;
+          expect(el._displayMessage).to.be.true;
+
+          // Processing Failed
+          var failedItem = {}; 
+          failedItem.imageProcessingState = 'FAILED';
+          el.data = failedItem;
+          expect(el.processingFailed).to.be.true;
+          expect(el._displayMessage).to.be.true;
+
+          // Uploading
+          var uploadingItem = {};
+          uploadingItem.uploadState = 'UPLOADING';
+          el.data = uploadingItem;
+          expect(el.uploading).to.be.true;
+          expect(el._displayMessage).to.be.true;
+
+          // Screening
+          var screeningItem = {};
+          screeningItem.screeningState = 'SCREENING';
+          // Because order matters, it has to pass process check first
+          screeningItem.imageProcessingState = 'PROCESSED';
+          el.data = screeningItem;
+          expect(el.screening).to.be.true;
+          expect(el._displayMessage).to.be.true;
+
+          // Restricted
+          var restrictedItem = {};
+          restrictedItem.screeningState = 'RESTRICTED';
+          // Because order matters, it has to pass process check first
+          restrictedItem.imageProcessingState = 'PROCESSED';
+          el.data = restrictedItem;
+          expect(el.restricted).to.be.true;
+          expect(el._displayMessage).to.be.false;
+        });
       });
     </script>
 
