@@ -67,7 +67,7 @@
 
         <template is='dom-if' if='[[showMessages]]'>
           <!-- Dim the thumbnail for error messages-->
-          <div class='overlay' hidden="[[!_displayMessage]]"></div>
+          <div class='overlay' hidden="[[!_displayMessage]]" on-tap='_goToItem'></div>
 
           <!--Uploading-->
           <div class="overlay layout horizontal center center-justified" hidden="[[!uploading]]" on-tap='_goToItem'>
@@ -84,7 +84,7 @@
           </div>
 
           <!--Error Processing-->
-          <div class="error-uploading full layout horizontal end" hidden="[[!processingFailed]]">
+          <div class="error-processing overlay layout horizontal center center-justified" hidden="[[!processingFailed]]" on-tap='_goToItem'>
             <div class="error-text">
               <wc-i18n key='birch-artifact-grid-item.processing_fail'></wc-i18n>
             </div>
@@ -221,12 +221,16 @@
     },
     _checkState: function(data, showMessages) {
       if(!showMessages) return;
+      // Reset the states
       this.uploading = false;
       this.processing = false;
       this.processingFailed = false;
       this.screening = false;
       this.restricted = false;
       this._displayMessage = false;
+      // If just uploaded without refresh
+      // don't check for the state
+      if (this.data.recentlyUploaded) return;
 
       // Check upload state first and if it is not UPLOADED, display either UPLOADING or FAILED message as appropriate
       // Check processing state next.  If not PROCESSED, display appropriate state message
