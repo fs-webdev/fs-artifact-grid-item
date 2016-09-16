@@ -75,6 +75,7 @@
 
 .title a, .title-2 a {
   text-decoration: none;
+  overflow: hidden;
 }
 
 .title a:hover, title-2 a:hover {
