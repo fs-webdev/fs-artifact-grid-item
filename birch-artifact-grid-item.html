@@ -55,7 +55,7 @@
               </a>
             </div>
             <div class="contributor" title='[[data.ftUserInfo.contactName]]'>
-               <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name'>[[data.ftUserInfo.contactName]]</span>
+               <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name' on-tap='_openContactCard'>[[data.ftUserInfo.contactName]]</span>
             </div>
           </div>
         </template> 
@@ -311,6 +311,12 @@
     },
     _stopProp: function(e) {
       if (!this.selectMode) e.stopPropagation();
+    },
+    _openContactCard: function(e) {
+      e.stopPropagation();
+      this.fire('gallery-close-contact-card',{});
+      var contactData = {'event': e, 'data': this.data.ftUserInfo }
+      this.fire('gallery-open-contact-card', contactData);
     },
     _translateContributor: function(val) {
       return (val) ? val.replace('{0}', '') : '';
