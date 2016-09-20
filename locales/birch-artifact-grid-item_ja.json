@@ -1,10 +1,10 @@
 {
-  "_LRM_PKTAG801": "birch-artifact-grid-item_2_152 - CHANGES-ONLY",
+  "_LRM_PKTAG604": "birch-artifact-grid-item_3_152 - CHANGES-ONLY",
   "add_title": "タイトルを追加する",
   "contributed_by": "提供者：{0}",
   "not_tagged": "この思い出はタグ付けされていません。",
   "processing": "処理中",
-  "processing_fail": "処理できませんでした。削除して再度アップロードするか，サポートに連絡してください",
+  "processing_fail": "処理できませんでした。削除して再度アップロードするか，サポートに連絡してください。",
   "restricted": "制限付き",
   "screening": "検査中",
   "uploading": "アップロード中"
