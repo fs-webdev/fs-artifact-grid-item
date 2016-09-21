@@ -200,7 +200,7 @@ cedar-card {
   color: white;
 }
 
-.processing {
+.processing, .processing > .fs-h5 {
   color: white;
   text-align: center;
 }
