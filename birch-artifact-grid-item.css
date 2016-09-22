@@ -75,6 +75,7 @@
 
 .title a, .title-2 a {
   text-decoration: none;
+  overflow: hidden;
 }
 
 .title a:hover, title-2 a:hover {
@@ -199,7 +200,7 @@ cedar-card {
   color: white;
 }
 
-.processing {
+.processing, .processing > .fs-h5 {
   color: white;
   text-align: center;
 }

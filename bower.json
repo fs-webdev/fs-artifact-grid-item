@@ -27,7 +27,8 @@
     "polymer": "Polymer/polymer#~1.2.0",
     "wc-i18n": "jshcrowthe/wc-i18n#^1.1.0",
     "iron-image": "PolymerElements/iron-image#^1.2.3",
-    "oak-i18n-behavior": "FamilySearchElements/oak-i18n-behavior"
+    "oak-i18n-behavior": "FamilySearchElements/oak-i18n-behavior",
+    "fs-styles": "fs-webdev/fs-styles"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~1.0.6",
