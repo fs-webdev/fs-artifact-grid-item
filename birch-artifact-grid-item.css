@@ -227,12 +227,9 @@ cedar-card {
 }
 
 @media all and (max-width: 979px) {
-  .title {
-    padding: 4px 3px 0px; 
-  }
 
   .artifact-meta {
-    height: 29px;
+    height: 32px;
   }
 
   .overlay {
