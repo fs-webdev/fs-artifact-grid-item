@@ -22,6 +22,10 @@
   color: #333333;
 }
 
+.add-title-text, .add-title-text:visited {
+  color: #0060d7;
+}
+
 .title {
   border-top: 1px solid #CFD6D7;
   display:block;
