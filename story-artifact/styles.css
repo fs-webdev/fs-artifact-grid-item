@@ -14,12 +14,11 @@
       overflow: hidden;
     }
     .story-content-title {
-      line-height: 1.2;
+      line-height: 1.21;
       font-size: 18px;
       font-size: 1.125rem;
       margin: 0 0 3px 0;
-      height: 36px;
-      min-height: 36px;
+      height: 2.4em;
       padding: 8px 10px 0;
       display: block;
       overflow: hidden;
