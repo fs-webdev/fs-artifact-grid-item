@@ -1,10 +1,12 @@
 {
-  "_LRM_PKTAG297": "birch-artifact-grid-item_2_157 - CHANGES-ONLY",
+  "_LRM_PKTAG109": "birch-artifact-grid-item_4_157 - CHANGES-ONLY",
   "duplicate": "Diese Datei wurde bereits einmal hochgeladen.",
+  "fail_continues": "Hochladen fehlgeschlagen. Wenn weitere Versuche fehlschlagen, probieren Sie es in einem anderen Dateiformat.",
   "failure": "Hochladen fehlgeschlagen.",
   "restricted": "Nicht freigegeben",
   "retry": "Erneut versuchen.",
   "size": "Die Dateigröße übersteigt 15MB.",
+  "try_again": "Hochladen fehlgeschlagen. Bitte versuchen Sie es erneut.",
   "unsupported": "Nicht unterstützter Dateityp",
   "uploading": "Wird hochgeladen"
 }
