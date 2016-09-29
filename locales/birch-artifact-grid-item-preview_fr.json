@@ -1,10 +1,12 @@
 {
-  "_LRM_PKTAG297": "birch-artifact-grid-item_2_150 - CHANGES-ONLY",
+  "_LRM_PKTAG890": "birch-artifact-grid-item_4_150 - CHANGES-ONLY",
   "duplicate": "Ce fichier a déjà été téléversé.",
+  "fail_continues": "Échec du téléversement. Si l’erreur persiste, essayez d’utiliser un format de fichier différent.",
   "failure": "Echec du téléversement.",
   "restricted": "Accès restreint",
   "retry": "Ressayer.",
   "size": "La taille du fichier dépasse 15 Mo.",
+  "try_again": "Échec du téléversement. Veuillez réessayer.",
   "unsupported": "Type de fichier non compatible",
   "uploading": "Téléversement en cours"
 }
