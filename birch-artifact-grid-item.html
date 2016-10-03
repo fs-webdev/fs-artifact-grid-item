@@ -6,6 +6,8 @@
 <link rel="import" href="image-artifact/image-artifact.html">
 <link rel="import" href="story-artifact/story-artifact.html">
 <link rel="import" href="../fs-styles/fs-styles.html">
+<link rel="import" href="../oak-ajax-behavior/oak-ajax-behavior.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
 
 <!-- @demo demo/index.html -->
 
@@ -14,6 +16,13 @@
   <link rel="import" type="css" href="birch-artifact-grid-item.css">
   <template>
     <wc-i18n-src locale='[[lang]]' locale-dir='[[localeDir()]]' domain='birch-artifact-grid-item'></wc-i18n-src>
+    <iron-ajax id="postTitle"
+      url="[[ajaxBase]]/artifactmanagerr/artifacts/[[data.id]]"
+      headers='[[authHeaders]]'
+      method="POST"
+      content-type="application/json"
+      on-response="_handlePostTitleResponse"
+      on-error="_handlePostTitleError"></iron-ajax>
     <cedar-card>
       <div class="relative">
         <div id='artifact' class="artifact">
@@ -44,7 +53,7 @@
             <a href='javascript:void(0)' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
               <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
             </a>
-            <input class="title-input" type="text" hidden="[[!_titleInputActive]]" on-keypress="_handleInput" on-blur="_handleInput" placeholder="Add a title" />
+            <input class="title-input" type="text" hidden="[[!_titleInputActive]]" on-keypress="_handleInput" on-keydown="_stopProp" on-blur="_handleInput" placeholder="Add a title" />
           </div>
         </template>
         <!-- Contributor Name -->
@@ -110,6 +119,7 @@
   Polymer({
     is: 'birch-artifact-grid-item',
     behaviors: [
+      OakAJAXBehavior,
       WCI18nBehavior,
       OakI18nBehavior,
     ],
@@ -272,6 +282,12 @@
         this._titleInputActive = false;
       }
     },
+    _handlePostTitleError:function(e) {
+      this.fire('artifact-item-title-update-failed', e.detail.error);
+    },
+    _handlePostTitleResponse:function(e) {
+      if (e.detail.status < 400) this.fire('artifact-item-title-updated')
+    },
     _hideAddTitle: function(readOnly, title, dataOwner, inputtedOwner, titleInputActive) {
       if (readOnly || title || titleInputActive) return true;
       if (inputtedOwner) {
@@ -279,8 +295,8 @@
       }
       return false;
     },
-    _hideContributorName: function(view, showContributed) {
-      if (!showContributed) return true;
+    _hideContributorName: function(view, showContributed, titleInputActive) {
+      if (!showContributed || titleInputActive) return true;
       return (view != 'my-favorites' && !Number(view))
     },
     _isDefault: function(category) {
@@ -324,6 +340,10 @@
       }
     },
     _saveTitle: function(titleText) {
+      this.$.postTitle.body = {
+        title: titleText
+      };
+      this.$.postTitle.generateRequest();
       this._titleInputActive = false;
       this.set('data.title', titleText);
     },
@@ -331,7 +351,6 @@
       if (!this.selectMode) e.stopPropagation();
     },
     _toggleAddTitleInput: function(e) {
-      this.showContributed = false;
       this._titleInputActive = true;
       Polymer.dom.flush();
       this.$$('.title .title-input').focus();
