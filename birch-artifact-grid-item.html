@@ -38,21 +38,22 @@
           <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
         </div>
 
-        <template is='dom-if' if='[[_hideContributorName(view, showContributed)]]'>
+        <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
           <div class="title" title='[[data.title]]' on-tap="_stopProp">
             <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
-            <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
+            <a href='javascript:void(0)' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
               <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
             </a>
+            <input class="title-input" type="text" hidden="[[!_titleInputActive]]" on-keypress="_handleInput" on-blur="_handleInput" placeholder="Add a title" />
           </div>
         </template>
         <!-- Contributor Name -->
         <wc-i18n key='birch-artifact-grid-item.contributed_by' provider value='{{_contributedBy}}'></wc-i18n>
-        <template is='dom-if' if='[[!_hideContributorName(view, showContributed)]]'>
+        <template is='dom-if' if='[[!_hideContributorName(view, showContributed, _titleInputActive)]]'>
           <div class="artifact-meta">
             <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
               <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
-              <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
+              <a href='javascript:void(0)' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
                 <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
               </a>
             </div>
@@ -204,6 +205,10 @@
       readOnly: {
         type: Boolean,
         value: false
+      },
+      _titleInputActive: {
+        type: Boolean,
+        value: false
       }
     },
     observers: [
@@ -260,16 +265,23 @@
       this.data.selected = false;
       this.fire('gallery-deselect-all');
     },
-    _hideAddTitle: function(readOnly, title, dataOwner, inputtedOwner) {
-      if (readOnly || title) return true;
+    _handleInput: function(e) {
+      if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length > 0) {
+        this._saveTitle(e.currentTarget.value);
+      } else if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length == 0) { 
+        this._titleInputActive = false;
+      }
+    },
+    _hideAddTitle: function(readOnly, title, dataOwner, inputtedOwner, titleInputActive) {
+      if (readOnly || title || titleInputActive) return true;
       if (inputtedOwner) {
         return dataOwner !== inputtedOwner;
       }
       return false;
     },
-    _hideContributorName: function() {
-      if (!this.showContributed) return true;
-      return (this.view != 'my-favorites' && !Number(this.view))
+    _hideContributorName: function(view, showContributed) {
+      if (!showContributed) return true;
+      return (view != 'my-favorites' && !Number(view))
     },
     _isDefault: function(category) {
       return category === 'IMAGE' || category === 'DOCUMENT'
@@ -311,8 +323,18 @@
         location = url;
       }
     },
+    _saveTitle: function(titleText) {
+      this._titleInputActive = false;
+      this.set('data.title', titleText);
+    },
     _stopProp: function(e) {
       if (!this.selectMode) e.stopPropagation();
+    },
+    _toggleAddTitleInput: function(e) {
+      this.showContributed = false;
+      this._titleInputActive = true;
+      Polymer.dom.flush();
+      this.$$('.title .title-input').focus();
     },
     _openContactCard: function(e) {
       e.stopPropagation();
