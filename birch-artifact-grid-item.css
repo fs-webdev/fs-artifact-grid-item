@@ -22,7 +22,7 @@
   color: #333333;
 }
 
-.add-title-text, .add-title-text:visited {
+.add-title-text, .add-title-text:visited, .add-title-link, .add-title-link:visited {
   color: #0060d7;
 }
 

@@ -20,9 +20,8 @@
       url="[[ajaxBase]]/artifactmanager/artifacts/[[data.id]]"
       headers='[[authHeaders]]'
       method="POST"
-      content-type="application/json"
       on-response="_handlePostTitleResponse"
-      on-error="_handlePostTitleError"></iron-ajax>
+      on-error="_handlePost_TitleError"></iron-ajax>
     <cedar-card>
       <div class="relative">
         <div id='artifact' class="artifact">
@@ -49,9 +48,9 @@
 
         <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
           <div class="title" title='[[data.title]]' on-tap="_stopProp">
-            <i class="exclamation-icon" hidden></i>
-            <a class='title-text' href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[!data.title]]'>[[data.title]]</a>
-            <a href$='[[_href]]?focus=title' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
+            <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
+            <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
+            <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
               <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
             </a>
             <input class="title-input" type="text" maxlength='140' hidden="[[!_titleInputActive]]" on-keypress="_handleEnterAndBlur" on-keydown="_stopPropHandleExit" on-blur="_handleEnterAndBlur" placeholder="Add a title" />
@@ -62,9 +61,9 @@
         <template is='dom-if' if='[[!_hideContributorName(view, showContributed, _titleInputActive)]]'>
           <div class="artifact-meta">
             <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
-              <i class="exclamation-icon" hidden></i>
-              <a class='title-text' href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[!data.title]]'>[[data.title]]</a>
-              <a href$='[[_href]]?focus=title' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
+              <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
+              <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
+              <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
                 <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
               </a>
             </div>
@@ -152,8 +151,7 @@
        */
       data: {
         type: Object,
-        value: function() { return {}; },
-        observer: '_handleDataChange'
+        value: function() { return {}; }
       },
       inlineAddingEnabled: {
         type: Boolean,
@@ -213,7 +211,8 @@
       },
       view: {
         type: String,
-        value: null
+        value: null,
+        observer: '_bro'
       },
       owner: {
         type: String,
@@ -226,24 +225,29 @@
       _titleInputActive: {
         type: Boolean,
         value: false
+      },
+      _titleError: {
+        type: Boolean,
+        value: false
       }
     },
     observers: [
-      '_checkState(data.*, showMessages)'
+      '_modifyState(data.*, showMessages)'
     ],
     listeners: {
       'artifact.tap': '_goToItem'
     },
     _titleLinkOverride: function(e) {
-      if (e.currentTarget.className.indexOf('error-styling') > -1) {
+      if (this._titleError) {
         e.preventDefault();
+        this._titleError = false;
         // The title class variable helps determine whether the contributor or normal title should be used
         var titleClass = (this.view == 'my-favorites' || Number(this.view)) ? '.title-2' : '.title';
-        this.$$(titleClass + ' .exclamation-icon').hidden = true;
-        this.$$(titleClass + ' .title-text').hidden = true;
-        this.$$(titleClass + ' .title-text').classList.remove('error-styling');
         this._toggleAddTitleInput();
       }
+    },
+    _calculateTitleClass: function(_titleError) {
+      return (_titleError) ? 'title-text error-styling' : 'title-text';
     },
     _calcParams: function(view) {
       if (this.view === 'my-memories' || this.view === 'my-archive' || this.view === 'my-favorites') {
@@ -254,7 +258,8 @@
         return "?a=none";
       }
     },
-    _checkState: function(data, showMessages) {
+    _modifyState: function(data, showMessages) {
+      this._resetInputs();
       if(!showMessages) return;
       // Reset the states
       this.uploading = false;
@@ -293,24 +298,15 @@
       this.data.selected = false;
       this.fire('gallery-deselect-all');
     },
-    _handleDataChange: function(e) {
-      if (this.inlineAddingEnabled && this.$$('.title .title-input')) this.$$('.title .title-input').value = "";
-    },
     _handleEnterAndBlur: function(e) {
       if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length > 0) {
-        // The title class variable helps determine whether the contributor or normal title should be used
-        var titleClass = (this.view == 'my-favorites' || Number(this.view)) ? '.title-2' : '.title';
-        this.$$(titleClass + ' .title-text').hidden = false;
         this._saveTitle(e.currentTarget.value);
       } else if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length == 0) { 
         this._titleInputActive = false;
       }
     },
-    _handlePostTitleError:function(e) {
-      // The title class variable helps determine whether the contributor or normal title should be used
-      var titleClass = (this.view == 'my-favorites' || Number(this.view)) ? '.title-2' : '.title';
-      this.$$(titleClass + ' .exclamation-icon').hidden = false;
-      this.$$(titleClass + ' .title-text').classList.add('error-styling');
+    _handlePost_TitleError:function(e) {
+      this._titleError = true;
       this.fire('artifact-item-title-update-failed', e.detail.error);
     },
     _handlePostTitleResponse:function(e) {
@@ -322,6 +318,9 @@
         return dataOwner !== inputtedOwner;
       }
       return false;
+    },
+    _hideTitle: function (title, titleInputActive) {
+      return (!title || titleInputActive);
     },
     _hideContributorName: function(view, showContributed, titleInputActive) {
       if (!showContributed || titleInputActive) return true;
@@ -366,6 +365,10 @@
       } else {
         location = url;
       }
+    },
+    _resetInputs: function() {
+      if (this._titleError) this._titleError = false;
+      if (this.$$('.title-input')) this.$$('.title-input').value = "";
     },
     _saveTitle: function(titleText) {
       this.$.postTitle.body = {
