@@ -17,7 +17,7 @@
   <template>
     <wc-i18n-src locale='[[lang]]' locale-dir='[[localeDir()]]' domain='birch-artifact-grid-item'></wc-i18n-src>
     <iron-ajax id="postTitle"
-      url="[[ajaxBase]]/artifactmanagerr/artifacts/[[data.id]]"
+      url="[[ajaxBase]]/artifactmanager/artifacts/[[data.id]]"
       headers='[[authHeaders]]'
       method="POST"
       content-type="application/json"
@@ -49,11 +49,12 @@
 
         <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
           <div class="title" title='[[data.title]]' on-tap="_stopProp">
-            <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
-            <a href='javascript:void(0)' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
+            <i class="exclamation-icon" hidden></i>
+            <a class='title-text' href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[!data.title]]'>[[data.title]]</a>
+            <a href$='[[_href]]?focus=title' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
               <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
             </a>
-            <input class="title-input" type="text" hidden="[[!_titleInputActive]]" on-keypress="_handleInput" on-keydown="_stopProp" on-blur="_handleInput" placeholder="Add a title" />
+            <input class="title-input" type="text" maxlength='140' hidden="[[!_titleInputActive]]" on-keypress="_handleEnterAndBlur" on-keydown="_stopPropHandleExit" on-blur="_handleEnterAndBlur" placeholder="Add a title" />
           </div>
         </template>
         <!-- Contributor Name -->
@@ -61,8 +62,9 @@
         <template is='dom-if' if='[[!_hideContributorName(view, showContributed, _titleInputActive)]]'>
           <div class="artifact-meta">
             <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
-              <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
-              <a href='javascript:void(0)' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
+              <i class="exclamation-icon" hidden></i>
+              <a class='title-text' href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[!data.title]]'>[[data.title]]</a>
+              <a href$='[[_href]]?focus=title' on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
                 <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
               </a>
             </div>
@@ -150,7 +152,12 @@
        */
       data: {
         type: Object,
-        value: function() { return {}; }
+        value: function() { return {}; },
+        observer: '_handleDataChange'
+      },
+      inlineAddingEnabled: {
+        type: Boolean,
+        value: false
       },
       selectMode: {
         type: Boolean,
@@ -227,6 +234,17 @@
     listeners: {
       'artifact.tap': '_goToItem'
     },
+    _titleLinkOverride: function(e) {
+      if (e.currentTarget.className.indexOf('error-styling') > -1) {
+        e.preventDefault();
+        // The title class variable helps determine whether the contributor or normal title should be used
+        var titleClass = (this.view == 'my-favorites' || Number(this.view)) ? '.title-2' : '.title';
+        this.$$(titleClass + ' .exclamation-icon').hidden = true;
+        this.$$(titleClass + ' .title-text').hidden = true;
+        this.$$(titleClass + ' .title-text').classList.remove('error-styling');
+        this._toggleAddTitleInput();
+      }
+    },
     _calcParams: function(view) {
       if (this.view === 'my-memories' || this.view === 'my-archive' || this.view === 'my-favorites') {
         return "?c="+this.view;
@@ -275,14 +293,24 @@
       this.data.selected = false;
       this.fire('gallery-deselect-all');
     },
-    _handleInput: function(e) {
+    _handleDataChange: function(e) {
+      if (this.inlineAddingEnabled && this.$$('.title .title-input')) this.$$('.title .title-input').value = "";
+    },
+    _handleEnterAndBlur: function(e) {
       if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length > 0) {
+        // The title class variable helps determine whether the contributor or normal title should be used
+        var titleClass = (this.view == 'my-favorites' || Number(this.view)) ? '.title-2' : '.title';
+        this.$$(titleClass + ' .title-text').hidden = false;
         this._saveTitle(e.currentTarget.value);
       } else if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length == 0) { 
         this._titleInputActive = false;
       }
     },
     _handlePostTitleError:function(e) {
+      // The title class variable helps determine whether the contributor or normal title should be used
+      var titleClass = (this.view == 'my-favorites' || Number(this.view)) ? '.title-2' : '.title';
+      this.$$(titleClass + ' .exclamation-icon').hidden = false;
+      this.$$(titleClass + ' .title-text').classList.add('error-styling');
       this.fire('artifact-item-title-update-failed', e.detail.error);
     },
     _handlePostTitleResponse:function(e) {
@@ -347,13 +375,23 @@
       this._titleInputActive = false;
       this.set('data.title', titleText);
     },
+    _stopPropHandleExit: function(e) {
+      this._stopProp(e);
+      if (e.keyCode === 27) {
+        e.currentTarget.value = "";
+        this.blur();
+      }
+    },
     _stopProp: function(e) {
       if (!this.selectMode) e.stopPropagation();
     },
     _toggleAddTitleInput: function(e) {
-      this._titleInputActive = true;
-      Polymer.dom.flush();
-      this.$$('.title .title-input').focus();
+      if (this.inlineAddingEnabled) {
+        if (e) e.preventDefault();
+        this._titleInputActive = true;
+        Polymer.dom.flush();
+        this.$$('.title .title-input').focus();
+      }
     },
     _openContactCard: function(e) {
       e.stopPropagation();
