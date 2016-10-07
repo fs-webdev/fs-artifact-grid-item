@@ -6,6 +6,8 @@
 <link rel="import" href="image-artifact/image-artifact.html">
 <link rel="import" href="story-artifact/story-artifact.html">
 <link rel="import" href="../fs-styles/fs-styles.html">
+<link rel="import" href="../oak-ajax-behavior/oak-ajax-behavior.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
 
 <!-- @demo demo/index.html -->
 
@@ -14,6 +16,12 @@
   <link rel="import" type="css" href="birch-artifact-grid-item.css">
   <template>
     <wc-i18n-src locale='[[lang]]' locale-dir='[[localeDir()]]' domain='birch-artifact-grid-item'></wc-i18n-src>
+    <iron-ajax id="postTitle"
+      url="[[ajaxBase]]/artifactmanager/artifacts/[[data.id]]"
+      headers='[[authHeaders]]'
+      method="POST"
+      on-response="_handlePostTitleResponse"
+      on-error="_handlePostTitleError"></iron-ajax>
     <cedar-card>
       <div class="relative">
         <div id='artifact' class="artifact">
@@ -38,21 +46,24 @@
           <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
         </div>
 
-        <template is='dom-if' if='[[_hideContributorName(view, showContributed)]]'>
+        <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
           <div class="title" title='[[data.title]]' on-tap="_stopProp">
-            <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
-            <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
-              <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
+            <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
+            <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
+            <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
+              <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title' value={{_addTitle}}></wc-i18n>
             </a>
+            <input class="title-input" type="text" maxlength='140' hidden="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" />
           </div>
         </template>
         <!-- Contributor Name -->
         <wc-i18n key='birch-artifact-grid-item.contributed_by' provider value='{{_contributedBy}}'></wc-i18n>
-        <template is='dom-if' if='[[!_hideContributorName(view, showContributed)]]'>
+        <template is='dom-if' if='[[!_hideContributorName(view, showContributed, _titleInputActive)]]'>
           <div class="artifact-meta">
             <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
-              <a class='title-text' href$='[[_href]]' hidden='[[!data.title]]'>[[data.title]]</a>
-              <a href$='[[_href]]?focus=title' hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner)]]'>
+              <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
+              <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
+              <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
                 <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
               </a>
             </div>
@@ -109,6 +120,7 @@
   Polymer({
     is: 'birch-artifact-grid-item',
     behaviors: [
+      OakAJAXBehavior,
       WCI18nBehavior,
       OakI18nBehavior,
     ],
@@ -140,6 +152,10 @@
       data: {
         type: Object,
         value: function() { return {}; }
+      },
+      inlineAddingEnabled: {
+        type: Boolean,
+        value: false
       },
       selectMode: {
         type: Boolean,
@@ -195,7 +211,8 @@
       },
       view: {
         type: String,
-        value: null
+        value: null,
+        observer: '_resetInputs'
       },
       owner: {
         type: String,
@@ -204,13 +221,31 @@
       readOnly: {
         type: Boolean,
         value: false
+      },
+      _titleInputActive: {
+        type: Boolean,
+        value: false
+      },
+      _titleError: {
+        type: Boolean,
+        value: false
       }
     },
     observers: [
-      '_checkState(data.*, showMessages)'
+      '_modifyState(data.*, showMessages)'
     ],
     listeners: {
       'artifact.tap': '_goToItem'
+    },
+    _titleLinkOverride: function(e) {
+      if (this._titleError) {
+        e.preventDefault();
+        this._titleError = false;
+        this._toggleAddTitleInput();
+      }
+    },
+    _calculateTitleClass: function(_titleError) {
+      return (_titleError) ? 'title-text error-styling' : 'title-text';
     },
     _calcParams: function(view) {
       if (this.view === 'my-memories' || this.view === 'my-archive' || this.view === 'my-favorites') {
@@ -221,7 +256,7 @@
         return "?a=none";
       }
     },
-    _checkState: function(data, showMessages) {
+    _modifyState: function(data, showMessages) {
       if(!showMessages) return;
       // Reset the states
       this.uploading = false;
@@ -260,16 +295,40 @@
       this.data.selected = false;
       this.fire('gallery-deselect-all');
     },
-    _hideAddTitle: function(readOnly, title, dataOwner, inputtedOwner) {
-      if (readOnly || title) return true;
+    _handleEnterExitBlur: function(e) {
+      this._stopProp(e);
+      if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length > 0) {
+        this._saveTitle(e.currentTarget.value);
+      } else if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length == 0) { 
+        this._titleInputActive = false;
+      } else if (e.keyCode === 27) {
+        // Handle exit key
+        e.currentTarget.value = "";
+        this.set('data.title', "");
+        this._titleInputActive = false;
+        this.blur();
+      }
+    },
+    _handlePostTitleError:function(e) {
+      this._titleError = true;
+      this.fire('artifact-item-title-update-failed', e.detail.error);
+    },
+    _handlePostTitleResponse:function(e) {
+      if (e.detail.status < 400) this.fire('artifact-item-title-updated')
+    },
+    _hideAddTitle: function(readOnly, title, dataOwner, inputtedOwner, titleInputActive) {
+      if (readOnly || title || titleInputActive) return true;
       if (inputtedOwner) {
         return dataOwner !== inputtedOwner;
       }
       return false;
     },
-    _hideContributorName: function() {
-      if (!this.showContributed) return true;
-      return (this.view != 'my-favorites' && !Number(this.view))
+    _hideTitle: function (title, titleInputActive) {
+      return (!title || titleInputActive);
+    },
+    _hideContributorName: function(view, showContributed, titleInputActive) {
+      if (!showContributed || titleInputActive) return true;
+      return (view != 'my-favorites' && !Number(view))
     },
     _isDefault: function(category) {
       return category === 'IMAGE' || category === 'DOCUMENT'
@@ -311,8 +370,29 @@
         location = url;
       }
     },
+    _resetInputs: function() {
+      if (this._titleError) this._titleError = false;
+      if (this.$$('.title-input')) this.$$('.title-input').value = "";
+    },
+    _saveTitle: function(titleText) {
+      this.$.postTitle.body = {
+        title: titleText
+      };
+      this.$.postTitle.generateRequest();
+      this._titleInputActive = false;
+      this.set('data.title', titleText);
+    },
     _stopProp: function(e) {
       if (!this.selectMode) e.stopPropagation();
+    },
+    _toggleAddTitleInput: function(e) {
+      if (this.inlineAddingEnabled) {
+        if (e) e.preventDefault();
+        this._titleInputActive = true;
+        // Flush dom so nothing takes the focus after the title input is focus.
+        Polymer.dom.flush();
+        this.$$('.title .title-input').focus();
+      }
     },
     _openContactCard: function(e) {
       e.stopPropagation();
