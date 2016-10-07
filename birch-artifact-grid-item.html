@@ -212,7 +212,7 @@
       view: {
         type: String,
         value: null,
-        observer: '_bro'
+        observer: '_resetInputs'
       },
       owner: {
         type: String,
@@ -259,7 +259,6 @@
       }
     },
     _modifyState: function(data, showMessages) {
-      this._resetInputs();
       if(!showMessages) return;
       // Reset the states
       this.uploading = false;
@@ -382,6 +381,8 @@
       this._stopProp(e);
       if (e.keyCode === 27) {
         e.currentTarget.value = "";
+        this.set('data.title', "");
+        this._titleInputActive = false;
         this.blur();
       }
     },
