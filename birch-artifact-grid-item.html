@@ -21,7 +21,7 @@
       headers='[[authHeaders]]'
       method="POST"
       on-response="_handlePostTitleResponse"
-      on-error="_handlePost_TitleError"></iron-ajax>
+      on-error="_handlePostTitleError"></iron-ajax>
     <cedar-card>
       <div class="relative">
         <div id='artifact' class="artifact">
@@ -51,9 +51,9 @@
             <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
             <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
             <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
-              <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
+              <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title' value={{_addTitle}}></wc-i18n>
             </a>
-            <input class="title-input" type="text" maxlength='140' hidden="[[!_titleInputActive]]" on-keypress="_handleEnterAndBlur" on-keydown="_stopPropHandleExit" on-blur="_handleEnterAndBlur" placeholder="Add a title" />
+            <input class="title-input" type="text" maxlength='140' hidden="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" />
           </div>
         </template>
         <!-- Contributor Name -->
@@ -241,8 +241,6 @@
       if (this._titleError) {
         e.preventDefault();
         this._titleError = false;
-        // The title class variable helps determine whether the contributor or normal title should be used
-        var titleClass = (this.view == 'my-favorites' || Number(this.view)) ? '.title-2' : '.title';
         this._toggleAddTitleInput();
       }
     },
@@ -297,14 +295,21 @@
       this.data.selected = false;
       this.fire('gallery-deselect-all');
     },
-    _handleEnterAndBlur: function(e) {
+    _handleEnterExitBlur: function(e) {
+      this._stopProp(e);
       if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length > 0) {
         this._saveTitle(e.currentTarget.value);
       } else if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length == 0) { 
         this._titleInputActive = false;
+      } else if (e.keyCode === 27) {
+        // Handle exit key
+        e.currentTarget.value = "";
+        this.set('data.title', "");
+        this._titleInputActive = false;
+        this.blur();
       }
     },
-    _handlePost_TitleError:function(e) {
+    _handlePostTitleError:function(e) {
       this._titleError = true;
       this.fire('artifact-item-title-update-failed', e.detail.error);
     },
@@ -377,15 +382,6 @@
       this._titleInputActive = false;
       this.set('data.title', titleText);
     },
-    _stopPropHandleExit: function(e) {
-      this._stopProp(e);
-      if (e.keyCode === 27) {
-        e.currentTarget.value = "";
-        this.set('data.title', "");
-        this._titleInputActive = false;
-        this.blur();
-      }
-    },
     _stopProp: function(e) {
       if (!this.selectMode) e.stopPropagation();
     },
@@ -393,6 +389,7 @@
       if (this.inlineAddingEnabled) {
         if (e) e.preventDefault();
         this._titleInputActive = true;
+        // Flush dom so nothing takes the focus after the title input is focus.
         Polymer.dom.flush();
         this.$$('.title .title-input').focus();
       }
