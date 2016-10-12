@@ -1,6 +1,6 @@
 :host {
   display: inline-block;
-  --grid-item-card-width: 46vw;
+  --grid-item-card-width: calc(46vw - 20px);
  -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
