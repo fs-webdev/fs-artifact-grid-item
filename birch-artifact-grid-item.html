@@ -306,8 +306,10 @@
       this._stopProp(e);
       if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length > 0) {
         this._saveTitle(e.currentTarget.value);
+        this.blur();
       } else if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length == 0) { 
         this._titleInputActive = false;
+        this.blur();
       } else if (e.keyCode === 27) {
         // Handle exit key
         e.currentTarget.value = "";
