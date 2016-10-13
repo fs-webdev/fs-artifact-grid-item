@@ -37,7 +37,7 @@
             <wc-i18n key='birch-artifact-grid-item-preview.unsupported'></wc-i18n>
           </span>
         </div>
-        <div class="error-text" hidden="[[!data.mp3Error]]">
+        <div class="error-text" hidden="[[!data.tryAgain]]">
           <span>
             <wc-i18n key='birch-artifact-grid-item-preview.fail_continues'></wc-i18n>
           </span>
@@ -148,13 +148,18 @@
       this._getDataUrl(this.data.file);
     },
     _handleUploadError: function(status){
-      switch(status){
-        case 409:   this.set('data.duplicate', true);     break;
-        case 413:   this.set('data.tooBig', true);        break;
-        case 415:   this.set('data.unsupported', true);   break;
-        case 422:   this.set('data.mp3Error', true);   break;
-        default:    this.set('data.failure', true);       break;
+      if (status == 409) {
+        this.set('data.duplicate', true);
+      } else if (status == 413) {
+        this.set('data.tooBig', true);
+      } else if (status == 415) {
+        this.set('data.unsupported', true);
+      } else if (status > 399 && status < 500) {
+        this.set('data.tryAgain', true);
+      } else {
+        this.set('data.failure', true);
       }
+
       this.loading = false;
       this.set('data.uploadError', true);
       if (this.data.file.name) this.$['memory-title'].innerText = this.data.file.name;

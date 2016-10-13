@@ -1,10 +1,12 @@
 {
-  "_LRM_PKTAG251": "birch-artifact-grid-item_2_149 - CHANGES-ONLY",
+  "_LRM_PKTAG317": "birch-artifact-grid-item_4_149 - CHANGES-ONLY",
   "duplicate": "Esta carpeta ya se ha cargado anteriormente.",
+  "fail_continues": "No se pudo cargar el archivo. Si el error continúa, prueba otro formato de archivo.",
   "failure": "No se pudo cargar el archivo.",
   "restricted": "Restringido",
   "retry": "Volver a intentarlo",
   "size": "El tamaño de esta carpeta excede los 15MB.",
+  "try_again": "No se pudo cargar el archivo. Por favor, inténtalo otra vez.",
   "unsupported": "Tipo de archivo no compatible",
   "uploading": "Cargando"
 }
