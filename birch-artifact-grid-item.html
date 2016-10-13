@@ -222,6 +222,10 @@
         type: Boolean,
         value: false
       },
+      alertInputActive: {
+        computed: '_computeIsActive(_titleInputActive)',
+        notify: true
+      },
       _titleInputActive: {
         type: Boolean,
         value: false
@@ -285,6 +289,9 @@
       }
 
       if (this.uploading || this.processing || this.screening || this.processingFailed) this._displayMessage = true;
+    },
+    _computeIsActive: function(titleInputActive) {
+      if (titleInputActive) return true;
     },
     _computeHref: function(id) {
       var origin = window.location.origin;
