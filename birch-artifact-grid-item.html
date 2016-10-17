@@ -306,16 +306,16 @@
       this._stopProp(e);
       if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length > 0) {
         this._saveTitle(e.currentTarget.value);
-        this.blur();
+        this._focusTitle();
       } else if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length == 0) { 
         this._titleInputActive = false;
-        this.blur();
+        this._focusTitle();
       } else if (e.keyCode === 27) {
         // Handle exit key
         e.currentTarget.value = "";
         this.set('data.title', "");
         this._titleInputActive = false;
-        this.blur();
+        this._focusTitle();
       }
     },
     _handlePostTitleError:function(e) {
@@ -357,6 +357,13 @@
     _isDocument: function(category) {
       if (!category) return false;
       return category === 'DOCUMENT' || category === 'PDF';
+    },
+    /* 
+      * Takes focus away from input, so keyboard closes on mobile devices.
+    */
+    _focusTitle: function() {
+      document.activeElement.blur();
+      this.$$('.title-text').focus();
     },
     _goToItem: function(e) {
       if (this.selectMode) return;
