@@ -224,10 +224,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         test('Show or hide contributor name', function() {
           // hide by default
-          expect(el._hideContributorName()).to.be.true;
+          expect(el._hideContributorName(el.view, el.showContributed, el._titleInputActive)).to.be.true;
           el.view = '9000';
           el.showContributed = true;
-          expect(el._hideContributorName()).to.be.false;
+          expect(el._hideContributorName(el.view, el.showContributed, el._titleInputActive)).to.be.false;
         });
 
         test('Contributed translations are correct', function() {
@@ -275,6 +275,138 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           el.data = restrictedItem;
           expect(el.restricted).to.be.true;
           expect(el._displayMessage).to.be.false;
+        });
+        test('Save title works, success event fired', function(done){
+          var server = sinon.fakeServer.create();
+          var handleSuccess = sinon.spy(el, '_handlePostTitleResponse');
+          el._titleInputActive = true;
+          
+          server.respondWith(
+            'POST',
+            /\/artifactmanager\/artifacts\//,
+            [
+              200,
+              { "Content-Type": "application/json" },
+              '{"success": true}'
+            ]
+          );
+
+          el._saveTitle('Text');
+
+          expect(el._titleInputActive).to.be.false;
+
+          addEventListener('artifact-item-title-updated', function(e){
+            expect(handleSuccess.calledOnce).to.be.true;
+            done();
+          });
+
+          server.respond()
+
+        });
+        
+        test('Save title fails, error event fired, title error set', function(done){
+          var server = sinon.fakeServer.create();
+          var handleFailure = sinon.spy(el, '_handlePostTitleError');
+          
+          server.respondWith(
+            'POST',
+            /\/artifactmanager\/artifacts\//,
+            [
+              400,
+              { "Content-Type": "application/json" },
+              '{"success": false}'
+            ]
+          );
+
+          el._saveTitle('Text');
+
+          addEventListener('artifact-item-title-update-failed', function(e){
+            expect(handleFailure.calledOnce).to.be.true;
+            expect(el._titleError).to.be.true;
+            done();
+          });
+
+          server.respond()
+
+        });
+
+        test('Inline adding overrides href link if there is a title error.', function(){
+          var toggleAddTitleInput = sinon.spy(el, '_toggleAddTitleInput');
+          el._titleError = true;
+
+          var mockE = {
+            preventDefault: function(){},
+            stopPropagation: function(){},
+          }
+          el._titleLinkOverride(mockE);
+
+          expect(toggleAddTitleInput.calledOnce).to.be.true;
+          expect(el._titleError).to.be.false;
+
+          el._titleLinkOverride(mockE);
+          expect(toggleAddTitleInput.calledOnce).to.be.true;
+        });
+
+        test('Inline adding overrides href link on add.', function(){
+          el.inlineAddingEnabled = true;
+          el.data = dataObj.standardImage;
+
+          var mockE = {
+            preventDefault: function(){},
+            stopPropagation: function(){},
+          }
+
+          expect(el._titleInputActive).to.be.false;
+
+          el._toggleAddTitleInput(mockE);
+
+          expect(el._titleInputActive).to.be.true;
+          if (!Polymer.Settings.useNativeShadow && !Polymer.Settings.useShadow) {
+            expect(document.activeElement.classList.contains('title-input')).to.be.true;
+          }
+        });
+
+        test('Handle enter exit blur', function(){
+          el.data = dataObj.standardImage;
+          var saveTitle = sinon.spy(el, '_saveTitle');
+          var focusTitle = sinon.spy(el, '_focusTitle');
+          
+          var mockE = {
+            preventDefault: function(){},
+            stopPropagation: function(){},
+            type: "blur",
+            currentTarget: {
+              value: "text"
+            }
+          }
+          Polymer.dom.flush();
+
+          // Case: Enter or blur with text entered
+          el._handleEnterExitBlur(mockE);
+
+          expect(saveTitle.calledOnce).to.be.true;
+          expect(focusTitle.calledOnce).to.be.true;  
+          expect(el._titleInputActive).to.be.false;
+          expect(el.data.title).to.equal("text");
+
+          // Case: Enter or blur without any text entered
+          el._titleInputActive = true;
+          mockE.currentTarget.value = "";
+          el._handleEnterExitBlur(mockE);
+
+          expect(focusTitle.calledTwice).to.be.true;
+          expect(el._titleInputActive).to.be.false;
+
+          // Case: exit button pressed
+          mockE.keyCode = 27;
+          mockE.currentTarget.value = "text"
+          mockE.type = "";
+          el._titleInputActive = true;
+          el._handleEnterExitBlur(mockE);
+
+          expect(focusTitle.calledThrice).to.be.true;
+          expect(el.data.title).to.equal("");
+          expect(el._titleInputActive).to.be.false;
         });
       });
     </script>
