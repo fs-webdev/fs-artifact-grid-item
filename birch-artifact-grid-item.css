@@ -10,7 +10,7 @@
   -webkit-user-drag: element;
 }
 
-.title-text, .title-text:visited {
+.title-text, .title-text:visited, .title-text:active, .title-text:focus {
   color: #333333;
   text-decoration: none;
   display: -webkit-box;
@@ -256,6 +256,10 @@ cedar-card {
 
   .overlay {
     bottom: 33px;
+  }
+
+  .title .title-input {
+    font-size: 16px;
   }
 }
 
