@@ -309,8 +309,9 @@
       this.fire('gallery-deselect-all');
     },
     _handleEnterExitBlur: function(e) {
-      this._stopProp(e);
+      this._stopProp(e)
       if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length > 0) {
+        e.preventDefault();
         this._saveTitle(e.currentTarget.value);
         this._focusTitle();
       } else if ((e.keyCode == 13 || e.key == "Enter" || e.type == "blur") && e.currentTarget.value.length == 0) { 
@@ -322,6 +323,11 @@
         this.set('data.title', "");
         this._titleInputActive = false;
         this._focusTitle();
+      } else if (e.ctrlKey && e.shiftKey && e.keyCode == 69 && e.currentTarget.value.length > 0) {
+        this.set('data.title', e.currentTarget.value);
+        this._titleInputActive = false;
+        this._handlePostTitleError({detail: { error: 'Test error' }});
+        e.currentTarget.value = '';
       }
     },
     _handlePostTitleError:function(e) {
