@@ -248,6 +248,10 @@ cedar-card {
   vertical-align: top;
 }
 
+.title .title-input {
+  padding: 1px 10px;
+}
+
 @media all and (max-width: 979px) {
 
   .artifact-meta {
