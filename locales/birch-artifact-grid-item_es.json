@@ -1,11 +1,13 @@
 {
-  "_LRM_PKTAG530": "birch-artifact-grid-item_3_149 - CHANGES-ONLY",
+  "_LRM_PKTAG26": "birch-artifact-grid-item_5_149 - CHANGES-ONLY",
   "add_title": "Agregar título",
+  "check_email": "Revisa tu correo electrónico vinculado a tu cuenta FamilySearch para obtener instrucciones.",
   "contributed_by": "Por: {0}",
   "not_tagged": "Este recuerdo no está etiquetado",
   "processing": "Procesando",
   "processing_fail": "No se pudo procesar. Eliminar y volver a cargar o contacta a Soporte.",
   "restricted": "Restringido",
+  "restricted_info": "Este Recuerdo ha sido restringido debido al contenido (ver <a href=\"https://familysearch.org/photos/uploadguidelines\">Pautas de carga</a>) y se quitará del sitio dentro de 30 días.",
   "screening": "Verificando",
   "uploading": "Cargando"
 }
