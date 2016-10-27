@@ -260,6 +260,8 @@ cedar-card {
   display: inline-block;
   width: 18px;
   height: 18px;
+  position: absolute;
+  right: 10px;
 }
 
 @media all and (max-width: 979px) {
