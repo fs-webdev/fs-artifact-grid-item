@@ -74,9 +74,11 @@
         </template> 
 
         <!--Restricted-->
-        <div class="restricted" hidden="[[!restricted]]">
-            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
-            <!--<span class="info-icon"></span>-->
+        <div class="restricted" hidden="[[!restricted]]" on-tap='_openInfoDialog'>
+          <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
+          <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted_info' provider value='{{restrictedInfo}}'></wc-i18n>
+          <wc-i18n class='fs-h5' key='birch-artifact-grid-item.check_email' provider value='{{checkEmail}}'></wc-i18n>
+          <span class="info-icon" hidden='[[!showRestrictedInfo]]'></span>
         </div>
 
         <template is='dom-if' if='[[showMessages]]'>
@@ -86,14 +88,14 @@
           <!--Uploading-->
           <div class="overlay layout horizontal center center-justified" hidden="[[!uploading]]" on-tap='_goToItem'>
             <div class='processing'>
-                <wc-i18n key='birch-artifact-grid-item.uploading'></wc-i18n>
+              <wc-i18n key='birch-artifact-grid-item.uploading'></wc-i18n>
             </div>
           </div>
 
           <!--Processing-->
           <div class="overlay layout horizontal center center-justified" hidden="[[!processing]]" on-tap='_goToItem'>
             <div class='processing'>
-                <wc-i18n key='birch-artifact-grid-item.processing'></wc-i18n>
+              <wc-i18n key='birch-artifact-grid-item.processing'></wc-i18n>
             </div>
           </div>
 
@@ -107,7 +109,7 @@
           <!--Screening-->
           <div class="overlay layout horizontal center center-justified" hidden="[[!screening]]" on-tap='_goToItem'>
             <div class='processing '>
-                <wc-i18n class='fs-h5' key='birch-artifact-grid-item.screening'></wc-i18n>
+              <wc-i18n class='fs-h5' key='birch-artifact-grid-item.screening'></wc-i18n>
             </div>
           </div>
         </template>
@@ -178,6 +180,14 @@
        * to be shown
        */
       showMessages: {
+        type: Boolean,
+        value: false
+      },
+      /**
+      * A flag for showing the restricted
+      * info dialog
+      */
+      showRestrictedInfo: {
         type: Boolean,
         value: false
       },
@@ -432,6 +442,15 @@
     },
     _translateContributor: function(val) {
       return (val) ? val.replace('{0}', '') : '';
+    },
+    _openInfoDialog: function(e) {
+      e.stopPropagation();
+      var data = {};
+      data.translations = {};
+      data.translations.restrictedInfo = this.restrictedInfo;
+      data.translations.checkEmail = this.checkEmail;
+      data.target = this.$$('.info-icon');
+      this.fire('open-restricted-info', data);
     }
   });
 })();
