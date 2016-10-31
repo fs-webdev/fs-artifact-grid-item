@@ -78,7 +78,7 @@
           <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
           <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted_info' provider value='{{restrictedInfo}}'></wc-i18n>
           <wc-i18n class='fs-h5' key='birch-artifact-grid-item.check_email' provider value='{{checkEmail}}'></wc-i18n>
-          <span class="info-icon" hidden='[[!showRestrictedInfo]]'></span>
+          <span class="info-icon" hidden='[[!_showRestrictedIcon]]'></span>
         </div>
 
         <template is='dom-if' if='[[showMessages]]'>
@@ -190,6 +190,13 @@
       showRestrictedInfo: {
         type: Boolean,
         value: false
+      },
+      /**
+      * Flag for showing the restricted icon
+      */
+      _showRestrictedIcon: {
+        type: Boolean,
+        computed: '_isOwner(showRestrictedInfo, owner, data.contributorCisUserId, restricted)'
       },
       /**
        * A state message is being displayed
@@ -451,6 +458,10 @@
       data.translations.checkEmail = this.checkEmail;
       data.target = this.$$('.info-icon');
       this.fire('open-restricted-info', data);
+    },
+    _isOwner: function(ex, user, owner, restricted) {
+      if (!restricted || !ex) return false;
+      return (user === owner);
     }
   });
 })();
