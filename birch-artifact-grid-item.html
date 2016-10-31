@@ -23,97 +23,98 @@
       on-response="_handlePostTitleResponse"
       on-error="_handlePostTitleError"></iron-ajax>
     <cedar-card>
-      <div class="relative">
-        <div id='artifact' class="artifact">
+      <div body>
+        <div class="relative">
+          <div id='artifact' class="artifact">
 
-          <!-- IMAGE/DOCUMENT RENDERER -->
-          <template is='dom-if' if="{{_isImage(data.category)}}">
-            <image-artifact image-url='[[data.thumbUrl]]'></image-artifact>
-          </template>
+            <!-- IMAGE/DOCUMENT RENDERER -->
+            <template is='dom-if' if="{{_isImage(data.category)}}">
+              <image-artifact image-url='[[data.thumbUrl]]'></image-artifact>
+            </template>
 
-          <!-- AUDIO RENDERER -->
-          <template is='dom-if' if="{{_is(data.category, 'AUDIO')}}">
-            <audio-artifact audio-url='[[data.url]]' title='[[data.title]]'></audio-artifact>
-          </template>
+            <!-- AUDIO RENDERER -->
+            <template is='dom-if' if="{{_is(data.category, 'AUDIO')}}">
+              <audio-artifact audio-url='[[data.url]]' title='[[data.title]]'></audio-artifact>
+            </template>
 
-          <!-- STORY RENDERER -->
-          <template is='dom-if' if="{{_isStory(data.category)}}">
-            <story-artifact image-url='[[data.thumbUrl]]' description='[[data.description]]' title='[[data.title]]'></story-artifact>
-          </template>
+            <!-- STORY RENDERER -->
+            <template is='dom-if' if="{{_isStory(data.category)}}">
+              <story-artifact image-url='[[data.thumbUrl]]' description='[[data.description]]' title='[[data.title]]'></story-artifact>
+            </template>
 
-          <wc-i18n key='birch-artifact-grid-item.not_tagged' provider value='{{_notTaggedText}}'></wc-i18n>
-          <i class='not-tagged-icon' hidden='[[!_is(data.photoTagCount, 0)]]' title='[[_notTaggedText]]'></i>
-          <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
-        </div>
-
-        <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
-          <div class="title" title='[[data.title]]' on-tap="_stopProp">
-            <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
-            <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
-            <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
-              <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title' value={{_addTitle}}></wc-i18n>
-            </a>
-            <input class="title-input" type="text" maxlength='140' hidden="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" />
+            <wc-i18n key='birch-artifact-grid-item.not_tagged' provider value='{{_notTaggedText}}'></wc-i18n>
+            <i class='not-tagged-icon' hidden='[[!_is(data.photoTagCount, 0)]]' title='[[_notTaggedText]]'></i>
+            <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
           </div>
-        </template>
-        <!-- Contributor Name -->
-        <wc-i18n key='birch-artifact-grid-item.contributed_by' provider value='{{_contributedBy}}'></wc-i18n>
-        <template is='dom-if' if='[[!_hideContributorName(view, showContributed, _titleInputActive)]]'>
-          <div class="artifact-meta">
-            <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
+
+          <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
+            <div class="title" title='[[data.title]]' on-tap="_stopProp">
               <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
               <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
               <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
-                <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
+                <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title' value={{_addTitle}}></wc-i18n>
               </a>
+              <input class="title-input" type="text" maxlength='140' hidden="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" />
             </div>
-            <div class="contributor" title='[[data.ftUserInfo.contactName]]'>
-               <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name' on-tap='_openContactCard'>[[data.ftUserInfo.contactName]]</span>
+          </template>
+          <!-- Contributor Name -->
+          <wc-i18n key='birch-artifact-grid-item.contributed_by' provider value='{{_contributedBy}}'></wc-i18n>
+          <template is='dom-if' if='[[!_hideContributorName(view, showContributed, _titleInputActive)]]'>
+            <div class="artifact-meta">
+              <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
+                <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
+                <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
+                <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
+                  <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
+                </a>
+              </div>
+              <div class="contributor" title='[[data.ftUserInfo.contactName]]'>
+                <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name' on-tap='_openContactCard'>[[data.ftUserInfo.contactName]]</span>
+              </div>
             </div>
-          </div>
-        </template> 
+          </template> 
 
-        <!--Restricted-->
-        <div class="restricted" hidden="[[!restricted]]" on-tap='_openInfoDialog'>
-          <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
-          <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted_info' provider value='{{restrictedInfo}}'></wc-i18n>
-          <wc-i18n class='fs-h5' key='birch-artifact-grid-item.check_email' provider value='{{checkEmail}}'></wc-i18n>
-          <span class="info-icon" hidden='[[!_showRestrictedIcon]]'></span>
+          <!--Restricted-->
+          <div class="restricted" hidden="[[!restricted]]" on-tap='_openInfoDialog'>
+            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
+            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted_info' provider value='{{restrictedInfo}}'></wc-i18n>
+            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.check_email' provider value='{{checkEmail}}'></wc-i18n>
+            <span class="info-icon" hidden='[[!_showRestrictedIcon]]'></span>
+          </div>
+
+          <template is='dom-if' if='[[showMessages]]'>
+            <!-- Dim the thumbnail for error messages-->
+            <div class='overlay' hidden="[[!_displayMessage]]" on-tap='_goToItem'></div>
+
+            <!--Uploading-->
+            <div class="overlay layout horizontal center center-justified" hidden="[[!uploading]]" on-tap='_goToItem'>
+              <div class='processing'>
+                <wc-i18n key='birch-artifact-grid-item.uploading'></wc-i18n>
+              </div>
+            </div>
+
+            <!--Processing-->
+            <div class="overlay layout horizontal center center-justified" hidden="[[!processing]]" on-tap='_goToItem'>
+              <div class='processing'>
+                <wc-i18n key='birch-artifact-grid-item.processing'></wc-i18n>
+              </div>
+            </div>
+
+            <!--Error Processing-->
+            <div class="error-processing overlay layout horizontal center center-justified" hidden="[[!processingFailed]]" on-tap='_goToItem'>
+              <div class="error-text">
+                <wc-i18n key='birch-artifact-grid-item.processing_fail'></wc-i18n>
+              </div>
+            </div>
+
+            <!--Screening-->
+            <div class="overlay layout horizontal center center-justified" hidden="[[!screening]]" on-tap='_goToItem'>
+              <div class='processing '>
+                <wc-i18n class='fs-h5' key='birch-artifact-grid-item.screening'></wc-i18n>
+              </div>
+            </div>
+          </template>
         </div>
-
-        <template is='dom-if' if='[[showMessages]]'>
-          <!-- Dim the thumbnail for error messages-->
-          <div class='overlay' hidden="[[!_displayMessage]]" on-tap='_goToItem'></div>
-
-          <!--Uploading-->
-          <div class="overlay layout horizontal center center-justified" hidden="[[!uploading]]" on-tap='_goToItem'>
-            <div class='processing'>
-              <wc-i18n key='birch-artifact-grid-item.uploading'></wc-i18n>
-            </div>
-          </div>
-
-          <!--Processing-->
-          <div class="overlay layout horizontal center center-justified" hidden="[[!processing]]" on-tap='_goToItem'>
-            <div class='processing'>
-              <wc-i18n key='birch-artifact-grid-item.processing'></wc-i18n>
-            </div>
-          </div>
-
-          <!--Error Processing-->
-          <div class="error-processing overlay layout horizontal center center-justified" hidden="[[!processingFailed]]" on-tap='_goToItem'>
-            <div class="error-text">
-              <wc-i18n key='birch-artifact-grid-item.processing_fail'></wc-i18n>
-            </div>
-          </div>
-
-          <!--Screening-->
-          <div class="overlay layout horizontal center center-justified" hidden="[[!screening]]" on-tap='_goToItem'>
-            <div class='processing '>
-              <wc-i18n class='fs-h5' key='birch-artifact-grid-item.screening'></wc-i18n>
-            </div>
-          </div>
-        </template>
-
       </div>
     </cedar-card>
   </template>
