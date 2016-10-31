@@ -22,7 +22,7 @@
     "/demo"
   ],
   "dependencies": {
-    "cedar-card": "FamilySearchElements/cedar-card#1.0.0",
+    "cedar-card": "FamilySearchElements/cedar-card#1.x",
     "layout": "Polymer/layout",
     "polymer": "Polymer/polymer#~1.2.0",
     "wc-i18n": "jshcrowthe/wc-i18n#^1.1.0",
