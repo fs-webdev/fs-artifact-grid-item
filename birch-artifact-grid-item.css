@@ -208,7 +208,7 @@ cedar-card {
   z-index: 2;
 }
 
-.processing, .restricted, .processing > .fs-h5, .restricted > .fs-h5 {
+.processing, .restricted, .processing > .fs-h5, .restricted span > .fs-h5 {
   color: white;
   text-align: center;
 }
