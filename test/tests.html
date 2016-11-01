@@ -408,6 +408,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           expect(el.data.title).to.equal("");
           expect(el._titleInputActive).to.be.false;
         });
+
+        test('open info dialog', function(done) {
+          var translations = {
+            "restricted_info": "This Memory has been restricted due to content (see <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Upload Guidlines</a>) and will be removed from the site within 30 days.",
+            "check_email": "Check your email linked to your FamilySearch account for instructions."
+          }
+          
+          // Check that the event fired has the right values
+          document.addEventListener('open-restricted-info', function(e) {
+            expect(e.detail.target).to.equal(Polymer.dom(el.root).querySelector('.info-icon'));
+            expect(e.detail.translations.restrictedInfo).to.equal(translations.restricted_info);
+            expect(e.detail.translations.checkEmail).to.equal(translations.check_email);
+            done();
+          });
+
+          // Stubs
+          el.restricted = true;
+          el.owner = '1234';
+          el.data = {};
+          el.data.contributorCisUserId = '1234';
+          el.showRestrictedInfo = true;
+
+          Polymer.dom(el.root).querySelector('.restricted').click();
+        });
       });
     </script>
 
