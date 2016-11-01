@@ -285,7 +285,13 @@ cedar-card {
 }
 
 @media all and (max-width: 767px) {
-  .error-processing {
+  .error-processing, .restricted, .processing {
     font-size: .88rem;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .restricted {
+    top: 50px;
   }
 }
