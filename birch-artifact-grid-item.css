@@ -264,6 +264,11 @@ cedar-card {
   right: 10px;
 }
 
+.restricted-message-wrapper {
+  width: 60%;
+  display: inline-block;
+}
+
 @media all and (max-width: 979px) {
 
   .artifact-meta {

@@ -76,9 +76,11 @@
 
           <!--Restricted-->
           <div class="restricted" hidden="[[!restricted]]" on-tap='_openInfoDialog'>
-            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
-            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted_info' provider value='{{restrictedInfo}}'></wc-i18n>
-            <wc-i18n class='fs-h5' key='birch-artifact-grid-item.check_email' provider value='{{checkEmail}}'></wc-i18n>
+            <span class="restricted-message-wrapper">
+              <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted'></wc-i18n>
+              <wc-i18n class='fs-h5' key='birch-artifact-grid-item.restricted_info' provider value='{{restrictedInfo}}'></wc-i18n>
+              <wc-i18n class='fs-h5' key='birch-artifact-grid-item.check_email' provider value='{{checkEmail}}'></wc-i18n>
+            </span>
             <span class="info-icon" hidden='[[!_showRestrictedIcon]]'></span>
           </div>
 
@@ -114,6 +116,7 @@
               </div>
             </div>
           </template>
+
         </div>
       </div>
     </cedar-card>
