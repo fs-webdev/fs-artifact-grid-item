@@ -7,7 +7,7 @@
   "processing": "Processando",
   "processing_fail": "Falha no Processamento Remova e reenvie o artefato ou entre em contato com o suporte.",
   "restricted": "Material Restrito",
-  "restricted_info": "Esta recordação foi restrita por causa do conteúdo (ver <a href=\"https://familysearch.org/photos/uploadguidelines\">Diretrizes para o Envio</a>) e será removida em até 30 dias.",
+  "restricted_info": "Esta recordação foi restrita por causa do conteúdo (ver <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Diretrizes para o Envio</a>) e será removida em até 30 dias.",
   "screening": "Avaliando",
   "uploading": "Enviando"
 }

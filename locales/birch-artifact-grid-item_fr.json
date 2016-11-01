@@ -7,7 +7,7 @@
   "processing": "Traitement en cours",
   "processing_fail": "Échec du traitement. Supprimez et téléversez de nouveau le fichier, ou prenez contact avec l’assistance.",
   "restricted": "Accès restreint",
-  "restricted_info": "Du fait de son contenu, l’affichage de ce souvenir est interdit et sera supprimé du site dans les trente jours (voir les <a href=\"https://familysearch.org/photos/uploadguidelines\">directives de téléversement</a>).",
+  "restricted_info": "Du fait de son contenu, l’affichage de ce souvenir est interdit et sera supprimé du site dans les trente jours (voir les <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">directives de téléversement</a>).",
   "screening": "Vérification",
   "uploading": "Téléversement en cours"
 }

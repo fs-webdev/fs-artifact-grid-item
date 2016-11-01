@@ -7,7 +7,7 @@
   "processing": "In elaborazione",
   "processing_fail": "Elaborazione non riuscita. Cancella e ricarica oppure contatta l’assistenza.",
   "restricted": "Accesso limitato",
-  "restricted_info": "Questo ricordo è stato sottoposto a restrizioni a causa del contenuto (vedi <a href=\"https://familysearch.org/photos/uploadguidelines\">Linee guida per il caricamento</a>) e sarà rimosso dal sito entro 30 giorni.",
+  "restricted_info": "Questo ricordo è stato sottoposto a restrizioni a causa del contenuto (vedi <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Linee guida per il caricamento</a>) e sarà rimosso dal sito entro 30 giorni.",
   "screening": "Controllo in corso",
   "uploading": "Caricamento in corso"
 }

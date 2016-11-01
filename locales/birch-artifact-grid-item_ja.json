@@ -7,7 +7,7 @@
   "processing": "処理中",
   "processing_fail": "処理できませんでした。削除して再度アップロードするか，サポートに連絡してください。",
   "restricted": "制限付き",
-  "restricted_info": "この思い出はコンテンツのために制限されました（<a href=\"https://familysearch.org/photos/uploadguidelines\">投稿規約</a>を参照）。30日以内にサイトから削除されます。",
+  "restricted_info": "この思い出はコンテンツのために制限されました（<a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">投稿規約</a>を参照）。30日以内にサイトから削除されます。",
   "screening": "検査中",
   "uploading": "アップロード中"
 }

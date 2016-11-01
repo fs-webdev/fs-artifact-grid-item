@@ -7,7 +7,7 @@
   "processing": "Обработка",
   "processing_fail": "Обработка не удалась. Удалите и загрузите еще раз или свяжитесь со службой поддержки",
   "restricted": "Просмотр ограничен",
-  "restricted_info": "Содержание этого воспоминания не соответствует требованиям сайта (см. <a href=\"https://familysearch.org/photos/uploadguidelines\">Правила по загрузке</a>), и оно будет удалено в течение 30 дней.",
+  "restricted_info": "Содержание этого воспоминания не соответствует требованиям сайта (см. <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Правила по загрузке</a>), и оно будет удалено в течение 30 дней.",
   "screening": "Проверка",
   "uploading": "Загрузка"
 }
