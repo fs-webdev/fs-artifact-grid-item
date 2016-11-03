@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG830": "birch-artifact-grid-item_5_152 - CHANGES-ONLY",
+  "_LRM_PKTAG601": "birch-artifact-grid-item_6_152 - CHANGES-ONLY",
   "add_title": "タイトルを追加する",
   "check_email": "指示を読むには，ファミリーサーチアカウントにリンクされている電子メールをチェックしてください。",
   "contributed_by": "提供者：{0}",
@@ -7,7 +7,7 @@
   "processing": "処理中",
   "processing_fail": "処理できませんでした。削除して再度アップロードするか，サポートに連絡してください。",
   "restricted": "制限付き",
-  "restricted_info": "この思い出はコンテンツのために制限されました（<a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">投稿規約</a>を参照）。30日以内にサイトから削除されます。",
+  "restricted_info": "この思い出はコンテンツのために制限されました（<a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">アップロードの指針とポリシー</a>を参照）。30日以内にサイトから削除されます。",
   "screening": "検査中",
   "uploading": "アップロード中"
 }
