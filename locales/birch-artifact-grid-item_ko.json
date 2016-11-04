@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG578": "birch-artifact-grid-item_5_153 - CHANGES-ONLY",
+  "_LRM_PKTAG318": "birch-artifact-grid-item_6_153 - CHANGES-ONLY",
   "add_title": "제목 추가",
   "check_email": "유의 사항을 보려면 귀하의 FamilySearch 계정에 연결된 이메일을 확인하십시오.",
   "contributed_by": "작성자: {0}",
@@ -7,7 +7,7 @@
   "processing": "작업 중",
   "processing_fail": "처리 실패 삭제하고 다시 업로드하거나 지원 팀에 연락하십시오.",
   "restricted": "제한됨",
-  "restricted_info": "이 추억은 내용(<a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">업로드 지침 참조</a>) 때문에 제한되었으며 30일 이내에 사이트에서 삭제될 예정입니다.",
+  "restricted_info": "이 추억은 내용(<a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">업로드 지침 및 정책</a> 참조) 때문에 제한되었으며 30일 이내에 사이트에서 삭제될 예정입니다.",
   "screening": "심사 중",
   "uploading": "업로드 중"
 }
