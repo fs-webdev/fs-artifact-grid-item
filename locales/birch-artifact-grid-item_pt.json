@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG402": "birch-artifact-grid-item_5_154 - CHANGES-ONLY",
+  "_LRM_PKTAG776": "birch-artifact-grid-item_6_154 - CHANGES-ONLY",
   "add_title": "Acrescentar um Título",
   "check_email": "Verifique o e-mail cadastrado em  sua conta do FamilySearch para obter mais instruções.",
   "contributed_by": "Por: {0}",
@@ -7,7 +7,7 @@
   "processing": "Processando",
   "processing_fail": "Falha no Processamento Remova e reenvie o artefato ou entre em contato com o suporte.",
   "restricted": "Material Restrito",
-  "restricted_info": "Esta recordação foi restrita por causa do conteúdo (ver <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Diretrizes para o Envio</a>) e será removida em até 30 dias.",
+  "restricted_info": "Esta recordação foi restrita por causa do conteúdo (ver <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Diretrizes para o Envio e Normas de Privacidade</a>) e será removida em até 30 dias.",
   "screening": "Avaliando",
   "uploading": "Enviando"
 }
