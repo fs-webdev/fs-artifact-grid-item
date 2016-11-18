@@ -456,6 +456,7 @@
     },
     _openInfoDialog: function(e) {
       e.stopPropagation();
+      e.preventDefault();
       if (!this.showRestrictedInfo || this.owner !== this.data.contributorCisUserId) return;
       var data = {};
       data.translations = {};
