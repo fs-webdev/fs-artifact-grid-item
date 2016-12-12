@@ -452,7 +452,7 @@
       this.fire('gallery-open-contact-card', contactData);
     },
     _translateContributor: function(val) {
-      return (val) ? val.replace('{0}', '') : '';
+      return (val && this.owner) ? val.replace('{0}', '') : '';
     },
     _openInfoDialog: function(e) {
       e.stopPropagation();
