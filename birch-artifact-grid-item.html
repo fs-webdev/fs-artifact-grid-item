@@ -29,7 +29,7 @@
 
             <!-- IMAGE/DOCUMENT RENDERER -->
             <template is='dom-if' if="{{_isImage(data.category)}}">
-              <image-artifact image-url='[[data.thumbUrl]]'></image-artifact>
+              <image-artifact image-url='[[data.thumbSquareUrl]]'></image-artifact>
             </template>
 
             <!-- AUDIO RENDERER -->
@@ -39,7 +39,7 @@
 
             <!-- STORY RENDERER -->
             <template is='dom-if' if="{{_isStory(data.category)}}">
-              <story-artifact image-url='[[data.thumbUrl]]' description='[[data.description]]' title='[[data.title]]'></story-artifact>
+              <story-artifact image-url='[[data.thumbSquareUrl]]' description='[[data.description]]' title='[[data.title]]'></story-artifact>
             </template>
 
             <wc-i18n key='birch-artifact-grid-item.not_tagged' provider value='{{_notTaggedText}}'></wc-i18n>
@@ -141,7 +141,7 @@
        *   "href": "./images/19687650",
        *   "category": "IMAGE",
        *   "url": "https://familysearch.org/patron/v2/TH-904-58554-804-13/dist.jpg?ctx=ArtCtxPublic",
-       *   "thumbUrl": "https://familysearch.org/patron/v2/TH-904-58554-804-13/thumb200.jpg?ctx=ArtCtxPublic",
+       *   "thumbSquareUrl": "https://familysearch.org/patron/v2/TH-904-58554-804-13/thumb200.jpg?ctx=ArtCtxPublic",
        *   "title": "Demo Title",
        *   "description": "",
        *   "id": 19687650,
