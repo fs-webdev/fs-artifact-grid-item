@@ -448,7 +448,7 @@
     _openContactCard: function(e) {
       e.stopPropagation();
       this.fire('gallery-close-contact-card',{});
-      var contactData = {'event': e, 'data': this.data.ftUserInfo }
+      var contactData = {'event': e, 'cisId': this.data.contributorCisUserId }
       this.fire('gallery-open-contact-card', contactData);
     },
     _translateContributor: function(val) {
