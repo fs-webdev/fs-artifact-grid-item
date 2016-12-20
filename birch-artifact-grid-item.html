@@ -68,8 +68,8 @@
                   <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
                 </a>
               </div>
-              <div class="contributor" title='[[data.ftUserInfo.contactName]]'>
-                <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name' on-tap='_openContactCard'>[[data.ftUserInfo.contactName]]</span>
+              <div class="contributor" title='[[_getContactName(data)]]'>
+                <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name' on-tap='_openContactCard'>[[_getContactName(data)]]</span>
               </div>
             </div>
           </template> 
@@ -448,7 +448,7 @@
     _openContactCard: function(e) {
       e.stopPropagation();
       this.fire('gallery-close-contact-card',{});
-      var contactData = {'event': e, 'data': this.data.ftUserInfo }
+      var contactData = {'event': e, 'cisId': this.data.contributorCisUserId }
       this.fire('gallery-open-contact-card', contactData);
     },
     _translateContributor: function(val) {
@@ -468,6 +468,9 @@
     _isOwner: function(ex, user, owner, restricted) {
       if (!restricted || !ex) return false;
       return (user === owner);
+    },
+    _getContactName: function(data) {
+      return data.contributorContactName || data.ftUserInfo.contactName
     }
   });
 })();
