@@ -68,8 +68,8 @@
                   <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
                 </a>
               </div>
-              <div class="contributor" title='[[_getContactName(data)]]'>
-                <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name' on-tap='_openContactCard'>[[_getContactName(data)]]</span>
+              <div class="contributor" title='[[_getContributorName(data.*)]]'>
+                <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name' on-tap='_openContactCard'>[[_getContributorName(data.*)]]</span>
               </div>
             </div>
           </template> 
@@ -469,8 +469,8 @@
       if (!restricted || !ex) return false;
       return (user === owner);
     },
-    _getContactName: function(data) {
-      return data.contributorContactName || data.ftUserInfo.contactName
+    _getContributorName: function(data) {
+      return (data.value.ftUserInfo) ? data.value.ftUserInfo.contactName : data.value.contributorContactName;
     }
   });
 })();
