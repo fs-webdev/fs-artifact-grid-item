@@ -68,11 +68,11 @@
                   <i class='add-icon'></i><wc-i18n key='birch-artifact-grid-item.add_title'></wc-i18n>
                 </a>
               </div>
-              <div class="contributor" title='[[_getContributorName(data.*)]]'>
+              <div class="contributor" title='[[_getContributorName(data.*)]]' hidden='[[!_getContributorName(data.*)]]'>
                 <span>[[_translateContributor(_contributedBy)]]</span><span class='contributor-name' on-tap='_openContactCard'>[[_getContributorName(data.*)]]</span>
               </div>
             </div>
-          </template> 
+          </template>
 
           <!--Restricted-->
           <div class="restricted" hidden="[[!restricted]]" on-tap='_openInfoDialog'>
@@ -393,7 +393,7 @@
       if (!category) return false;
       return category === 'DOCUMENT' || category === 'PDF';
     },
-    /* 
+    /*
       * Takes focus away from input, so keyboard closes on mobile devices.
     */
     _focusTitle: function() {
@@ -409,7 +409,7 @@
       var newTab = false;
       if (e && e.detail && e.detail.sourceEvent) {
         newTab = e.detail.sourceEvent.ctrlKey || e.detail.sourceEvent.metaKey
-      } 
+      }
       if (this.view === 'my-memories' || this.view === 'my-archive' || this.view === 'my-favorites') {
         url = url + "?c="+this.view;
       } else if(parseInt(this.view)) {
