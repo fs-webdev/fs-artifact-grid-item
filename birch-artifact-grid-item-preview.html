@@ -135,7 +135,8 @@
           return;
         }
         var artifact = (Array.isArray(result)) ? result[0] : result.artifact;
-        artifact.thumbUrl = this.data.thumbUrl || result.artifact ? result.artifact.thumbSquareUrl : null;
+        var thumbSquareUrl = result.artifact ? result.artifact.thumbSquareUrl : null;
+        artifact.thumbUrl = this.data.thumbUrl || thumbSquareUrl;
         if(!this.data.thumbUrl){
           setTimeout(function(){
             this._updateData(artifact);
