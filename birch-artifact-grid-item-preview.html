@@ -43,8 +43,8 @@
           </span>
         </div>
       </div>
-      
-      
+
+
       <div id="memory-title" hidden="[[!data.uploadError]]"></div>
     </div>
     </div>
@@ -78,7 +78,7 @@
     ],
     properties: {
       /**
-       * A file upload object containing two properties 
+       * A file upload object containing two properties
        * ```
        * {
        *   file: FileObject,
@@ -90,7 +90,7 @@
        * property **or** rejects then error handling will occur
        * based on the err type
        *
-       * Otherwise the promise should resolve with an object 
+       * Otherwise the promise should resolve with an object
        * containing an `artifact` property. This property will be
        * used to bootstrap the underlying `birch-artifact-grid-item`
        * @type {Object}
@@ -135,7 +135,7 @@
           return;
         }
         var artifact = (Array.isArray(result)) ? result[0] : result.artifact;
-        artifact.thumbUrl = this.data.thumbUrl || result.artifact.thumbSquareUrl;
+        artifact.thumbUrl = this.data.thumbUrl || result.artifact ? result.artifact.thumbSquareUrl : null;
         if(!this.data.thumbUrl){
           setTimeout(function(){
             this._updateData(artifact);
