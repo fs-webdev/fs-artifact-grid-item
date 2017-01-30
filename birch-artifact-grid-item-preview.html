@@ -136,8 +136,8 @@
         }
         var artifact = (Array.isArray(result)) ? result[0] : result.artifact;
         var thumbSquareUrl = result.artifact ? result.artifact.thumbSquareUrl : null;
-        artifact.thumbUrl = this.data.thumbUrl || thumbSquareUrl;
-        if(!this.data.thumbUrl){
+        artifact.thumbSquareUrl = this.data.thumbSquareUrl || thumbSquareUrl;
+        if(!this.data.thumbSquareUrl){
           setTimeout(function(){
             this._updateData(artifact);
           }.bind(this), 5000);
@@ -171,7 +171,7 @@
       reader.onload = (function() {
         return function(e) {
           getScaledImage(e.target.result).then(function(image) {
-            _this.set('data.thumbUrl', image);
+            _this.set('data.thumbSquareUrl', image);
           });
         };
       })();
