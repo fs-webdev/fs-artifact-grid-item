@@ -336,6 +336,7 @@
         e.preventDefault();
         if (e.currentTarget.value.length > 0) {
           this._saveTitle(e.currentTarget.value);
+          e.currentTarget.value = '';
         } else {
           this._titleInputActive = false;
         }
@@ -346,11 +347,6 @@
         this.set('data.title', "");
         this._titleInputActive = false;
         this._focusTitle();
-      } else if (e.ctrlKey && e.shiftKey && e.keyCode == 69 && e.currentTarget.value.length > 0) {
-        this.set('data.title', e.currentTarget.value);
-        this._titleInputActive = false;
-        this._handlePostTitleError({detail: { error: 'Test error' }});
-        e.currentTarget.value = '';
       }
     },
     _handlePostTitleError:function(e) {
