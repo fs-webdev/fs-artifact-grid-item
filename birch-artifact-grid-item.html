@@ -466,7 +466,9 @@
       return (user === owner);
     },
     _getContributorName: function(data) {
-      return (data.value.ftUserInfo) ? data.value.ftUserInfo.contactName : data.value.contributorContactName;
+      if (data && data.value) {
+        return (data.value.ftUserInfo) ? data.value.ftUserInfo.contactName : data.value.contributorContactName;
+      }
     }
   });
 })();
