@@ -134,7 +134,7 @@
           this._handleUploadError(result.err);
           return;
         }
-        var artifact = (Array.isArray(result)) ? result[0] : result.artifact;
+        var artifact = (Array.isArray(result.items)) ? result.items[0] : result.artifact;
         var thumbSquareUrl = result.artifact ? result.artifact.thumbSquareUrl : null;
         artifact.thumbSquareUrl = this.data.thumbSquareUrl || thumbSquareUrl;
         if(!this.data.thumbSquareUrl){
