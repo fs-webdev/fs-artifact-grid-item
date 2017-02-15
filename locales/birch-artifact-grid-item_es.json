@@ -1,8 +1,9 @@
 {
-  "_LRM_PKTAG760": "birch-artifact-grid-item_6_149 - CHANGES-ONLY",
+  "_LRM_PKTAG133": "birch-artifact-grid-item_7_149 - CHANGES-ONLY",
   "add_title": "Agregar título",
   "check_email": "Revisa tu correo electrónico vinculado a tu cuenta FamilySearch para obtener instrucciones.",
   "contributed_by": "Por: {0}",
+  "contributed_by_link": "Por: <span class='contributor-name' on-tap='_openContactCard'>{0}</span>",
   "not_tagged": "Este recuerdo no está etiquetado",
   "processing": "Procesando",
   "processing_fail": "No se pudo procesar. Eliminar y volver a cargar o contacta a Soporte.",

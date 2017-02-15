@@ -1,8 +1,9 @@
 {
-  "_LRM_PKTAG812": "birch-artifact-grid-item_6_154 - CHANGES-ONLY",
+  "_LRM_PKTAG35": "birch-artifact-grid-item_7_154 - CHANGES-ONLY",
   "add_title": "Acrescentar um Título",
   "check_email": "Verifique o e-mail cadastrado em  sua conta do FamilySearch para obter mais instruções.",
   "contributed_by": "Por: {0}",
+  "contributed_by_link": "Por: <span class='contributor-name' on-tap='_openContactCard'>{0}</span>",
   "not_tagged": "Esta recordação não está marcada.",
   "processing": "Processando",
   "processing_fail": "Falha no Processamento Remova e reenvie o artefato ou entre em contato com o suporte.",
