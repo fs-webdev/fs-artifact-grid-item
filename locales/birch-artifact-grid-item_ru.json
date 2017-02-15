@@ -1,8 +1,9 @@
 {
-  "_LRM_PKTAG144": "birch-artifact-grid-item_6_155 - CHANGES-ONLY",
+  "_LRM_PKTAG485": "birch-artifact-grid-item_7_155 - CHANGES-ONLY",
   "add_title": "Добавить заголовок",
   "check_email": "Посмотрите инструкции в сообщении электронной почты, отправленному по адресу, связанному с вашей учетной записью FamilySearch.",
   "contributed_by": "Предоставлено: {0}",
+  "contributed_by_link": "Предоставлено: <span class='contributor-name' on-tap='_openContactCard'>{0}</span>",
   "not_tagged": "Для этого воспоминания нет меток.",
   "processing": "Обработка",
   "processing_fail": "Обработка не удалась. Удалите и загрузите еще раз или свяжитесь со службой поддержки",
