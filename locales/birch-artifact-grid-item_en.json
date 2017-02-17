@@ -3,7 +3,7 @@
   "add_title":"Add Title",
   "restricted": "Restricted",
   "contributed_by": "By: {0}",
-  "contributed_by_link": "By: <span class='contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "contributed_by_link": "By: <span class='style-scope birch-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Processing",
   "processing_fail": "Processing Failed. Delete and re-upload or contact support.",
   "screening": "Screening",
