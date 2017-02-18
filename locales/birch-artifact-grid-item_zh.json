@@ -1,9 +1,9 @@
 {
-  "_LRM_PKTAG591": "birch-artifact-grid-item_7_156 - CHANGES-ONLY",
+  "_LRM_PKTAG756": "birch-artifact-grid-item_8_156 - CHANGES-ONLY",
   "add_title": "加入標題",
   "check_email": "檢查和你 FamilySearch 帳號相連的電子郵件，來查看指示。",
   "contributed_by": "建立者：{0}",
-  "contributed_by_link": "建立者：<span class='contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "contributed_by_link": "建立者：<span class='style-scope birch-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "not_tagged": "此回憶未加上標籤。",
   "processing": "處理中",
   "processing_fail": "處理失敗。刪除且重新上傳或聯絡支援。",
