@@ -1,9 +1,9 @@
 {
-  "_LRM_PKTAG433": "birch-artifact-grid-item_7_153 - CHANGES-ONLY",
+  "_LRM_PKTAG780": "birch-artifact-grid-item_8_153 - CHANGES-ONLY",
   "add_title": "제목 추가",
   "check_email": "유의 사항을 보려면 귀하의 FamilySearch 계정에 연결된 이메일을 확인하십시오.",
   "contributed_by": "작성자: {0}",
-  "contributed_by_link": "작성자: <span class='contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "contributed_by_link": "작성자: <span class='style-scope birch-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "not_tagged": "이 추억은 태그되어 있지 않습니다.",
   "processing": "작업 중",
   "processing_fail": "처리 실패 삭제하고 다시 업로드하거나 지원 팀에 연락하십시오.",
