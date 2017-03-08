@@ -9,41 +9,39 @@
   <link rel="import" type="css" href="birch-artifact-grid-item-preview.css">
   <template>
     <div class="relative">
-    <wc-i18n-src locale='[[lang]]' locale-dir='[[localeDir()]]' domain='birch-artifact-grid-item-preview'></wc-i18n-src>
     <birch-artifact-grid-item data="[[data]]"></birch-artifact-grid-item>
     <div class="grid-item-preview-overlay">
       <div class="spinner" hidden="[[!loading]]"></div>
       <div class="error-uploading full layout horizontal end" hidden="[[!data.uploadError]]">
         <div class="error-text" hidden="[[!data.failure]]">
           <span>
-            <wc-i18n key='birch-artifact-grid-item-preview.try_again'></wc-i18n>
+            [[i18n('try_again')]]
           </span>
           <!-- <a href="javascript:;" on-tap="_retryUpload">
-            <wc-i18n key='birch-artifact-grid-item-preview.retry'></wc-i18n>
+            [[i18n('retry')]]
           </a> -->
         </div>
         <div class="error-text" hidden="[[!data.duplicate]]">
           <span>
-            <wc-i18n key='birch-artifact-grid-item-preview.duplicate'></wc-i18n>
+            [[i18n('duplicate')]]
           </span>
         </div>
         <div class="error-text" hidden="[[!data.tooBig]]">
           <span>
-            <wc-i18n key='birch-artifact-grid-item-preview.size'></wc-i18n>
+            [[i18n('size')]]
           </span>
         </div>
         <div class="error-text" hidden="[[!data.unsupported]]">
           <span>
-            <wc-i18n key='birch-artifact-grid-item-preview.unsupported'></wc-i18n>
+            [[i18n('unsupported')]]
           </span>
         </div>
         <div class="error-text" hidden="[[!data.tryAgain]]">
           <span>
-            <wc-i18n key='birch-artifact-grid-item-preview.fail_continues'></wc-i18n>
+            [[i18n('fail_continues')]]
           </span>
         </div>
       </div>
-
 
       <div id="memory-title" hidden="[[!data.uploadError]]"></div>
     </div>
@@ -73,7 +71,7 @@
   Polymer({
     is: 'birch-artifact-grid-item-preview',
     behaviors: [
-      WCI18nBehavior,
+      WCI18n(),
       OakI18nBehavior
     ],
     properties: {
