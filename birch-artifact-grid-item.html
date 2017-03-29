@@ -90,6 +90,13 @@
               </div>
             </div>
 
+            <!-- Upload Failed -->
+            <div class="overlay layout horizontal center center-justified" hidden="[[!uploadFailed]]" on-tap='_goToItem'>
+              <div class='error-text'>
+                [[i18n('upload_failed')]]
+              </div>
+            </div>
+
             <!--Processing-->
             <div class="overlay layout horizontal center center-justified" hidden="[[!processing]]" on-tap='_goToItem'>
               <div class='processing'>
@@ -225,6 +232,10 @@
         type: Boolean,
         value: false
       },
+      uploadFailed: {
+        type: Boolean,
+        value: false
+      },
       _href: {
         type: String,
         computed: '_computeHref(data.id)'
@@ -288,6 +299,7 @@
       if(!showMessages) return;
       // Reset the states
       this.uploading = false;
+      this.uploadFailed = false;
       this.processing = false;
       this.processingFailed = false;
       this.screening = false;
@@ -302,17 +314,22 @@
       // Check screening state. If not APPROVED, display RESTRICTED or SCREENING message as appropriate
       if (this.data.uploadState == 'UPLOADING') {
         this.uploading = true;
+        this._displayMessage = true;
+      } else if(this.data.uploadState == 'FAILED') {
+        this.uploadFailed = true;
+        this._displayMessage = true;
       } else if (this.data.category !== 'AUDIO' && this.data.imageProcessingState !== 'PROCESSED' && this.data.imageProcessingState !== 'FAILED') {
         this.processing = true;
+        this._displayMessage = true;
       } else if (this.data.imageProcessingState === 'FAILED') {
         this.processingFailed = true;
+        this._displayMessage = true;
       } else if (this.data.screeningState !== 'APPROVED' && this.data.screeningState !== 'ESCALATE' && this.data.screeningState !== 'RESTRICTED') {
         this.screening = true;
+        this._displayMessage = true;
       } else if (this.data.screeningState === 'RESTRICTED') {
         this.restricted = true;
       }
-
-      if (this.uploading || this.processing || this.screening || this.processingFailed) this._displayMessage = true;
     },
     _computeIsActive: function(titleInputActive) {
       if (titleInputActive) return true;

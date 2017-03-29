@@ -9,5 +9,6 @@
   "screening": "Screening",
   "uploading": "Uploading",
   "restricted_info": "This Memory has been restricted due to content (see <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Upload Guidelines and Policies</a>) and will be removed from the site within 30 days.",
-  "check_email": "Check your email linked to your FamilySearch account for instructions."
+  "check_email": "Check your email linked to your FamilySearch account for instructions.",
+  "upload_failed": "Upload failed. Delete, and upload again."
 }
