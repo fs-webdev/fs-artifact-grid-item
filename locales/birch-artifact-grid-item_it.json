@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG364": "birch-artifact-grid-item_8_151 - CHANGES-ONLY",
+  "_LRM_PKTAG449": "birch-artifact-grid-item_9_151 - CHANGES-ONLY",
   "add_title": "Aggiungi titolo",
   "check_email": "Controlla l’e-mail collegata al tuo account FamilySearch per trovare istruzioni in merito.",
   "contributed_by": "Da: {0}",
@@ -10,5 +10,6 @@
   "restricted": "Accesso limitato",
   "restricted_info": "Questo ricordo è stato sottoposto a restrizioni a causa del contenuto (vedi <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Linee guida e direttive per il caricamento</a>) e sarà rimosso dal sito entro 30 giorni.",
   "screening": "Controllo in corso",
+  "upload_failed": "Caricamento non riuscito. Cancella e carica di nuovo.",
   "uploading": "Caricamento in corso"
 }
