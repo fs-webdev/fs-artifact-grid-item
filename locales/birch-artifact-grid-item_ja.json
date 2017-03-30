@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG14": "birch-artifact-grid-item_9_152 - CHANGES-ONLY",
+  "_LRM_PKTAG295": "birch-artifact-grid-item_10_152 - CHANGES-ONLY",
   "add_title": "タイトルを追加する",
   "check_email": "指示を読むには，ファミリーサーチアカウントにリンクされている電子メールをチェックしてください。",
   "contributed_by": "提供者：{0}",
@@ -8,7 +8,7 @@
   "processing": "処理中",
   "processing_fail": "処理できませんでした。削除して再度アップロードするか，サポートに連絡してください。",
   "restricted": "制限付き",
-  "restricted_info": "この思い出はコンテンツのために制限されました（<a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">アップロードの指針と方針</a>を参照）。30日以内にサイトから削除されます。",
+  "restricted_info": "この思い出はコンテンツのために制限されました（<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">アップロードの指針と方針</a>を参照）。30日以内にサイトから削除されます。",
   "screening": "検査中",
   "upload_failed": "アップロードできませんでした。削除してからもう一度アップロードしてください。",
   "uploading": "アップロード中"
