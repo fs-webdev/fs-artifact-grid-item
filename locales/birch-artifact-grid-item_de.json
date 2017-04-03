@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG951": "birch-artifact-grid-item_9_157 - CHANGES-ONLY",
+  "_LRM_PKTAG100": "birch-artifact-grid-item_10_157 - CHANGES-ONLY",
   "add_title": "Titel hinzufügen",
   "check_email": "In dem E-Mail-Fach, das mit Ihrem FamilySearch-Benutzerkonto verknüpft ist, finden Sie Anweisungen.",
   "contributed_by": "Von: {0}",
@@ -8,7 +8,7 @@
   "processing": "Wird verarbeitet",
   "processing_fail": "Verarbeitung fehlgeschlagen. Bitte löschen und erneut hochladen oder den Support kontaktieren.",
   "restricted": "Nicht freigegeben",
-  "restricted_info": "Der Zugriff auf diese Erinnerung ist aufgrund ihres Inhalts beschränkt (siehe <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Richtlinien und Bestimmungen für das Hochladen</a>) und wird innerhalb von 30 Tagen von der Website entfernt.",
+  "restricted_info": "Der Zugriff auf diese Erinnerung ist aufgrund ihres Inhalts beschränkt (siehe <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Richtlinien und Bestimmungen für das Hochladen</a>) und wird innerhalb von 30 Tagen von der Website entfernt.",
   "screening": "Überprüfung läuft",
   "upload_failed": "Hochladen fehlgeschlagen. Bitte löschen und erneut hochladen.",
   "uploading": "Wird hochgeladen"
