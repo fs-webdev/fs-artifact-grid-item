@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG239": "birch-artifact-grid-item_9_149 - CHANGES-ONLY",
+  "_LRM_PKTAG279": "birch-artifact-grid-item_10_149 - CHANGES-ONLY",
   "add_title": "Agregar título",
   "check_email": "Revisa tu correo electrónico vinculado a tu cuenta FamilySearch para obtener instrucciones.",
   "contributed_by": "Por: {0}",
@@ -8,7 +8,7 @@
   "processing": "Procesando",
   "processing_fail": "No se pudo procesar. Eliminar y volver a cargar o contacta a Soporte.",
   "restricted": "Restringido",
-  "restricted_info": "Este Recuerdo ha sido restringido debido al contenido (ver <a target='blank' href=\"https://familysearch.org/photos/uploadguidelines\">Pautas de carga y Normas</a>) y se quitará del sitio dentro de 30 días.",
+  "restricted_info": "Este recuerdo ha sido restringido debido al contenido (ver <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Normas y Pautas de carga</a>) y se suprimirá del sitio dentro de 30 días.",
   "screening": "Verificando",
   "upload_failed": "No se pudo cargar el archivo. Eliminar y cargar otra vez.",
   "uploading": "Cargando"
