@@ -41,8 +41,10 @@
               <story-artifact image-url='[[data.thumbSquareUrl]]' description='[[data.description]]' title='[[data.title]]'></story-artifact>
             </template>
 
-            <i class='not-tagged-icon' hidden='[[!_is(data.photoTagCount, 0)]]' title='[[i18n("not_tagged")]]'></i>
-            <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
+            <template is="dom-if" if="[[!data.tombstoned]]">
+              <i class='not-tagged-icon' hidden='[[!_is(data.photoTagCount, 0)]]' title='[[i18n("not_tagged")]]'></i>
+              <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
+            </template>
           </div>
 
           <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
@@ -72,51 +74,53 @@
           </template>
 
           <!--Restricted-->
-          <div class="restricted" hidden="[[!restricted]]" on-tap='_openInfoDialog'>
-            <span class="restricted-message-wrapper">
-              [[i18n('restricted')]]
-            </span>
-            <span class="info-icon" hidden='[[!_showRestrictedIcon]]'></span>
-          </div>
-
-          <template is='dom-if' if='[[showMessages]]'>
-            <!-- Dim the thumbnail for error messages-->
-            <div class='overlay' hidden="[[!_displayMessage]]" on-tap='_goToItem'></div>
-
-            <!--Uploading-->
-            <div class="overlay layout horizontal center center-justified" hidden="[[!uploading]]" on-tap='_goToItem'>
-              <div class='processing'>
-                [[i18n('uploading')]]
-              </div>
+          <template is="dom-if" if="[[!data.tombstoned]]">
+            <div class="restricted" hidden="[[!restricted]]" on-tap='_openInfoDialog'>
+              <span class="restricted-message-wrapper">
+                [[i18n('restricted')]]
+              </span>
+              <span class="info-icon" hidden='[[!_showRestrictedIcon]]'></span>
             </div>
 
-            <!-- Upload Failed -->
-            <div class="overlay layout horizontal center center-justified" hidden="[[!uploadFailed]]" on-tap='_goToItem'>
-              <div class='error-text'>
-                [[i18n('upload_failed')]]
-              </div>
-            </div>
+            <template is='dom-if' if='[[showMessages]]'>
+              <!-- Dim the thumbnail for error messages-->
+              <div class='overlay' hidden="[[!_displayMessage]]" on-tap='_goToItem'></div>
 
-            <!--Processing-->
-            <div class="overlay layout horizontal center center-justified" hidden="[[!processing]]" on-tap='_goToItem'>
-              <div class='processing'>
-                [[i18n('processing')]]
+              <!--Uploading-->
+              <div class="overlay layout horizontal center center-justified" hidden="[[!uploading]]" on-tap='_goToItem'>
+                <div class='processing'>
+                  [[i18n('uploading')]]
+                </div>
               </div>
-            </div>
 
-            <!--Error Processing-->
-            <div class="error-processing overlay layout horizontal center center-justified" hidden="[[!processingFailed]]" on-tap='_goToItem'>
-              <div class="error-text">
-                [[i18n('processing_fail')]]
+              <!-- Upload Failed -->
+              <div class="overlay layout horizontal center center-justified" hidden="[[!uploadFailed]]" on-tap='_goToItem'>
+                <div class='error-text'>
+                  [[i18n('upload_failed')]]
+                </div>
               </div>
-            </div>
 
-            <!--Screening-->
-            <div class="overlay layout horizontal center center-justified" hidden="[[!screening]]" on-tap='_goToItem'>
-              <div class='processing '>
-                [[i18n('screening')]]
+              <!--Processing-->
+              <div class="overlay layout horizontal center center-justified" hidden="[[!processing]]" on-tap='_goToItem'>
+                <div class='processing'>
+                  [[i18n('processing')]]
+                </div>
               </div>
-            </div>
+
+              <!--Error Processing-->
+              <div class="error-processing overlay layout horizontal center center-justified" hidden="[[!processingFailed]]" on-tap='_goToItem'>
+                <div class="error-text">
+                  [[i18n('processing_fail')]]
+                </div>
+              </div>
+
+              <!--Screening-->
+              <div class="overlay layout horizontal center center-justified" hidden="[[!screening]]" on-tap='_goToItem'>
+                <div class='processing '>
+                  [[i18n('screening')]]
+                </div>
+              </div>
+            </template>
           </template>
 
         </div>
@@ -277,6 +281,10 @@
       'artifact.tap': '_goToItem'
     },
     _titleLinkOverride: function(e) {
+      if (this.data.tombstoned) {
+        e.preventDefault();
+        return;
+      }
       if (this._titleError) {
         e.preventDefault();
         this._titleError = false;
@@ -370,7 +378,7 @@
       if (e.detail.status < 400) this.fire('artifact-item-title-updated')
     },
     _hideAddTitle: function(readOnly, title, dataOwner, inputtedOwner, titleInputActive) {
-      if (readOnly || title || titleInputActive) return true;
+      if (readOnly || title || titleInputActive || this.data.tombstoned) return true;
       if (inputtedOwner) {
         return dataOwner !== inputtedOwner;
       }
@@ -410,7 +418,7 @@
       this.$$('.title-text').focus();
     },
     _goToItem: function(e) {
-      if (this.selectMode) return;
+      if (this.selectMode || this.data.tombstoned) return;
       e.preventDefault();
       e.stopPropagation();
       var url = this._href;
