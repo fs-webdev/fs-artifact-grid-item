@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG857": "birch-artifact-grid-item_10_155 - CHANGES-ONLY",
+  "_LRM_PKTAG654": "birch-artifact-grid-item_11_155 - CHANGES-ONLY",
   "add_title": "Добавить заголовок",
   "check_email": "Посмотрите инструкции в сообщении электронной почты, отправленному по адресу, связанному с вашей учетной записью FamilySearch.",
   "contributed_by": "Предоставлено: {0}",
@@ -7,6 +7,7 @@
   "not_tagged": "Для этого воспоминания нет меток.",
   "processing": "Обработка",
   "processing_fail": "Обработка не удалась. Удалите и загрузите еще раз или свяжитесь со службой поддержки",
+  "remaining_days_count": "Дней:{0} ",
   "restricted": "Просмотр ограничен",
   "restricted_info": "Содержание этого воспоминания не соответствует требованиям сайта (см. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Правила по загрузке</a>), и оно будет удалено с сайта в течение 30 дней.",
   "screening": "Проверка",
