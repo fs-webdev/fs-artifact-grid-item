@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "cedar-card": "FamilySearchElements/cedar-card#1.x",
-    "layout": "Polymer/layout",
+    "layout": "fs-webdev/layout#1.0.0",
     "polymer": "Polymer/polymer#^1.2.0",
     "wc-i18n": "jshcrowthe/wc-i18n#^2.1.0",
     "iron-image": "PolymerElements/iron-image#^1.2.3",
