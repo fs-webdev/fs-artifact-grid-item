@@ -41,6 +41,12 @@
               <story-artifact image-url='[[data.thumbSquareUrl]]' description='[[data.description]]' title='[[data.title]]'></story-artifact>
             </template>
 
+            <template is="dom-if" if="[[data.tombstoned]]">
+              <div class="badge-wrapper">
+                <small class='badge'>[[_getRemainingDaysCount(i18n, data)]]</small>
+              </div>
+            </template>
+
             <template is="dom-if" if="[[!data.tombstoned]]">
               <i class='not-tagged-icon' hidden='[[!_is(data.photoTagCount, 0)]]' title='[[i18n("not_tagged")]]'></i>
               <i class='comment-icon' hidden='[[!data.commentCount]]'>[[data.commentCount]]</i>
@@ -290,6 +296,10 @@
         this._titleError = false;
         this._toggleAddTitleInput();
       }
+    },
+    _getRemainingDaysCount: function(i18n, data) {
+      if(!i18n || !i18n('remaining_days_count') || !data) return '';
+      return i18n('remaining_days_count').replace('{0}', data.daysUntilDelete);
     },
     _calculateTitleClass: function(_titleError) {
       return (_titleError) ? 'title-text error-styling' : 'title-text';
