@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/FamilySearchElements/birch-artifact-grid-item.svg?branch=master)](https://travis-ci.org/FamilySearchElements/birch-artifact-grid-item)
-[![Coverage Status](https://coveralls.io/repos/github/FamilySearchElements/birch-artifact-grid-item/badge.svg?branch=master)](https://coveralls.io/github/FamilySearchElements/birch-artifact-grid-item?branch=master)
 
 # birch-artifact-grid-item
 
