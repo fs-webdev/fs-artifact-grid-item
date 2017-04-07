@@ -1,5 +1,5 @@
 {
-  "_LRM_PKTAG137": "birch-artifact-grid-item_10_150 - CHANGES-ONLY",
+  "_LRM_PKTAG782": "birch-artifact-grid-item_11_150 - CHANGES-ONLY",
   "add_title": "Ajouter le titre",
   "check_email": "Vous trouverez des instructions dans un courriel envoyé à l’adresse indiquée dans votre compte FamilySearch.",
   "contributed_by": "Par : {0}",
@@ -7,6 +7,7 @@
   "not_tagged": "Ce souvenir n’a pas de signet.",
   "processing": "Traitement en cours",
   "processing_fail": "Échec du traitement. Supprimez et téléversez de nouveau le fichier, ou prenez contact avec l’assistance.",
+  "remaining_days_count": "{0} jours",
   "restricted": "Accès restreint",
   "restricted_info": "Du fait de son contenu, l’affichage de ce souvenir est interdit et sera supprimé du site dans les trente jours (voir les <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">règles et directives de téléversement</a>).",
   "screening": "Vérification",
