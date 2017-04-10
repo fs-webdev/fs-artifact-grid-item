@@ -424,7 +424,7 @@
       * Takes focus away from input, so keyboard closes on mobile devices.
     */
     _focusTitle: function() {
-      document.activeElement.blur();
+      if (document.activeElement.blur && typeof document.activeElement.blur === 'function') document.activeElement.blur();
       this.$$('.title-text').focus();
     },
     _goToItem: function(e) {
