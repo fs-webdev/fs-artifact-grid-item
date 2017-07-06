@@ -64,8 +64,7 @@
             </div>
           </template>
           <!-- Contributor Name -->
-          <template is='dom-if' if='[[!_hideContributorName(view, showContributed, _titleInputActive)]]'>
-            <div class="artifact-meta">
+            <div class="artifact-meta" hidden="[[_hideContributorName(view, showContributed, _titleInputActive)]]">
               <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
                 <i class="exclamation-icon" hidden="[[!_titleError]]"></i>
                 <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
@@ -77,7 +76,6 @@
                 <span id='contributor-link' on-click='_openContactCard'></span>
               </div>
             </div>
-          </template>
 
           <!--Restricted-->
           <template is="dom-if" if="[[!data.tombstoned]]">
