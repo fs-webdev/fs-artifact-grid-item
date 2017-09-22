@@ -108,6 +108,9 @@
       tap: '_stopPropagation',
       contextmenu: '_stopPropagation'
     },
+    observers: [
+      '_handleImportError(data.importError)'
+    ],
     /**
      * Handles the updating of data we need this
      * because iron-list listens for changes to items.*
@@ -144,7 +147,8 @@
         }
         return result;
       }.bind(this), this._handleUploadError.bind(this));
-      this._getDataUrl(this.data.file);
+      // Sanity check that it's not an import file
+      if (this.data.file && !this.data.file.url) this._getDataUrl(this.data.file);
     },
     _handleUploadError: function(status){
       if (status == 409) {
@@ -161,7 +165,13 @@
 
       this.loading = false;
       this.set('data.uploadError', true);
-      if (this.data.file.name) this.$['memory-title'].innerText = this.data.file.name;
+      // Sanity check that it's not an import which wouldn't have a file name
+      if (this.data.file && this.data.file.name) this.$['memory-title'].innerText = this.data.file.name;
+    },
+    _handleImportError: function(status) {
+      if (status) {
+        this._handleUploadError(status);
+      }
     },
     _getDataUrl: function(file){
       var _this = this;
