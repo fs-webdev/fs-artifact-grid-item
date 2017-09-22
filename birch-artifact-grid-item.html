@@ -443,7 +443,11 @@
       if (newTab){
         window.open(url, '_blank').focus();
       } else {
-        location = url;
+        this._stopProp(e);
+        this.fire('birch-artifact-grid-item:go-to-artifact', {
+          click: e,
+          artifact: this.data
+        });
       }
     },
     _resetInputs: function() {
