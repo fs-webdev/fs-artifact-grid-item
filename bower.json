@@ -1,11 +1,11 @@
 {
-  "name": "birch-artifact-grid-item",
+  "name": "fs-artifact-grid-item",
   "version": "2.3.0",
   "authors": [
     "Josh Crowther <jshcrowthe@gmail.com>"
   ],
   "description": "An element that renders any artifact in the gallery grid format",
-  "main": "birch-artifact-grid-item.html",
+  "main": "fs-artifact-grid-item.html",
   "moduleType": [],
   "keywords": [
     "button",

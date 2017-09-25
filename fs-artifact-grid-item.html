@@ -11,9 +11,9 @@
 
 <!-- @demo demo/index.html -->
 
-<dom-module id='birch-artifact-grid-item'>
+<dom-module id='fs-artifact-grid-item'>
   <style include='fs-styles'></style>
-  <link rel="import" type="css" href="birch-artifact-grid-item.css">
+  <link rel="import" type="css" href="fs-artifact-grid-item.css">
   <template>
     <iron-ajax id="postTitle"
       url="[[ajaxBase]]/artifactmanager/artifacts/[[data.id]]"
@@ -135,7 +135,7 @@
 <script>
  (function() {
   Polymer({
-    is: 'birch-artifact-grid-item',
+    is: 'fs-artifact-grid-item',
     behaviors: [
       OakAJAXBehavior,
       WCI18n(),

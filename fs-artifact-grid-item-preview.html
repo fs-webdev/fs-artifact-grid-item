@@ -1,15 +1,15 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../wc-i18n/wc-i18n.html">
 <link rel="import" href="../oak-i18n-behavior/oak-i18n-behavior.html">
-<link rel="import" href="./birch-artifact-grid-item.html">
+<link rel="import" href="./fs-artifact-grid-item.html">
 <link rel="import" href="../fs-styles/fs-styles.html">
 
-<dom-module id='birch-artifact-grid-item-preview'>
+<dom-module id='fs-artifact-grid-item-preview'>
   <style include='fs-styles'></style>
-  <link rel="import" type="css" href="birch-artifact-grid-item-preview.css">
+  <link rel="import" type="css" href="fs-artifact-grid-item-preview.css">
   <template>
     <div class="relative">
-    <birch-artifact-grid-item data="[[data]]"></birch-artifact-grid-item>
+    <fs-artifact-grid-item data="[[data]]"></fs-artifact-grid-item>
     <div class="grid-item-preview-overlay">
       <div class="spinner" hidden="[[!loading]]"></div>
       <div class="error-uploading full layout horizontal end" hidden="[[!data.uploadError]]">
@@ -69,7 +69,7 @@
   }
 
   Polymer({
-    is: 'birch-artifact-grid-item-preview',
+    is: 'fs-artifact-grid-item-preview',
     behaviors: [
       WCI18n(),
       OakI18nBehavior
@@ -90,7 +90,7 @@
        *
        * Otherwise the promise should resolve with an object
        * containing an `artifact` property. This property will be
-       * used to bootstrap the underlying `birch-artifact-grid-item`
+       * used to bootstrap the underlying `fs-artifact-grid-item`
        * @type {Object}
        */
       data: {

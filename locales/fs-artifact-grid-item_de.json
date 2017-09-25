@@ -1,9 +1,8 @@
 {
-  "_LRM_PKTAG324": "birch-artifact-grid-item_11_157 - CHANGES-ONLY",
   "add_title": "Titel hinzufügen",
   "check_email": "In dem E-Mail-Fach, das mit Ihrem FamilySearch-Benutzerkonto verknüpft ist, finden Sie Anweisungen.",
   "contributed_by": "Von: {0}",
-  "contributed_by_link": "Von: <span class='style-scope birch-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "contributed_by_link": "Von: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "not_tagged": "Diese Erinnerung enthält keine Markierungen.",
   "processing": "Wird verarbeitet",
   "processing_fail": "Verarbeitung fehlgeschlagen. Bitte löschen und erneut hochladen oder den Support kontaktieren.",
