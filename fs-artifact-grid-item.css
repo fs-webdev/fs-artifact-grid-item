@@ -123,10 +123,10 @@
   top: calc(50% - 11px);
 }
 
-cedar-card {
+fs-card {
   width: var(--grid-item-card-width);
   max-width: 170px;
-  --cedar-card-body: {
+  --fs-card-body: {
     padding: 0;
     width: 100%;
     @apply(--grid-item-card-styles);

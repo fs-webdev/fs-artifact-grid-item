@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../cedar-card/cedar-card.html">
+<link rel="import" href="../fs-card/fs-card.html">
 <link rel="import" href="../wc-i18n/wc-i18n.html">
 <link rel="import" href="../oak-i18n-behavior/oak-i18n-behavior.html">
 <link rel="import" href="audio-artifact/audio-artifact.html">
@@ -21,7 +21,7 @@
       method="POST"
       on-response="_handlePostTitleResponse"
       on-error="_handlePostTitleError"></iron-ajax>
-    <cedar-card>
+    <fs-card>
       <div body>
         <div class="relative">
           <div id='artifact' class="artifact">
@@ -129,7 +129,7 @@
 
         </div>
       </div>
-    </cedar-card>
+    </fs-card>
   </template>
 </dom-module>
 <script>
@@ -139,7 +139,7 @@
     behaviors: [
       OakAJAXBehavior,
       WCI18n(),
-      OakI18nBehavior,
+      OakI18nBehavior
     ],
     properties: {
       /**
