@@ -1,6 +1,6 @@
 {
   "name": "fs-artifact-grid-item",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "authors": [
     "Josh Crowther <jshcrowthe@gmail.com>"
   ],
@@ -22,7 +22,7 @@
     "/demo"
   ],
   "dependencies": {
-    "fs-card": "fs-webdev/fs-card#1.x",
+    "fs-card": "fs-webdev/fs-card#2.x",
     "layout": "fs-webdev/layout#1.0.0",
     "polymer": "Polymer/polymer#^1.2.0",
     "wc-i18n": "jshcrowthe/wc-i18n#^2.1.0",
