@@ -123,14 +123,14 @@
   top: calc(50% - 11px);
 }
 
-fs-card {
-  width: var(--grid-item-card-width);
+.fs-card {
+  width: calc(46vw - 20px);
   max-width: 170px;
-  --fs-card-body: {
-    padding: 0;
-    width: 100%;
-    @apply(--grid-item-card-styles);
-  };
+}
+
+.fs-card__body {
+  padding: 0;
+  width: 100%;
 }
 
 .loading-icon {
