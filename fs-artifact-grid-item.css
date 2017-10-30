@@ -123,7 +123,7 @@
   top: calc(50% - 11px);
 }
 
-fs-card {
+fs-card-el {
   width: var(--grid-item-card-width);
   max-width: 170px;
   --fs-card-body: {

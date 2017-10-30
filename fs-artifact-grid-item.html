@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../fs-card/fs-card.html">
+<link rel="import" href="../fs-card-el/fs-card-el.html">
 <link rel="import" href="../wc-i18n/wc-i18n.html">
 <link rel="import" href="../oak-i18n-behavior/oak-i18n-behavior.html">
 <link rel="import" href="audio-artifact/audio-artifact.html">
@@ -21,7 +21,7 @@
       method="POST"
       on-response="_handlePostTitleResponse"
       on-error="_handlePostTitleError"></iron-ajax>
-    <fs-card>
+    <fs-card-el>
       <div body>
         <div class="relative">
           <div id='artifact' class="artifact">
@@ -129,7 +129,7 @@
 
         </div>
       </div>
-    </fs-card>
+    </fs-card-el>
   </template>
 </dom-module>
 <script>
