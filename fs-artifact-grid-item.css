@@ -126,7 +126,7 @@
 fs-card-el {
   width: var(--grid-item-card-width);
   max-width: 170px;
-  --fs-card-body: {
+  --fs-card-el-body: {
     padding: 0;
     width: 100%;
     @apply(--grid-item-card-styles);
