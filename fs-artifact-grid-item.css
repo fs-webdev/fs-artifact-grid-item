@@ -123,14 +123,14 @@
   top: calc(50% - 11px);
 }
 
-.fs-card {
-  width: calc(46vw - 20px);
+fs-card {
+  width: var(--grid-item-card-width);
   max-width: 170px;
-}
-
-.fs-card__body {
-  padding: 0;
-  width: 100%;
+  --fs-card-body: {
+    padding: 0;
+    width: 100%;
+    @apply(--grid-item-card-styles);
+  };
 }
 
 .loading-icon {
