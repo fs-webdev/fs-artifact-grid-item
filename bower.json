@@ -22,7 +22,7 @@
     "/demo"
   ],
   "dependencies": {
-    "fs-card": "fs-webdev/fs-card#2.x",
+    "fs-card-el": "fs-webdev/fs-card-el#3.x",
     "layout": "fs-webdev/layout#1.0.0",
     "polymer": "Polymer/polymer#^1.2.0",
     "wc-i18n": "jshcrowthe/wc-i18n#^2.1.0",
@@ -37,6 +37,7 @@
     "web-component-tester": "~4.3.1"
   },
   "resolutions": {
-    "polymer": "^1.2.0"
+    "polymer": "^1.2.0",
+    "webcomponentsjs": "^0.7.24"
   }
 }
