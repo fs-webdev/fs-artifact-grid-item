@@ -8,6 +8,7 @@
 <link rel="import" href="../fs-styles/fs-styles.html">
 <link rel="import" href="../oak-ajax-behavior/oak-ajax-behavior.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../fs-metrics/fs-metrics.html">
 
 <!-- @demo demo/index.html -->
 
@@ -139,7 +140,8 @@
     behaviors: [
       OakAJAXBehavior,
       WCI18n(),
-      OakI18nBehavior
+      OakI18nBehavior,
+      FsBehaviors.Metrics
     ],
     properties: {
       /**
@@ -426,6 +428,7 @@
       this.$$('.title-text').focus();
     },
     _goToItem: function(e) {
+      this.fireMetrics({link_name: 'Artifact: Click to View'});
       if (this.selectMode || this.data.tombstoned) return;
       e.preventDefault();
       e.stopPropagation();
