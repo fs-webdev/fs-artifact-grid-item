@@ -362,12 +362,18 @@
       this.fire('gallery-deselect-all');
     },
     _handleEnterExitBlur: function(e) {
-      this._stopProp(e)
+      this._stopProp(e);
       if (e.keyCode == 13 || e.key == "Enter" || e.type == "blur") {
         e.preventDefault();
         if (e.currentTarget.value.length > 0) {
-          this._saveTitle(e.currentTarget.value);
-          e.currentTarget.value = '';
+          /* If the user hits the Enter key, a keydown and blur event are both fired.  Using async here
+           * prevents the duplicate call to _saveTitle.  If we don't do this, metrics gets counted twice. */
+          this.async(function() {
+            if (e.currentTarget) {
+              this._saveTitle(e.currentTarget.value);
+              e.currentTarget.value = '';
+            }
+          });
         } else {
           this._titleInputActive = false;
         }
@@ -454,6 +460,7 @@
       if (this.$$('.title-input')) this.$$('.title-input').value = "";
     },
     _saveTitle: function(titleText) {
+      this.fireMetrics({link_name: 'Artifact: Save New Title'});
       this.$.postTitle.body = {
         title: titleText
       };
