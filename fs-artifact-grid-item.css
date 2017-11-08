@@ -123,14 +123,15 @@
   top: calc(50% - 11px);
 }
 
-fs-card-el {
+.fs-card {
   width: var(--grid-item-card-width);
   max-width: 170px;
-  --fs-card-el-body: {
-    padding: 0;
-    width: 100%;
-    @apply(--grid-item-card-styles);
-  };
+}
+
+.fs-card .fs-card__body {
+  padding: 0;
+  width: 100%;
+  @apply(--grid-item-card-styles);
 }
 
 .loading-icon {

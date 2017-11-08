@@ -22,7 +22,6 @@
     "/demo"
   ],
   "dependencies": {
-    "fs-card-el": "fs-webdev/fs-card-el#3.x",
     "layout": "fs-webdev/layout#1.0.0",
     "polymer": "Polymer/polymer#^1.2.0",
     "wc-i18n": "jshcrowthe/wc-i18n#^2.1.0",
@@ -30,7 +29,7 @@
     "iron-ajax": "PolymerElements/iron-ajax#~1.0.6",
     "oak-ajax-behavior": "fs-webdev/oak-ajax-behavior",
     "oak-i18n-behavior": "fs-webdev/oak-i18n-behavior#1.x",
-    "fs-styles": "fs-webdev/fs-styles",
+    "fs-styles": "fs-webdev/fs-styles#3.x",
     "fs-metrics": "fs-webdev/fs-metrics#1.x"
   },
   "devDependencies": {
@@ -39,6 +38,7 @@
   },
   "resolutions": {
     "polymer": "^1.2.0",
-    "webcomponentsjs": "^0.7.24"
+    "webcomponentsjs": "^0.7.24",
+    "promise-polyfill": "^2.0.1"
   }
 }
