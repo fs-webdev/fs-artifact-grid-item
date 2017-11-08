@@ -38,10 +38,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       suite('<fs-artifact-grid-item>', function() {
         var el;
+        var fireMetricsStub;
 
         setup(function() {
           var rootEl;
           el = fixture('grid-item-fixture');
+          fireMetricsStub = sinon.stub(el, "fireMetrics");
+        });
+
+        teardown(function() {
+          fireMetricsStub.restore();
         });
 
         test('Overall Artifact Element Testing', function(done) {
@@ -96,7 +102,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             
             //See if "thumbnail" is a class on iron-image
             var checkClassList = Array.prototype.indexOf.call(ironImage.classList, "thumbnail");
-            assert.isAtLeast(checkClassList, 0)
+            assert.isAtLeast(checkClassList, 0);
 
             var innerImg = ironImage.$$('img');
             var urlRegEx = /^https:.+\.(jpg|png|jpe?g|gif|bmp)/;
@@ -164,18 +170,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           
           var artifact = rootEl.querySelector('#artifact');
 
+          var _fireGoToItemMetricsStub = sinon.stub(el, "_fireGoToItemMetrics");
           var stub = sinon.stub(window, "open", function(url, prop){ return mockElement; });
-          
+
           var mockElement = document.createElement("div");
           var mockEvent = {detail:{"sourceEvent": {ctrlKey: true} }, preventDefault: function(){}, stopPropagation: function(){}};
 
           el._goToItem(mockEvent);
 
+          assert.isTrue(_fireGoToItemMetricsStub.calledOnce);
           assert.isTrue(stub.calledOnce);
 
           el.selectMode = true;
           el._goToItem();
 
+          assert.isTrue(_fireGoToItemMetricsStub.calledTwice);
           assert.isFalse(stub.calledTwice);
 
         });
@@ -207,7 +216,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           rootEl = Polymer.dom(el.root);
 
           var spy = sinon.spy();
-          var mockEvent = {stopPropagation:spy} 
+          var mockEvent = {stopPropagation:spy};
 
          el._stopProp(mockEvent);
 
@@ -232,7 +241,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         test('Check State for error messages', function() {
           el.showMessages = true;
           // Processing
-          var unprocessedItem = {} 
+          var unprocessedItem = {};
           unprocessedItem.imageProcessingState = 'UNPROCESSED';
           el.data = unprocessedItem;
           expect(el.processing).to.be.true;
@@ -330,8 +339,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           var mockE = {
             preventDefault: function(){},
-            stopPropagation: function(){},
-          }
+            stopPropagation: function(){}
+          };
           el._titleLinkOverride(mockE);
 
           expect(toggleAddTitleInput.calledOnce).to.be.true;
@@ -347,8 +356,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           var mockE = {
             preventDefault: function(){},
-            stopPropagation: function(){},
-          }
+            stopPropagation: function(){}
+          };
 
           expect(el._titleInputActive).to.be.false;
 
@@ -360,47 +369,61 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
         });
 
-        test('Handle enter exit blur', function(){
+        test('Handle enter exit blur', function(done){
           el.data = dataObj.standardImage;
-          var saveTitle = sinon.spy(el, '_saveTitle');
-          var focusTitle = sinon.spy(el, '_focusTitle');
+          var _saveTitleSpy = sinon.spy(el, '_saveTitle');
+          var _focusTitleSpy = sinon.spy(el, '_focusTitle');
           
-          var mockE = {
+          var mockE_Async = {
             preventDefault: function(){},
             stopPropagation: function(){},
             type: "blur",
             currentTarget: {
               value: "text"
             }
-          }
+          };
           Polymer.dom.flush();
 
           // Case: Enter or blur with text entered
-          el._handleEnterExitBlur(mockE);
+          el._handleEnterExitBlur(mockE_Async);
 
-          expect(saveTitle.calledOnce).to.be.true;
-          expect(focusTitle.calledOnce).to.be.true;  
+          setTimeout(function() {
+            expect(_saveTitleSpy.calledOnce).to.be.true;
+            expect(el.data.title).to.equal("text");
+            el._saveTitle.restore();
+            done();
+          });
+
+          expect(_focusTitleSpy.calledOnce).to.be.true;
           expect(el._titleInputActive).to.be.false;
-          expect(el.data.title).to.equal("text");
 
           // Case: Enter or blur without any text entered
           el._titleInputActive = true;
-          mockE.currentTarget.value = "";
+          var mockE = {
+            preventDefault: function(){},
+            stopPropagation: function(){},
+            type: "blur",
+            currentTarget: {
+              value: ""
+            }
+          };
           el._handleEnterExitBlur(mockE);
 
-          expect(focusTitle.calledTwice).to.be.true;
+          expect(_focusTitleSpy.calledTwice).to.be.true;
           expect(el._titleInputActive).to.be.false;
 
           // Case: exit button pressed
           mockE.keyCode = 27;
-          mockE.currentTarget.value = "text"
+          mockE.currentTarget.value = "text";
           mockE.type = "";
           el._titleInputActive = true;
           el._handleEnterExitBlur(mockE);
 
-          expect(focusTitle.calledThrice).to.be.true;
+          expect(_focusTitleSpy.calledThrice).to.be.true;
           expect(el.data.title).to.equal("");
           expect(el._titleInputActive).to.be.false;
+
+          el._focusTitle.restore();
         });
 
         test('open info dialog', function(done) {
