@@ -186,6 +186,7 @@ fs-card-el {
   position: absolute;
   width:35px;
   top: initial;
+  z-index: 10;
 }
 
 .comment-icon {

@@ -434,7 +434,8 @@
       this.$$('.title-text').focus();
     },
     _goToItem: function(e) {
-      this.fireMetrics({link_name: 'Artifact: Click to View'});
+      this._fireGoToItemMetrics(e);
+
       if (this.selectMode || this.data.tombstoned) return;
       e.preventDefault();
       e.stopPropagation();
@@ -512,6 +513,12 @@
       if (data && data.value) {
         return (data.value.ftUserInfo) ? data.value.ftUserInfo.contactName : data.value.contributorContactName;
       }
+    },
+    _fireGoToItemMetrics: function(e) {
+      if (e.target.classList.contains('not-tagged-icon')) {
+        this.fireMetrics({link_name: 'Artifact: Add Tag Icon'});
+      }
+      this.fireMetrics({link_name: 'Artifact: Click to View'});
     }
   });
 })();
