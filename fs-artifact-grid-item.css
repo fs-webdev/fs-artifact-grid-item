@@ -225,6 +225,13 @@
   background: rgba(0, 0, 0, 0.45);
 }
 
+.overlay-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
 .restricted {
   position: absolute;
   top: 75px;
@@ -322,4 +329,8 @@
   .restricted {
     top: 50px;
   }
+}
+
+.relative {
+  position: relative;
 }

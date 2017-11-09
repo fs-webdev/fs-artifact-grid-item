@@ -1,24 +1,23 @@
 <link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../../layout/layout.html">
 <link rel="import" href="../../fs-metrics/fs-metrics.html">
 
 <dom-module id='audio-artifact'>
   <link rel="import" type="css" href="styles.css">
   <template>
     <audio src$="[[audioUrl]]" id="audio" preload="auto" on-timeupdate="_updateTimers" on-loadedmetadata="_setDuration" on-ended="_audioReset" on-canplay="_audioReady"></audio>
-    <div class="layout vertical full">
+    <div class="flex-column full">
       <h1 class="story-content-title">[[title]]</h1>
       <!-- AUDIO CONTROLS -->
-      <div class="layout horizontal center-justified center relative full">
+      <div class="flex-row-center relative full">
         <!-- ELAPSED TIME -->
-        <span class="layout horizontal center center-justified audio-timer" hidden$="{{!_audioObj.initialized}}">{{_audioObj.elapsed}}</span>
+        <span class="flex-row-center audio-timer" hidden$="{{!_audioObj.initialized}}">{{_audioObj.elapsed}}</span>
         <!-- PLAY BUTTON -->
-        <span id="actionplay" class="audio-control layout horizontal">
+        <span id="actionplay" class="audio-control">
           <i class="audio-icon play-icon"  hidden$="{{_audioObj.playing}}" on-tap="toggleAudio"></i>
           <i class="audio-icon pause-icon" hidden$="{{!_audioObj.playing}}" on-tap="toggleAudio"></i>
         </span>
         <!-- AUDIO DURATION -->
-        <span class="layout horizontal center center-justified audio-timer" hidden$="{{!_audioObj.initialized}}">{{_audioObj.duration}}</span>
+        <span class="flex-row-center audio-timer" hidden$="{{!_audioObj.initialized}}">{{_audioObj.duration}}</span>
         <i class="loading-icon playing-animation" hidden="{{_audioObj.ready}}"></i>
         <!-- PLAYING ANIMATION -->
         <div id="bars" hidden$="{{!_showBars(_audioObj.initialized, _audioObj.elapsed, _audioObj.duration, _audioObj.ready)}}" class$="{{_barActive(_audioObj.playing)}}">
@@ -28,7 +27,7 @@
           <div class="bar"></div>
         </div>
         <!-- TIME DISPLAY -->
-        <div class="audio-meta layout horizontal center center-justified" hidden$="{{_audioObj.initialized}}">
+        <div class="audio-meta flex-row-center" hidden$="{{_audioObj.initialized}}">
           <i class="audio-icon-small"></i>
           <span>{{_audioObj.duration}}</span>
         </div>

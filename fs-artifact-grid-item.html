@@ -91,35 +91,35 @@
               <div class='overlay' hidden="[[!_displayMessage]]" on-tap='_goToItem'></div>
 
               <!--Uploading-->
-              <div class="overlay layout horizontal center center-justified" hidden="[[!uploading]]" on-tap='_goToItem'>
+              <div class="overlay overlay-message" hidden="[[!uploading]]" on-tap='_goToItem'>
                 <div class='processing'>
                   [[i18n('uploading')]]
                 </div>
               </div>
 
               <!-- Upload Failed -->
-              <div class="overlay layout horizontal center center-justified" hidden="[[!uploadFailed]]" on-tap='_goToItem'>
+              <div class="overlay overlay-message" hidden="[[!uploadFailed]]" on-tap='_goToItem'>
                 <div class='error-text'>
                   [[i18n('upload_failed')]]
                 </div>
               </div>
 
               <!--Processing-->
-              <div class="overlay layout horizontal center center-justified" hidden="[[!processing]]" on-tap='_goToItem'>
+              <div class="overlay overlay-message" hidden="[[!processing]]" on-tap='_goToItem'>
                 <div class='processing'>
                   [[i18n('processing')]]
                 </div>
               </div>
 
               <!--Error Processing-->
-              <div class="error-processing overlay layout horizontal center center-justified" hidden="[[!processingFailed]]" on-tap='_goToItem'>
+              <div class="error-processing overlay overlay-message" hidden="[[!processingFailed]]" on-tap='_goToItem'>
                 <div class="error-text">
                   [[i18n('processing_fail')]]
                 </div>
               </div>
 
               <!--Screening-->
-              <div class="overlay layout horizontal center center-justified" hidden="[[!screening]]" on-tap='_goToItem'>
+              <div class="overlay overlay-message" hidden="[[!screening]]" on-tap='_goToItem'>
                 <div class='processing '>
                   [[i18n('screening')]]
                 </div>
