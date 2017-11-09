@@ -8,6 +8,7 @@
 <link rel="import" href="../fs-styles/fs-styles.html">
 <link rel="import" href="../oak-ajax-behavior/oak-ajax-behavior.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../fs-metrics/fs-metrics.html">
 
 <!-- @demo demo/index.html -->
 
@@ -139,7 +140,8 @@
     behaviors: [
       OakAJAXBehavior,
       WCI18n(),
-      OakI18nBehavior
+      OakI18nBehavior,
+      FsBehaviors.Metrics
     ],
     properties: {
       /**
@@ -360,12 +362,18 @@
       this.fire('gallery-deselect-all');
     },
     _handleEnterExitBlur: function(e) {
-      this._stopProp(e)
+      this._stopProp(e);
       if (e.keyCode == 13 || e.key == "Enter" || e.type == "blur") {
         e.preventDefault();
         if (e.currentTarget.value.length > 0) {
-          this._saveTitle(e.currentTarget.value);
-          e.currentTarget.value = '';
+          /* If the user hits the Enter key, a keydown and blur event are both fired.  Using async here
+           * prevents the duplicate call to _saveTitle.  If we don't do this, metrics gets counted twice. */
+          this.async(function() {
+            if (e.currentTarget) {
+              this._saveTitle(e.currentTarget.value);
+              e.currentTarget.value = '';
+            }
+          });
         } else {
           this._titleInputActive = false;
         }
@@ -426,6 +434,8 @@
       this.$$('.title-text').focus();
     },
     _goToItem: function(e) {
+      this._fireGoToItemMetrics(e);
+
       if (this.selectMode || this.data.tombstoned) return;
       e.preventDefault();
       e.stopPropagation();
@@ -451,6 +461,7 @@
       if (this.$$('.title-input')) this.$$('.title-input').value = "";
     },
     _saveTitle: function(titleText) {
+      this.fireMetrics({link_name: 'Artifact: Save New Title'});
       this.$.postTitle.body = {
         title: titleText
       };
@@ -472,8 +483,9 @@
     },
     _openContactCard: function(e) {
       e.stopPropagation();
+      this.fireMetrics({link_name: 'Artifact: Select Contributor Name'});
       this.fire('gallery-close-contact-card',{});
-      var contactData = {'event': e, 'cisId': this.data.contributorCisUserId }
+      var contactData = {'event': e, 'cisId': this.data.contributorCisUserId };
       this.fire('gallery-open-contact-card', contactData);
     },
     _translateContributor: function(i18n, data) {
@@ -501,6 +513,12 @@
       if (data && data.value) {
         return (data.value.ftUserInfo) ? data.value.ftUserInfo.contactName : data.value.contributorContactName;
       }
+    },
+    _fireGoToItemMetrics: function(e) {
+      if (e.target.classList.contains('not-tagged-icon')) {
+        this.fireMetrics({link_name: 'Artifact: Add Tag Icon'});
+      }
+      this.fireMetrics({link_name: 'Artifact: Click to View'});
     }
   });
 })();

@@ -1,5 +1,6 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../layout/layout.html">
+<link rel="import" href="../../fs-metrics/fs-metrics.html">
 
 <dom-module id='audio-artifact'>
   <link rel="import" type="css" href="styles.css">
@@ -49,6 +50,9 @@
   }
   Polymer({
     is: 'audio-artifact',
+    behaviors: [
+      FsBehaviors.Metrics
+    ],
     properties: {
       audioUrl: {
         type: String,
@@ -101,6 +105,10 @@
       if (!playing) staticClasses += ' paused';
       return staticClasses;
     },
+    _audioEnded: function() {
+      playingAudioNode = null;
+      this.removeEventListener('ended', this._audioEnded);
+    },
     toggleAudio: function(e) {
       var self = this;
       if (e) {
@@ -110,12 +118,10 @@
       if (!this._audioObj.initialized) this.set('_audioObj.initialized', true);
       if (this.$.audio.paused) {
         if (playingAudioNode) playingAudioNode.toggleAudio();
+        this.fireMetrics({link_name: 'Artifact: Click to Play Audio'});
         this.$.audio.play();
         playingAudioNode = this;
-        this.addEventListener('ended', function(){
-          playingAudioNode = null;
-          self.removeEventListener('ended');
-        });
+        this.addEventListener('ended', this._audioEnded);
       } else {
         this.$.audio.pause();
         playingAudioNode = null;
