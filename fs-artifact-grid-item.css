@@ -123,14 +123,15 @@
   top: calc(50% - 11px);
 }
 
-fs-card-el {
+.fs-card {
   width: var(--grid-item-card-width);
   max-width: 170px;
-  --fs-card-el-body: {
-    padding: 0;
-    width: 100%;
-    @apply(--grid-item-card-styles);
-  };
+}
+
+.fs-card .fs-card__body {
+  padding: 0;
+  width: 100%;
+  @apply(--grid-item-card-styles);
 }
 
 .loading-icon {
@@ -222,6 +223,13 @@ fs-card-el {
   right:0;
   padding: 10px 10px 15px;
   background: rgba(0, 0, 0, 0.45);
+}
+
+.overlay-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .restricted {
@@ -321,4 +329,8 @@ fs-card-el {
   .restricted {
     top: 50px;
   }
+}
+
+.relative {
+  position: relative;
 }
