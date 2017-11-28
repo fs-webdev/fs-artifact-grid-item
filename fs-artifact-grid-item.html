@@ -800,7 +800,7 @@
       if (this.$$('.title-input')) this.$$('.title-input').value = "";
     },
     _saveTitle: function(titleText) {
-      this.fireMetrics({link_name: 'Artifact: Save New Title'});
+      this.fireMetrics({link_name: 'Artifact: Save Title'});
       this.$.postTitle.body = {
         title: titleText
       };

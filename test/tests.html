@@ -365,7 +365,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           expect(el._titleInputActive).to.be.true;
           if (!Polymer.Settings.useNativeShadow && !Polymer.Settings.useShadow) {
-            expect(document.activeElement.classList.contains('title-input')).to.be.true;
+            expect(el.root.activeElement.classList.contains('title-input')).to.be.true;
           }
         });
 
