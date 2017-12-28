@@ -364,7 +364,7 @@
     <div class="fs-card">
       <div class="fs-card__body">
         <div class="relative">
-          <div id='artifact' class="artifact">
+          <div id='artifact' class="artifact" on-tap="_goToItem">
 
             <!-- IMAGE/DOCUMENT RENDERER -->
             <template is='dom-if' if="{{_isImage(data.category)}}">
@@ -622,9 +622,6 @@
       '_modifyState(data.*, showMessages)',
       '_translateContributor(i18n, data.*)'
     ],
-    listeners: {
-      'artifact.tap': '_goToItem'
-    },
     _titleLinkOverride: function(e) {
       if (this.data.tombstoned) {
         e.preventDefault();
