@@ -219,6 +219,10 @@
         type: Boolean,
         value: true
       },
+      _fixUploadImages: {
+        type: Boolean,
+        value: function(){ return FS.showEx('fixUploadImages'); }
+      }
     },
     listeners: {
       tap: '_stopPropagation',
@@ -251,7 +255,7 @@
           this._handleUploadError(result.err);
           return;
         }
-        if(!_fixUploadImages){
+        if(!this._fixUploadImages){
           var artifact = (Array.isArray(result.items)) ? result.items[0] : result.artifact;
           var thumbSquareUrl = result.artifact ? result.artifact.thumbSquareUrl : null;
           artifact.thumbSquareUrl = data.thumbSquareUrl || thumbSquareUrl;
@@ -266,7 +270,7 @@
         }
       }.bind(this), this._handleUploadError.bind(this));
       // Sanity check that it's not an import file
-      if(!_fixUploadImages){
+      if(!this._fixUploadImages){
         if (data.file && !data.file.url) this._getDataUrl(data.file);
       }
     },
