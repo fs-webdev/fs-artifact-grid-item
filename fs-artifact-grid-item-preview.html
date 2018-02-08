@@ -244,27 +244,31 @@
         this.set(path, artifact[key]);
       }.bind(this));
     },
-    _attachPromiseHandler: function() {
-      if (!this.data || !this.data.promise || typeof this.data.promise.then !== 'function') return;
-      this.data.promise.then(function (result){
+    _attachPromiseHandler: function(data) {
+      if (!data || !data.promise || typeof data.promise.then !== 'function') return;
+      data.promise.then(function (result){
         if(result.err){
           this._handleUploadError(result.err);
           return;
         }
-        var artifact = (Array.isArray(result.items)) ? result.items[0] : result.artifact;
-        var thumbSquareUrl = result.artifact ? result.artifact.thumbSquareUrl : null;
-        artifact.thumbSquareUrl = this.data.thumbSquareUrl || thumbSquareUrl;
-        if(!this.data.thumbSquareUrl){
-          setTimeout(function(){
+        if(!_fixUploadImages){
+          var artifact = (Array.isArray(result.items)) ? result.items[0] : result.artifact;
+          var thumbSquareUrl = result.artifact ? result.artifact.thumbSquareUrl : null;
+          artifact.thumbSquareUrl = data.thumbSquareUrl || thumbSquareUrl;
+          if(!data.thumbSquareUrl){
+            setTimeout(function(){
+              this._updateData(artifact);
+            }.bind(this), 5000);
+          } else {
             this._updateData(artifact);
-          }.bind(this), 5000);
-        } else {
-          this._updateData(artifact);
+          }
+          return result;
         }
-        return result;
       }.bind(this), this._handleUploadError.bind(this));
       // Sanity check that it's not an import file
-      if (this.data.file && !this.data.file.url) this._getDataUrl(this.data.file);
+      if(!_fixUploadImages){
+        if (data.file && !data.file.url) this._getDataUrl(data.file);
+      }
     },
     _handleUploadError: function(status){
       if (status == 409) {
