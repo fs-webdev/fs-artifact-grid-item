@@ -392,7 +392,7 @@
             </template>
 
             <template is="dom-if" if="[[!data.tombstoned]]">
-              <i class='not-tagged-icon' hidden$='[[_hideTagIcon(data)]]' title='[[i18n("not_tagged")]]'></i>
+              <i class='not-tagged-icon' hidden$='[[_hideTagIcon(data, selectMode)]]' title='[[i18n("not_tagged")]]'></i>
               <i class='comment-icon' hidden$='[[!data.commentCount]]'>[[data.commentCount]]</i>
             </template>
           </div>
@@ -860,8 +860,8 @@
       }
       this.fireMetrics({link_name: 'Artifact: Click to View'});
     },
-    _hideTagIcon(data){
-      if (this.selectMode) {
+    _hideTagIcon(data, selectMode){
+      if (selectMode) {
         return true;
       } else {
         return this._is(data.photoTagCount, 0) ? false : true;
