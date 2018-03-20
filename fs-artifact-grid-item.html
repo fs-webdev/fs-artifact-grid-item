@@ -883,7 +883,7 @@
      * @return {string}
      */
     _getNotTaggedIconClass: function() {
-      return FS._simpleLocale === 'en' ? 'not-tagged-icon-english' : 'not-tagged-icon-non-english';
+      return FS.simpleLocale() === 'en' ? 'not-tagged-icon-english' : 'not-tagged-icon-non-english';
     }
   });
 })();
