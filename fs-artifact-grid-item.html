@@ -400,7 +400,7 @@
             </template>
 
             <template is="dom-if" if="[[!data.tombstoned]]">
-              <i class$='not-tagged-icon [[_getNotTaggedIconClass()]]' hidden$='[[_hideTagIcon(data, selectMode)]]' title='[[i18n("not_tagged")]]'></i>
+              <i class$='not-tagged-icon [[_getNotTaggedIconClass()]]' hidden$='[[_hideTagIcon(data, selectMode)]]' title='[[i18n("not_tagged")]]' data-test="NotTaggedIcon"></i>
               <i class='comment-icon' hidden$='[[!data.commentCount]]'>[[data.commentCount]]</i>
             </template>
           </div>
@@ -408,19 +408,19 @@
           <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
             <div class="title" title='[[data.title]]' on-tap="_stopProp">
               <i class="exclamation-icon" hidden$="[[!_titleError]]"></i>
-              <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden$='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
-              <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden$='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
+              <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden$='[[_hideTitle(data.title, _titleInputActive)]]' data-test="GalleryTitleLink">[[data.title]]</a>
+              <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden$='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]' data-test="GalleryAddTitleBtn">
                 <i class='add-icon'></i>[[i18n('add_title')]]
               </a>
-              <input class="title-input" type="text" maxlength='140' hidden$="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" />
+              <input class="title-input" type="text" maxlength='140' hidden$="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" data-test="GalleryTitleInput"/>
             </div>
           </template>
           <!-- Contributor Name -->
             <div class="artifact-meta" hidden$="[[_hideContributorName(view, showContributed, _titleInputActive)]]">
               <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
                 <i class="exclamation-icon" hidden$="[[!_titleError]]"></i>
-                <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden$='[[_hideTitle(data.title, _titleInputActive)]]'>[[data.title]]</a>
-                <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden$='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]'>
+                <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden$='[[_hideTitle(data.title, _titleInputActive)]]' data-test="GalleryTitleLink2">[[data.title]]</a>
+                <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden$='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]' data-test="GalleryAddTitleBtn2">
                   <i class='add-icon'></i>[[i18n('add_title')]]
                 </a>
               </div>
@@ -432,7 +432,7 @@
           <!--Restricted-->
           <template is="dom-if" if="[[!data.tombstoned]]">
             <div class="restricted" hidden$="[[!restricted]]" on-tap='_openInfoDialog'>
-              <span class="restricted-message-wrapper">
+              <span class="restricted-message-wrapper" data-test="Restricted">
                 [[i18n('restricted')]]
               </span>
               <span class="info-icon" hidden$='[[!_showRestrictedIcon]]'></span>
@@ -444,35 +444,35 @@
 
               <!--Uploading-->
               <div class="overlay overlay-message" hidden$="[[!uploading]]" on-tap='_goToItem'>
-                <div class='processing'>
+                <div class='processing' data-test="Uploading">
                   [[i18n('uploading')]]
                 </div>
               </div>
 
               <!-- Upload Failed -->
               <div class="overlay overlay-message" hidden$="[[!uploadFailed]]" on-tap='_goToItem'>
-                <div class='error-text'>
+                <div class='error-text' data-test="UploadFailed">
                   [[i18n('upload_failed')]]
                 </div>
               </div>
 
               <!--Processing-->
               <div class="overlay overlay-message" hidden$="[[!processing]]" on-tap='_goToItem'>
-                <div class='processing'>
+                <div class='processing' data-test="Processing">
                   [[i18n('processing')]]
                 </div>
               </div>
 
               <!--Error Processing-->
               <div class="error-processing overlay overlay-message" hidden$="[[!processingFailed]]" on-tap='_goToItem'>
-                <div class="error-text">
+                <div class="error-text" data-test="ProcessingFailed">
                   [[i18n('processing_fail')]]
                 </div>
               </div>
 
               <!--Screening-->
               <div class="overlay overlay-message" hidden$="[[!screening]]" on-tap='_goToItem'>
-                <div class='processing '>
+                <div class='processing ' data-test="Screening">
                   [[i18n('screening')]]
                 </div>
               </div>
