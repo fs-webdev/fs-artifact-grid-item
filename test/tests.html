@@ -395,7 +395,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             expect(el.data.title).to.equal("text");
             el._saveTitle.restore();
             done();
-          });
+          }, 20);
 
           expect(_focusTitleSpy.calledOnce).to.be.true;
           expect(el._titleInputActive).to.be.false;
