@@ -1,0 +1,38 @@
+---
+prepare:
+  fetch:
+    - url: "https://raw.githubusercontent.com/fs-webdev/fs-javascript/master/linters/.eslintrc"
+      path: "fs-javascript.eslintrc"
+engines:
+  csslint:
+    enabled: true
+    checks:
+      box-sizing:
+        enabled: false
+      fallback-colors:
+        enabled: false
+  duplication:
+    config:
+      languages:
+        - javascript
+    enabled: true
+  eslint:
+    enabled: true
+    channel: eslint-4
+    config:
+      config: .codeclimate.eslintrc
+exclude_paths:
+  - test/
+  - components/
+  - node_modules/
+  - "**/test/**/*"
+  - assets/js/
+  - assets/modules/
+  - lib/
+  - controllers/
+  - assets/css/
+
+ratings:
+  paths:
+    - "**.css"
+    - "**.js"

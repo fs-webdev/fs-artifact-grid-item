@@ -1,0 +1,33 @@
+{
+  "name": "fs-artifact-grid-item",
+  "version": "4.0.13",
+  "description": "Web Component for displaying grid view item.",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fs-webdev/fs-artifact-grid-item.git"
+  },
+  "author": {
+    "name": "FamilySearch",
+    "url": "https://familysearch.org/"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/fs-webdev/fs-artifact-grid-item/issues"
+  },
+  "homepage": "https://github.com/fs-webdev/fs-artifact-grid-item#readme",
+  "devDependencies": {
+    "bower": "^1.5.1",
+    "web-component-tester": "^6.0.2",
+    "babel-eslint": "^8.x",
+    "eslint": "^4.x",
+    "fs-javascript": "github:fs-webdev/fs-javascript",
+    "wct-istanbub": "^0.1.0"
+  },
+  "scripts": {
+    "postinstall": "bower install --config-interactive=false"
+  }
+}

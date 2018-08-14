@@ -4,8 +4,10 @@ dist: trusty
 before_install:
   - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 before_script:
-  - npm install -g bower web-component-tester
-  - bower install
+  - npm install -g bower
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 env:
   global:
     - secure: gZ5vpMlc9fuKSZeMmT6xf4+FIVWxET6f6Lkp6l5Qo9vL2X/KC/bMJF1v2w5xXFLFTdm/hPUDkeQRDUBBJhGcsXhJeWIvAXdPkObV9ZPRwpDnnN1qU5lOqVIy6gFjDm2Wm6UNXcRnyP1TrGpMwbG13EUtD0rF8LZqBm3B833sKS4=
@@ -23,5 +25,8 @@ addons:
       - g++-4.8
   sauce_connect: true
 script:
-  - xvfb-run wct
-  - "if [ \"${TRAVIS_PULL_REQUEST}\" = \"false\" ]; then wct --plugin sauce; fi"
+  - npx wct
+  - "if [ \"${TRAVIS_PULL_REQUEST}\" = \"false\" ]; then npx wct --plugin sauce; fi"
+after_script:
+ - ./cc-test-reporter format-coverage --output reports/coverage/codeclimate.json -t lcov reports/coverage/lcov.info
+ - ./cc-test-reporter upload-coverage -i reports/coverage/codeclimate.json
