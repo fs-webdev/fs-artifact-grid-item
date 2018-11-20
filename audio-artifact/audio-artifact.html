@@ -240,6 +240,7 @@
     },
     _audioReset: function() {
       this.set('_audioObj.playing', false);
+      playingAudioNode = null;
     },
     _audioReady: function() {
       this.set('_audioObj.ready', true);
