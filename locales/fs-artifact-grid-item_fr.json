@@ -1,5 +1,7 @@
 {
+  "_LRM_PKTAG213": "fs-artifact-grid-item_1_102 - CHANGES-ONLY",
   "add_title": "Ajouter le titre",
+  "associated_audio": "Enregistrement audio associé",
   "check_email": "Vous trouverez des instructions dans un courriel envoyé à l’adresse indiquée dans votre compte FamilySearch.",
   "contributed_by": "Par : {0}",
   "contributed_by_link": "Par : <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",

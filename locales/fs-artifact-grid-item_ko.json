@@ -1,5 +1,7 @@
 {
+  "_LRM_PKTAG608": "fs-artifact-grid-item_1_105 - CHANGES-ONLY",
   "add_title": "제목 추가",
+  "associated_audio": "첨부된 음성 메모",
   "check_email": "유의 사항을 보려면 귀하의 FamilySearch 계정에 연결된 이메일을 확인하십시오.",
   "contributed_by": "작성자: {0}",
   "contributed_by_link": "작성자: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",

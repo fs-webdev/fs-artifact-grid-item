@@ -1,5 +1,7 @@
 {
+  "_LRM_PKTAG443": "fs-artifact-grid-item_1_107 - CHANGES-ONLY",
   "add_title": "Добавить заголовок",
+  "associated_audio": "Аудиозапись, связанная с фото",
   "check_email": "Посмотрите инструкции в сообщении электронной почты, отправленному по адресу, связанному с вашей учетной записью FamilySearch.",
   "contributed_by": "Предоставлено: {0}",
   "contributed_by_link": "Предоставлено: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",

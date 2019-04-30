@@ -1,5 +1,7 @@
 {
+  "_LRM_PKTAG971": "fs-artifact-grid-item_1_106 - CHANGES-ONLY",
   "add_title": "Acrescentar um Título",
+  "associated_audio": "Áudio vinculado",
   "check_email": "Verifique o e-mail cadastrado em  sua conta do FamilySearch para obter mais instruções.",
   "contributed_by": "Por: {0}",
   "contributed_by_link": "Por: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
