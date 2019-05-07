@@ -1,5 +1,7 @@
 {
+  "_LRM_PKTAG95": "fs-artifact-grid-item_1_104 - CHANGES-ONLY",
   "add_title": "タイトルを追加する",
+  "associated_audio": "関連付けられている音声",
   "check_email": "指示を読むには，ファミリーサーチアカウントにリンクされている電子メールをチェックしてください。",
   "contributed_by": "提供者：{0}",
   "contributed_by_link": "提供者：<span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
