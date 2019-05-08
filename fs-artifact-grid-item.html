@@ -8,6 +8,7 @@
 <link rel="import" href="../oak-ajax-behavior/oak-ajax-behavior.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../fs-metrics/fs-metrics.html">
+<link rel="import" href="../fs-icon/fs-icon.html">
 
 <!-- @demo demo/index.html -->
 
@@ -304,12 +305,20 @@
       }
 
       .attached-audio {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUuNSIgZmlsbD0iI0ZGRiIgc3Ryb2tlPSIjOTc5Nzk3Ii8+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMCA1KSI+CiAgICAgIDxnIGZpbGw9IiM4NUI4MDkiPgogICAgICAgIDxwYXRoIGQ9Ik02LjI2NyAxNS4xNzNjLTEuNzg1IDAtMy4yOTEtMS40OTctMy42NjItMi44ODNsLS4wMi0uMDc0aC0uMDc2Yy0uMjM0IDAtLjQwOS0uMzEtLjQwOS0uNTI3VjkuNDQ2YzAtLjE5MS4xNTEtLjM0Ni4zMzctLjM0Nmg4LjExYy4xOTEgMCAuMzUzLjE1OS4zNTMuMzQ2djIuMjQyYzAgLjIxMy0uMTg2LjUyNy0uMzUzLjUyN2gtLjA3N2wtLjA5MS4wNzNjLS4zNzMgMS4zODctMS44NzcgMi44ODQtMy42NTggMi44ODRoLS40NTR2LjAwMXpNMi4xIDcuOVY0LjI1MUE0LjE1NCA0LjE1NCAwIDAgMSA2LjI0OS4xaC40OTZjMS4xMDQgMCAyLjE0Ni40MzMgMi45MzQgMS4yMTlBNC4xMjIgNC4xMjIgMCAwIDEgMTAuOSA0LjI1VjcuOUgyLjF6Ii8+CiAgICAgICAgPHBhdGggZD0iTTEuMzQyIDIwLjlhLjM1NC4zNTQgMCAwIDEtLjM0Ni0uMzU0YzAtLjY0My40NDUtMS4zMTMuOTk4LTEuMzEzaDEuNTkzYy43NzQgMCAxLjMwNS0uNTUzIDEuNjcyLTEuNzQxbC4wMzItLjEwNC0uMTA3LS4wMjJDMi4xNDQgMTYuNzI2LjEgMTMuODczLjEgMTAuMjY4YzAtLjM3OC4yOTMtLjY3NS42NjctLjY3NS4zNjggMCAuNjY4LjMxOS42NjguNzExIDAgMy4zNjEgMi4xNzggNS44OTYgNS4wNjUgNS44OTYgMi44ODcgMCA1LjA2NS0yLjUzNCA1LjA2NS01Ljg5NiAwLS4zOTIuMy0uNzExLjY2OC0uNzExLjM3NCAwIC42NjcuMjk2LjY2Ny42NzUgMCAzLjYwNS0yLjA0MyA2LjQ1OC01LjA4NCA3LjA5OGwtLjEwNy4wMjIuMDMyLjEwNGMuMzY3IDEuMTg4Ljg5OCAxLjc0MSAxLjY3MiAxLjc0MWgxLjU5M2MuNTUzIDAgLjk5OC42NzEuOTk4IDEuMjI2IDAgLjI3OS0uMTU5LjQ0MS0uMzQ2LjQ0MUgxLjM0MnoiLz4KICAgICAgPC9nPgogICAgICA8Y2lyY2xlIGN4PSI2LjQ5MiIgY3k9IjEuODU5IiByPSIxIiBmaWxsPSIjRkZGIi8+CiAgICAgIDxlbGxpcHNlIGN4PSIzLjkyOCIgY3k9IjYuNTQ0IiBmaWxsPSIjRkZGIiByeD0iMSIgcnk9IjEiLz4KICAgICAgPGVsbGlwc2UgY3g9IjMuOTI4IiBjeT0iNC4wOTIiIGZpbGw9IiNGRkYiIHJ4PSIxIiByeT0iMSIvPgogICAgICA8Y2lyY2xlIGN4PSI0LjI4MSIgY3k9IjIuMDk0IiByPSIxIiBmaWxsPSIjRkZGIi8+CiAgICAgIDxjaXJjbGUgY3g9IjYuNDkyIiBjeT0iNi41NDQiIHI9IjEiIGZpbGw9IiNGRkYiLz4KICAgICAgPGNpcmNsZSBjeD0iNi40OTIiIGN5PSI0LjA5MiIgcj0iMSIgZmlsbD0iI0ZGRiIvPgogICAgICA8Y2lyY2xlIGN4PSI4LjcxMyIgY3k9IjIuMDk0IiByPSIxIiBmaWxsPSIjRkZGIi8+CiAgICAgIDxlbGxpcHNlIGN4PSI5LjA2NyIgY3k9IjYuNTQ0IiBmaWxsPSIjRkZGIiByeD0iMSIgcnk9IjEiLz4KICAgICAgPGVsbGlwc2UgY3g9IjkuMDY3IiBjeT0iNC4wOTIiIGZpbGw9IiNGRkYiIHJ4PSIxIiByeT0iMSIvPgogICAgPC9nPgogICAgPHBhdGggZD0iTTEwIDVoMTN2MjFIMTB6Ii8+CiAgPC9nPgo8L3N2Zz4=);
-        background-repeat: no-repeat;
-        width: 32px;
-        height: 32px;
         display: inline-block;
         position: absolute;
+        top: 17px;
+        left: 11px;
+      }
+
+      .attached-audio-background{
+        background-color: black;
+        opacity: .65;
+        width: 33px;
+        height: 33px;
+        position: absolute;
+        border: 1px solid white;
+        border-radius: 100%;
         top: 10px;
         left: 5px;
       }
@@ -411,7 +420,9 @@
             </template>
 
             <template is="dom-if" if="[[!data.tombstoned]]">
-              <i class="attached-audio" hidden="[[!_hasAttachedAudio(data.associatedArtifacts)]]"></i>
+              <div class="attached-audio-background" hidden="[[!_hasAttachedAudio(data.associatedArtifacts)]]">
+              </div>
+              <fs-icon class="attached-audio" title="[[i18n('associated_audio')]]" alt="[[i18n('associated_audio')]]" icon="audio-recording-green-medium" hidden="[[!_hasAttachedAudio(data.associatedArtifacts)]]"></fs-icon>
               <i class$='not-tagged-icon [[_getNotTaggedIconClass()]]' hidden$='[[_hideTagIcon(data, selectMode)]]' title='[[i18n("not_tagged")]]' data-test="NotTaggedIcon"></i>
               <i class='comment-icon' hidden$='[[!data.commentCount]]'>[[data.commentCount]]</i>
             </template>
