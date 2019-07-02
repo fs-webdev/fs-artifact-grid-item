@@ -811,6 +811,12 @@
       if (this.selectMode || this.data.tombstoned) return;
       e.preventDefault();
       e.stopPropagation();
+
+      /* Modal viewer */
+      this.fire('view-artifact', {"artifact": this.data})
+      return;
+      /* end modal viewer */
+
       var url = this._href;
 
       var newTab = false;
