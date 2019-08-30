@@ -152,7 +152,7 @@
       }
     </style>
     <audio src$="[[audioUrl]]" id="audio" preload="auto" on-timeupdate="_updateTimers" on-loadedmetadata="_setDuration" on-ended="_audioReset" on-canplay="_audioReady"></audio>
-    <div class="flex-column full">
+    <div class="flex-column full" tabindex="0" on-blur="_handleBlur">
       <h1 class="story-content-title">[[title]]</h1>
       <!-- AUDIO CONTROLS -->
       <div class="flex-row-center relative full">
@@ -274,6 +274,11 @@
         playingAudioNode = null;
       }
       this.set('_audioObj.playing', !this.$.audio.paused);
+    },
+    _handleBlur: function(e) {
+      if (this._audioObj.playing) {
+        this.toggleAudio();
+      }
     }
   });
 })();
