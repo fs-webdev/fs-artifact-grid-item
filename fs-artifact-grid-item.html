@@ -431,7 +431,7 @@
           <template is='dom-if' if='[[_hideContributorName(view, showContributed, _titleInputActive)]]'>
             <div class="title" title='[[data.title]]' on-tap="_stopProp">
               <i class="exclamation-icon" hidden$="[[!_titleError]]"></i>
-              <span class$="[[_calculateTitleClass(_titleError)]]" on-tap="_titleLinkOverride" hidden$='[[_hideTitle(data.title, _titleInputActive)]]' data-test="GalleryTitleLink">[[data.title]]</span>
+              <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden$='[[_hideTitle(data.title, _titleInputActive)]]' data-test="GalleryTitleLink">[[data.title]]</a>
               <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden$='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]' data-test="GalleryAddTitleBtn">
                 <i class='add-icon'></i>[[i18n('add_title')]]
               </a>
@@ -659,6 +659,7 @@
     ],
     _titleLinkOverride: function(e) {
       if (this.selectMode || this.data.tombstoned) {
+        e.preventDefault();
         return;
       }
       if (this._titleError) {
