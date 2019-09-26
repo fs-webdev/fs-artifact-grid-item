@@ -663,9 +663,10 @@
         return;
       }
       if (this._titleError) {
-        e.preventDefault();
         this._titleError = false;
         this._toggleAddTitleInput();
+      } else {
+        this._goToItem(e);
       }
     },
     _getRemainingDaysCount: function(i18n, data) {
@@ -811,6 +812,12 @@
       if (this.selectMode || this.data.tombstoned) return;
       e.preventDefault();
       e.stopPropagation();
+
+      if (FS.showEx('artifactViewerModalEx')) {
+        this.fire('view-artifact', {"artifact": this.data})
+        return;
+      }
+
       var url = this._href;
 
       var newTab = false;
