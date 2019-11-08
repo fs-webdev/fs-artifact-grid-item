@@ -815,7 +815,14 @@
       e.preventDefault();
       e.stopPropagation();
 
-      if (FS.showEx('artifactViewerModalEx')) {
+      // We are moving on to using shadowDOM. Currently there is a bug
+      // in shadyDOM so we are disabling the modal in shadyDOM browsers
+      // Edge only supports shadowDOM in versions later than 18
+      const make = FS.Browser.getMake();
+      const version = FS.Browser.getVersion();
+      const compatibleBrowser = (make !== 'edge' || make === 'edge' && parseInt(version) >= 19);
+
+      if (FS.showEx('artifactViewerModalEx') && compatibleBrowser) {
         this.fire('view-artifact', {"artifact": this.data})
         return;
       }
