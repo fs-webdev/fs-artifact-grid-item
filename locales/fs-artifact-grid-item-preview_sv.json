@@ -1,0 +1,10 @@
+{
+  "duplicate": "Fil som laddats upp tidigare",
+  "fail_continues": "Uppladdningen misslyckades. Om uppladdningen fortsätter att misslyckas kan du pröva med ett annat filformat.",
+  "failure": "Uppladdningen misslyckades",
+  "restricted": "Begränsat",
+  "size": "Fil över 15MB",
+  "try_again": "Uppladdningen misslyckades. Försök igen.",
+  "unsupported": "Filtypen stöds inte",
+  "uploading": "Laddar upp"
+}

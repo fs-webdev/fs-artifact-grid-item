@@ -1,0 +1,16 @@
+{
+  "add_title": "Lägg till titel",
+  "associated_audio": "Tillhörande ljudinspelningar",
+  "check_email": "Se e-postkontot som är länkat till ditt FamilySearch-konto för instruktioner.",
+  "contributed_by": "Av: {0}",
+  "contributed_by_link": "Av: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "Det här minnet har inte taggats.",
+  "processing": "Bearbetas",
+  "processing_fail": "Bearbetningen misslyckades. Radera och ladda upp på nytt eller kontakta support.",
+  "remaining_days_count": "{0} dagar",
+  "restricted": "Begränsat",
+  "restricted_info": "Det här minnet har omgetts med restriktioner på grund av innehållet (se <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Riktlinjer och föreskrifter för uppladdning</a>) och tas bort från webbplatsen inom 30 dagar.",
+  "screening": "Granskning",
+  "upload_failed": "Uppladdningen misslyckades. Radera och ladda upp igen.",
+  "uploading": "Laddar upp"
+}
