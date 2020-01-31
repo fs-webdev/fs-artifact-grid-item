@@ -1,0 +1,10 @@
+{
+  "duplicate": "Bestand is al geüpload",
+  "fail_continues": "Upload mislukt. Als de upload blijft mislukken, kunt u een ander bestandstype proberen.",
+  "failure": "Upload mislukt",
+  "restricted": "Beperkte toegang",
+  "size": "Bestand groter dan 15MB",
+  "try_again": "Upload mislukt. Probeer het nog eens.",
+  "unsupported": "Bestandstype wordt niet ondersteund",
+  "uploading": "Aan het uploaden"
+}

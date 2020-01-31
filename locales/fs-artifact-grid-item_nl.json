@@ -1,0 +1,16 @@
+{
+  "add_title": "Titel toevoegen",
+  "associated_audio": "Bijbehorende geluidsbestanden",
+  "check_email": "Check uw e-mail voor instructies.",
+  "contributed_by": "Door: {0}",
+  "contributed_by_link": "Door: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "Deze herinnering is niet getagd.",
+  "processing": "Aan het verwerken",
+  "processing_fail": "Verwerking mislukt. Verwijder en upload nog eens, of neem contact op met support.",
+  "remaining_days_count": "{0} dagen",
+  "restricted": "Beperkte toegang",
+  "restricted_info": "De toegang tot deze herinnering is beperkt vanwege de inhoud (zie <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Uploadrichtlijnen en -beleidsregels</a>) en wordt binnen 30 dagen van de site verwijderd.",
+  "screening": "Controle",
+  "upload_failed": "Upload mislukt. Verwijder en upload nog eens.",
+  "uploading": "Aan het uploaden"
+}
