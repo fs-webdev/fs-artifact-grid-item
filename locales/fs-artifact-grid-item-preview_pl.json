@@ -1,0 +1,10 @@
+{
+  "duplicate": "Plik został już wcześniej przesłany",
+  "fail_continues": "Przesyłanie nieudane. Jeśli sytuacja się powtórzy, spróbuj użyć pliku w innym formacie.",
+  "failure": "Przesyłanie nieudane",
+  "restricted": "Nałożone ograniczenia",
+  "size": "Plik o wielkości większej niż 15MB",
+  "try_again": "Przesyłanie nieudane. Spróbuj ponownie.",
+  "unsupported": "Nieobsługiwany rodzaj pliku",
+  "uploading": "Przesyłanie"
+}
