@@ -1,0 +1,10 @@
+{
+  "duplicate": "Korábban feltöltött fájl",
+  "fail_continues": "A feltöltés sikertelen Ha a továbbiakban is sikertelen a feltöltés, módosítsd a fájltípust.",
+  "failure": "A feltöltés sikertelen",
+  "restricted": "Korlátozott hozzáférésű",
+  "size": "15 MB-nál nagyobb fájl",
+  "try_again": "A feltöltés sikertelen. Kérjük, próbáld meg újra.",
+  "unsupported": "Nem támogatott fájltípus",
+  "uploading": "Feltöltés alatt"
+}
