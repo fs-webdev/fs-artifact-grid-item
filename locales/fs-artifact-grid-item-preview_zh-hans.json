@@ -1,0 +1,10 @@
+{
+  "duplicate": "档案先前已上传",
+  "fail_continues": "上传失败。如果持续失败，请尝试使用不同的档案格式。",
+  "failure": "上传失败",
+  "restricted": "受限制",
+  "size": "档案超过15MB",
+  "try_again": "上传失败。请再试一次。",
+  "unsupported": "不支援的档案类型",
+  "uploading": "上传中"
+}
