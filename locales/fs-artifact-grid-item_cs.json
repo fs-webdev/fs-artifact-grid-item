@@ -1,0 +1,16 @@
+{
+  "add_title": "Přidat název",
+  "associated_audio": "Přidružená zvuková nahrávka",
+  "check_email": "Podívejte se na e-mail přidružený k vašemu účtu FamilySearch, kde najdete příslušné pokyny.",
+  "contributed_by": "Přidáno uživatelem {0}",
+  "contributed_by_link": "Přidáno uživatelem <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "Tato vzpomínka není označena.",
+  "processing": "Zpracování…",
+  "processing_fail": "Zpracování se nezdařilo. Artefakt smažte a nahrajte znovu, nebo kontaktujte technickou podporu.",
+  "remaining_days_count": "Dnů: {0}",
+  "restricted": "Omezený přístup",
+  "restricted_info": "K této vzpomínce byl kvůli jejímu obsahu omezen přístup (viz <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Pokyny a pravidla týkající se nahrávání obsahu</a>) a bude z těchto stránek do 30 dnů odstraněna.",
+  "screening": "Prověřování",
+  "upload_failed": "Nahrávání se nezdařilo. Artefakt smažte a nahrajte ho znovu.",
+  "uploading": "Nahrávání"
+}

@@ -1,0 +1,10 @@
+{
+  "duplicate": "Soubor již byl nahrán",
+  "fail_continues": "Nahrávání se nezdařilo. Pokud se soubor stále nedaří nahrát, zkuste použít jiný formát.",
+  "failure": "Nahrávání se nezdařilo",
+  "restricted": "Omezený přístup",
+  "size": "Velikost souboru přesahuje 15 MB",
+  "try_again": "Nahrávání se nezdařilo. Zkuste to prosím znovu.",
+  "unsupported": "Nepodporovaný typ souboru",
+  "uploading": "Nahrávání"
+}

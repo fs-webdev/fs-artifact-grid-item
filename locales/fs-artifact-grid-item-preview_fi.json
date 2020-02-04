@@ -1,0 +1,10 @@
+{
+  "duplicate": "Aiemmin ladattu tiedosto",
+  "fail_continues": "Tiedoston lataaminen palvelimelle epäonnistui. Jos lataaminen epäonnistuu edelleen, kokeile käyttää jotakin muuta tiedostomuotoa.",
+  "failure": "Tiedoston lataaminen palvelimelle epäonnistui.",
+  "restricted": "Rajoitettu",
+  "size": "Tiedoston koko yli 15 Mt",
+  "try_again": "Tiedoston lataaminen palvelimelle epäonnistui. Yritä uudelleen.",
+  "unsupported": "Tiedostotyyppiä ei tueta",
+  "uploading": "Ladataan"
+}

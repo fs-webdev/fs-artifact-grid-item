@@ -1,0 +1,10 @@
+{
+  "duplicate": "Súbor už bol nahratý",
+  "fail_continues": "Nahrávanie zlyhalo. Ak naďalej zlyháva, skúste použiť iný formát súboru.",
+  "failure": "Nahrávanie zlyhalo",
+  "restricted": "Obmedzený",
+  "size": "Zložka má viac ako 15MB",
+  "try_again": "Nahrávanie zlyhalo. Skúste to, prosím, znova.",
+  "unsupported": "Nepodporovaný typ zložky",
+  "uploading": "Presúvajú sa údaje"
+}
