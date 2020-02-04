@@ -1,0 +1,10 @@
+{
+  "duplicate": "Filen er tidligere uploadet",
+  "fail_continues": "Upload mislykkedes. Hvis det fortsat mislykkedes, prøv da at bruge et andet filformat.",
+  "failure": "Upload mislykkedes",
+  "restricted": "Begrænset adgang",
+  "size": "Filen er over 15 MB",
+  "try_again": "Upload mislykkedes. Prøv igen.",
+  "unsupported": "Ikke understøttet filtype",
+  "uploading": "Uploader"
+}
