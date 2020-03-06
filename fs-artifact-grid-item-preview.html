@@ -218,10 +218,6 @@
       loading: {
         type: Boolean,
         value: true
-      },
-      _fixUploadImages: {
-        type: Boolean,
-        value: function(){ return FS.showEx('fixUploadImages'); }
       }
     },
     listeners: {
@@ -255,24 +251,7 @@
           this._handleUploadError(result.err);
           return;
         }
-        if(!this._fixUploadImages){
-          var artifact = (Array.isArray(result.items)) ? result.items[0] : result.artifact;
-          var thumbSquareUrl = result.artifact ? result.artifact.thumbSquareUrl : null;
-          artifact.thumbSquareUrl = data.thumbSquareUrl || thumbSquareUrl;
-          if(!data.thumbSquareUrl){
-            setTimeout(function(){
-              this._updateData(artifact);
-            }.bind(this), 5000);
-          } else {
-            this._updateData(artifact);
-          }
-          return result;
-        }
       }.bind(this), this._handleUploadError.bind(this));
-      // Sanity check that it's not an import file
-      if(!this._fixUploadImages){
-        if (data.file && !data.file.url) this._getDataUrl(data.file);
-      }
     },
     _handleUploadError: function(status){
       if (status == 409) {
