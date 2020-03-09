@@ -921,8 +921,8 @@
       return FS.simpleLocale() === 'en' ? 'not-tagged-icon-english' : 'not-tagged-icon-non-english';
     },
     _hasAttachedAudio: function(associatedArtifacts) {
-      // Check for experiment and only images can have attached audios
-      if (!FS ||!FS.showEx('audioOnPhotos') || this.data.category !== 'IMAGE') return false;
+      // Only images can have attached audios
+      if (this.data.category !== 'IMAGE') return false;
 
       let hasAttachedAudio = false;
       if (associatedArtifacts && associatedArtifacts.artifact.length) {
