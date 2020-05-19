@@ -55,8 +55,11 @@
         height: 28px;
       }
 
+      .private-memory-container {
+        align-self: flex-end;
+      }
       .private-memory-icon {
-        padding: 2px 3px 0 0;
+        padding-right: 3px;
       }
 
       .title {
@@ -452,6 +455,7 @@
                 <input class="title-input" type="text" maxlength='140' hidden$="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" data-test="GalleryTitleInput"/>
               </div>
               <span 
+                class="private-memory-container"
                 hidden="[[isPublic(data.visibility, privateMemoriesEx)]]" 
                 title="[[i18n('private_memory_tooltip')]]">
                 <fs-icon class="private-memory-icon" icon="sign-in-small"></fs-icon>
@@ -472,6 +476,7 @@
                   <span id='contributor-link' on-click='_openContactCard'></span>
                 </div>
                 <span 
+                  class="private-memory-container"
                   hidden="[[isPublic(data.visibility, privateMemoriesEx)]]"
                   title="[[i18n('private_memory_tooltip')]]">
                   <fs-icon class="private-memory-icon" icon="sign-in-small"></fs-icon>
