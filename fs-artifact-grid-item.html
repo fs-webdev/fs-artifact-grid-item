@@ -678,6 +678,10 @@
       _titleError: {
         type: Boolean,
         value: false
+      },
+      privateMemoriesEx: {
+        type: Boolean,
+        value: function() { return FS.showEx('privateMemoriesEx') }
       }
     },
     observers: [
