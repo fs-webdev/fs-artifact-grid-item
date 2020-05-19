@@ -12,5 +12,6 @@
   "check_email": "Check your email linked to your FamilySearch account for instructions.",
   "upload_failed": "Upload failed. Delete, and upload again.",
   "remaining_days_count": "{0} days",
-  "associated_audio": "Associated Audio"
+  "associated_audio": "Associated Audio",
+  "private_memory_tooltip":"This memory is private. Only you can see it."
 }
