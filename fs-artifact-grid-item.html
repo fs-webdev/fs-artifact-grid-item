@@ -452,7 +452,7 @@
                 <input class="title-input" type="text" maxlength='140' hidden$="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" data-test="GalleryTitleInput"/>
               </div>
               <span 
-                hidden=[[isPublic(data.visibility, privateMemoriesEx)]] 
+                hidden="[[isPublic(data.visibility, privateMemoriesEx)]]" 
                 title="[[i18n(private_memory_tooltip)]]">
                 <fs-icon class="private-memory-icon" icon="sign-in-small"></fs-icon>
               </span>
@@ -472,7 +472,7 @@
                   <span id='contributor-link' on-click='_openContactCard'></span>
                 </div>
                 <span 
-                  hidden=[[isPublic(data.visibility, privateMemoriesEx)]] 
+                  hidden="[[isPublic(data.visibility, privateMemoriesEx)]]"
                   title="[[i18n(private_memory_tooltip)]]">
                   <fs-icon class="private-memory-icon" icon="sign-in-small"></fs-icon>
                 </span>
