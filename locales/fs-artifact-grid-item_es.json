@@ -1,17 +1,17 @@
 {
-  "_LRM_PKTAG328": "fs-artifact-grid-item_1_101 - CHANGES-ONLY",
+  "not_tagged": "Este recuerdo no está etiquetado",
   "add_title": "Agregar título",
-  "associated_audio": "Audio asociado",
-  "check_email": "Revisa tu correo electrónico vinculado a tu cuenta FamilySearch para obtener instrucciones.",
+  "restricted": "Restringido",
   "contributed_by": "Por: {0}",
   "contributed_by_link": "Por: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Este recuerdo no está etiquetado",
   "processing": "Procesando",
   "processing_fail": "No se pudo procesar. Eliminar y volver a cargar o contacta a Soporte.",
-  "remaining_days_count": "{0} días",
-  "restricted": "Restringido",
-  "restricted_info": "Este recuerdo ha sido restringido debido al contenido (ver <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Normas y Pautas de carga</a>) y se suprimirá del sitio dentro de 30 días.",
   "screening": "Verificando",
+  "uploading": "Cargando",
+  "restricted_info": "Este recuerdo ha sido restringido debido al contenido (ver <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Normas y Pautas de carga</a>) y se suprimirá del sitio dentro de 30 días.",
+  "check_email": "Revisa tu correo electrónico vinculado a tu cuenta FamilySearch para obtener instrucciones.",
   "upload_failed": "No se pudo cargar el archivo. Eliminar y cargar otra vez.",
-  "uploading": "Cargando"
+  "remaining_days_count": "{0} días",
+  "associated_audio": "Audio asociado",
+  "private_memory_tooltip": "Este recuerdo es privado. Solo tú puedes verlo."
 }
