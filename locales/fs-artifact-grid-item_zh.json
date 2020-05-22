@@ -1,17 +1,17 @@
 {
-  "_LRM_PKTAG445": "fs-artifact-grid-item_1_108 - CHANGES-ONLY",
+  "not_tagged": "此回憶未加上標籤。",
   "add_title": "加入標題",
-  "associated_audio": "相關的音訊",
-  "check_email": "檢查和你 FamilySearch 帳號相連的電子郵件，來查看指示。",
+  "restricted": "受限",
   "contributed_by": "建立者：{0}",
   "contributed_by_link": "建立者：<span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "此回憶未加上標籤。",
   "processing": "處理中",
   "processing_fail": "處理失敗。刪除且重新上傳或聯絡支援。",
-  "remaining_days_count": "{0}天",
-  "restricted": "受限",
-  "restricted_info": "此回憶由於內容的關係已受到限制（見<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">上傳準則和政策</a>），將於30天內從網站中移除。",
   "screening": "檢測中",
+  "uploading": "上傳中",
+  "restricted_info": "此回憶由於內容的關係已受到限制（見<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">上傳準則和政策</a>），將於30天內從網站中移除。",
+  "check_email": "檢查和你 FamilySearch 帳號相連的電子郵件，來查看指示。",
   "upload_failed": "上傳失敗。刪除，並再次上傳。",
-  "uploading": "上傳中"
+  "remaining_days_count": "{0}天",
+  "associated_audio": "相關的音訊",
+  "private_memory_tooltip": "此回憶不公開。只有你可以看見。"
 }

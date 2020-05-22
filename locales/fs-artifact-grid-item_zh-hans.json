@@ -1,16 +1,17 @@
 {
+  "not_tagged": "此回忆未加上标签。",
   "add_title": "加入标题",
-  "associated_audio": "相关的音讯",
-  "check_email": "检查和你 FamilySearch 帐号相连的电子邮件，来查看指示。",
+  "restricted": "受限制",
   "contributed_by": "建立者：{0}",
   "contributed_by_link": "建立者：<span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "此回忆未加上标签。",
   "processing": "处理中",
   "processing_fail": "处理失败。删除且重新上传或联络支援。",
-  "remaining_days_count": "{0}天",
-  "restricted": "受限制",
-  "restricted_info": "此回忆由于内容的关系已受到限制（见<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">上传准则和政策</a>），将于30天内从网站中移除。",
   "screening": "检测中",
+  "uploading": "上传中",
+  "restricted_info": "此回忆由于内容的关系已受到限制（见<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">上传准则和政策</a>），将于30天内从网站中移除。",
+  "check_email": "检查和你 FamilySearch 帐号相连的电子邮件，来查看指示。",
   "upload_failed": "上传失败。删除，并再次上传。",
-  "uploading": "上传中"
+  "remaining_days_count": "{0}天",
+  "associated_audio": "相关的音讯",
+  "private_memory_tooltip": "此回忆不公开。只有你可以看见。"
 }
