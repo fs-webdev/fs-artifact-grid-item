@@ -1,17 +1,17 @@
 {
-  "_LRM_PKTAG443": "fs-artifact-grid-item_1_107 - CHANGES-ONLY",
+  "not_tagged": "Для этого воспоминания нет меток.",
   "add_title": "Добавить заголовок",
-  "associated_audio": "Аудиозапись, связанная с фото",
-  "check_email": "Посмотрите инструкции в сообщении электронной почты, отправленному по адресу, связанному с вашей учетной записью FamilySearch.",
+  "restricted": "Просмотр ограничен",
   "contributed_by": "Предоставлено: {0}",
   "contributed_by_link": "Предоставлено: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Для этого воспоминания нет меток.",
   "processing": "Обработка",
   "processing_fail": "Обработка не удалась. Удалите и загрузите еще раз или свяжитесь со службой поддержки",
-  "remaining_days_count": "Дней:{0} ",
-  "restricted": "Просмотр ограничен",
-  "restricted_info": "Содержание этого воспоминания не соответствует требованиям сайта (см. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Правила по загрузке</a>), и оно будет удалено с сайта в течение 30 дней.",
   "screening": "Проверка",
+  "uploading": "Загрузка",
+  "restricted_info": "Содержание этого воспоминания не соответствует требованиям сайта (см. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Правила по загрузке</a>), и оно будет удалено с сайта в течение 30 дней.",
+  "check_email": "Посмотрите инструкции в сообщении электронной почты, отправленному по адресу, связанному с вашей учетной записью FamilySearch.",
   "upload_failed": "Загрузка не выполнена. Удалить и загрузить снова.",
-  "uploading": "Загрузка"
+  "remaining_days_count": "Дней:{0} ",
+  "associated_audio": "Аудиозапись, связанная с фото",
+  "private_memory_tooltip": "Это воспоминание носит конфиденциальный характер. Его можете просматривать только вы."
 }
