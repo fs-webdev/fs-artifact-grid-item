@@ -1,17 +1,17 @@
 {
-  "_LRM_PKTAG213": "fs-artifact-grid-item_1_102 - CHANGES-ONLY",
+  "not_tagged": "Ce souvenir n’a pas de signet.",
   "add_title": "Ajouter le titre",
-  "associated_audio": "Enregistrement audio associé",
-  "check_email": "Vous trouverez des instructions dans un courriel envoyé à l’adresse indiquée dans votre compte FamilySearch.",
+  "restricted": "Accès restreint",
   "contributed_by": "Par : {0}",
   "contributed_by_link": "Par : <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Ce souvenir n’a pas de signet.",
   "processing": "Traitement en cours",
   "processing_fail": "Échec du traitement. Supprimez et téléversez de nouveau le fichier, ou prenez contact avec l’assistance.",
-  "remaining_days_count": "{0} jours",
-  "restricted": "Accès restreint",
-  "restricted_info": "Du fait de son contenu, l’affichage de ce souvenir est interdit et sera supprimé du site dans les trente jours (voir les <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">règles et directives de téléversement</a>).",
   "screening": "Vérification",
+  "uploading": "Téléversement en cours",
+  "restricted_info": "Du fait de son contenu, l’affichage de ce souvenir est interdit et sera supprimé du site dans les trente jours (voir les <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">règles et directives de téléversement</a>).",
+  "check_email": "Vous trouverez des instructions dans un courriel envoyé à l’adresse indiquée dans votre compte FamilySearch.",
   "upload_failed": "Échec du téléversement. Supprimez, et téléversez à nouveau.",
-  "uploading": "Téléversement en cours"
+  "remaining_days_count": "{0} jours",
+  "associated_audio": "Enregistrement audio associé",
+  "private_memory_tooltip": "Ce souvenir est confidentiel. Vous êtes le seul à le voir."
 }

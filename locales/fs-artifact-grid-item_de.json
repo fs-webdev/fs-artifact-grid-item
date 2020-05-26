@@ -1,17 +1,17 @@
 {
-  "_LRM_PKTAG751": "fs-artifact-grid-item_1_146 - CHANGES-ONLY",
+  "not_tagged": "Diese Erinnerung enthält keine Markierungen.",
   "add_title": "Titel hinzufügen",
-  "associated_audio": "Verknüpfte Audioaufnahme",
-  "check_email": "In dem E-Mail-Fach, das mit Ihrem FamilySearch-Benutzerkonto verknüpft ist, finden Sie Anweisungen.",
+  "restricted": "Nicht freigegeben",
   "contributed_by": "Von: {0}",
   "contributed_by_link": "Von: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Diese Erinnerung enthält keine Markierungen.",
   "processing": "Wird verarbeitet",
   "processing_fail": "Verarbeitung fehlgeschlagen. Bitte löschen und erneut hochladen oder den Support kontaktieren.",
-  "remaining_days_count": "{0} Tage",
-  "restricted": "Nicht freigegeben",
-  "restricted_info": "Der Zugriff auf diese Erinnerung ist aufgrund ihres Inhalts beschränkt (siehe <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Richtlinien und Bestimmungen für das Hochladen</a>) und wird innerhalb von 30 Tagen von der Website entfernt.",
   "screening": "Überprüfung läuft",
+  "uploading": "Wird hochgeladen",
+  "restricted_info": "Der Zugriff auf diese Erinnerung ist aufgrund ihres Inhalts beschränkt (siehe <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Richtlinien und Bestimmungen für das Hochladen</a>) und wird innerhalb von 30 Tagen von der Website entfernt.",
+  "check_email": "In dem E-Mail-Fach, das mit Ihrem FamilySearch-Benutzerkonto verknüpft ist, finden Sie Anweisungen.",
   "upload_failed": "Hochladen fehlgeschlagen. Bitte löschen und erneut hochladen.",
-  "uploading": "Wird hochgeladen"
+  "remaining_days_count": "{0} Tage",
+  "associated_audio": "Verknüpfte Audioaufnahme",
+  "private_memory_tooltip": "Diese Erinnerung ist nicht für die Allgemeinheit freigegeben. Nur Sie können sie sehen."
 }
