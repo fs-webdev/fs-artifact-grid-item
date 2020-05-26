@@ -1,17 +1,17 @@
 {
-  "_LRM_PKTAG684": "fs-artifact-grid-item_1_103 - CHANGES-ONLY",
+  "not_tagged": "Questo ricordo non è taggato.",
   "add_title": "Aggiungi titolo",
-  "associated_audio": "File audio associato",
-  "check_email": "Controlla l’e-mail collegata al tuo account FamilySearch per trovare istruzioni in merito.",
+  "restricted": "Accesso limitato",
   "contributed_by": "Da: {0}",
   "contributed_by_link": "Inserito da: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Questo ricordo non è taggato.",
   "processing": "In elaborazione",
   "processing_fail": "Elaborazione non riuscita. Cancella e ricarica oppure contatta l’assistenza.",
-  "remaining_days_count": "{0} giorni",
-  "restricted": "Accesso limitato",
-  "restricted_info": "Questo ricordo è stato sottoposto a restrizioni a causa del contenuto (vedi <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Linee guida e direttive per il caricamento</a>) e sarà rimosso dal sito entro 30 giorni.",
   "screening": "Controllo in corso",
+  "uploading": "Caricamento in corso",
+  "restricted_info": "Questo ricordo è stato sottoposto a restrizioni a causa del contenuto (vedi <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Linee guida e direttive per il caricamento</a>) e sarà rimosso dal sito entro 30 giorni.",
+  "check_email": "Controlla l’e-mail collegata al tuo account FamilySearch per trovare istruzioni in merito.",
   "upload_failed": "Caricamento non riuscito. Cancella e carica di nuovo.",
-  "uploading": "Caricamento in corso"
+  "remaining_days_count": "{0} giorni",
+  "associated_audio": "File audio associato",
+  "private_memory_tooltip": "Questo ricordo è privato. Solo tu puoi vederlo."
 }
