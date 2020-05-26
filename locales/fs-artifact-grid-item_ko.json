@@ -1,17 +1,17 @@
 {
-  "_LRM_PKTAG608": "fs-artifact-grid-item_1_105 - CHANGES-ONLY",
+  "not_tagged": "이 추억은 태그되어 있지 않습니다.",
   "add_title": "제목 추가",
-  "associated_audio": "첨부된 음성 메모",
-  "check_email": "유의 사항을 보려면 귀하의 FamilySearch 계정에 연결된 이메일을 확인하십시오.",
+  "restricted": "제한됨",
   "contributed_by": "작성자: {0}",
   "contributed_by_link": "작성자: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "이 추억은 태그되어 있지 않습니다.",
   "processing": "작업 중",
   "processing_fail": "처리 실패 삭제하고 다시 업로드하거나 지원 팀에 연락하십시오.",
-  "remaining_days_count": "{0}일",
-  "restricted": "제한됨",
-  "restricted_info": "이 추억은 내용(<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">업로드 지침 및 정책 참조</a>) 때문에 제한되었으며 30일 이내에 사이트에서 삭제될 예정입니다.",
   "screening": "심사 중",
+  "uploading": "업로드 중",
+  "restricted_info": "이 추억은 내용(<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">업로드 지침 및 정책 참조</a>) 때문에 제한되었으며 30일 이내에 사이트에서 삭제될 예정입니다.",
+  "check_email": "유의 사항을 보려면 귀하의 FamilySearch 계정에 연결된 이메일을 확인하십시오.",
   "upload_failed": "업로드 실패 삭제하시고 다시 업로드해 주십시오.",
-  "uploading": "업로드 중"
+  "remaining_days_count": "{0}일",
+  "associated_audio": "첨부된 음성 메모",
+  "private_memory_tooltip": "비공개 추억입니다. 이 추억은 여러분만 볼 수 있습니다."
 }
