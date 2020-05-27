@@ -1,0 +1,10 @@
+{
+  "duplicate": "Fail yang Sebelumnya Diunggah",
+  "fail_continues": "Gagal mengunggah. Jika terus gagal, cobalah menggunakan format fail berbeda.",
+  "failure": "Penggunggahan Gagal",
+  "restricted": "Dibatasi",
+  "size": "Fail Melebihi 15MB",
+  "try_again": "Gagal Mengunggah. Silakan coba lagi.",
+  "unsupported": "Jenis Fail yang Tidak Didukung",
+  "uploading": "Mengunggah"
+}
