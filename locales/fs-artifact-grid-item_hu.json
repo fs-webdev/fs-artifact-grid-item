@@ -1,16 +1,17 @@
 {
+  "not_tagged": "Ez az emlék nincs megjelölve.",
   "add_title": "Cím hozzáadása",
-  "associated_audio": "Kapcsolódó hanganyag",
-  "check_email": "Utasításokért nézd meg a FamilySearch-fiókodhoz csatolt ímélcímre beérkezett íméljeidet.",
+  "restricted": "Korlátozott hozzáférésű",
   "contributed_by": "Hozzáadta: {0}",
   "contributed_by_link": "Hozzáadta: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Ez az emlék nincs megjelölve.",
   "processing": "Feldolgozás alatt",
   "processing_fail": "A feldolgozás sikertelen. Töröld és töltsd fel újra vagy vedd fel a kapcsolatot a támogatócsoporttal.",
-  "remaining_days_count": "{0} nap",
-  "restricted": "Korlátozott hozzáférésű",
-  "restricted_info": "Ez az emlék korlátozott hozzáférésű a tartalma miatt (lásd <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Feltöltési irányelvek és eljárásrendek</a>) és 30 napon belül eltávolításra kerül az oldalról.",
   "screening": "Ellenőrzés",
+  "uploading": "Feltöltés alatt",
+  "restricted_info": "Ez az emlék korlátozott hozzáférésű a tartalma miatt (lásd <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Feltöltési irányelvek és eljárásrendek</a>) és 30 napon belül eltávolításra kerül az oldalról.",
+  "check_email": "Utasításokért nézd meg a FamilySearch-fiókodhoz csatolt ímélcímre beérkezett íméljeidet.",
   "upload_failed": "A feltöltés sikertelen Töröld, és töltsd fel újra.",
-  "uploading": "Feltöltés alatt"
+  "remaining_days_count": "{0} nap",
+  "associated_audio": "Kapcsolódó hanganyag",
+  "private_memory_tooltip": "Ez az emlék nem nyilvános. Csak te láthatod."
 }

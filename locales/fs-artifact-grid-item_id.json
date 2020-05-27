@@ -1,0 +1,17 @@
+{
+  "add_title": "Tambahkan Judul",
+  "associated_audio": "Audio Terkait",
+  "check_email": "Periksa posel Anda yang terhubung dengan Akun FamilySearch Anda untuk petunjuk.",
+  "contributed_by": "Oleh: {0}",
+  "contributed_by_link": "Oleh: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "Memori ini tidak ditandai.",
+  "private_memory_tooltip": "Memori ini adalah privat. Hanya Anda yang dapat melihatnya.",
+  "processing": "Pemrosesan",
+  "processing_fail": "Gagal Memproses. Hapus dan unggah lagi atau hubungi dukungan.",
+  "remaining_days_count": "{0} hari",
+  "restricted": "Dibatasi",
+  "restricted_info": "Memori ini telah dibatasi karena konten (lihat <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Pedoman dan Kebijakan Pengunggahan</a>) dan akan dihapus dari situs dalam waktu 30 hari.",
+  "screening": "Penyaringan",
+  "upload_failed": "Gagal mengunggah. Hapus, dan unggah lagi.",
+  "uploading": "Mengunggah"
+}
