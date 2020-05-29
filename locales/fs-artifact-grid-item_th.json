@@ -1,16 +1,17 @@
 {
+  "not_tagged": "ไม่ได้แท็กความทรงจำนี้",
   "add_title": "เพิ่มชื่อเรื่อง",
-  "associated_audio": "ไฟล์เสียงที่เกี่ยวข้อง",
-  "check_email": "ตรวจสอบอีเมลของท่านที่ลิงก์กับบัญชี FamilySearch สำหรับคำแนะนำ",
+  "restricted": "มีข้อจำกัด",
   "contributed_by": "โดย: {0}",
   "contributed_by_link": "โดย: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "ไม่ได้แท็กความทรงจำนี้",
   "processing": "กำลังดำเนินการ",
   "processing_fail": "การดำเนินการตามขั้นตอนไม่สำเร็จ ลบและอัปโหลดอีกครั้งหรือติดต่อหน่วยช่วยเหลือ",
-  "remaining_days_count": "{0} วัน",
-  "restricted": "มีข้อจำกัด",
-  "restricted_info": "ความทรงจำนี้มีข้อจำกัดเนื่องจากเนื้อหา (ดู <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">แนวทางและนโยบายการอัปโหลด</a>) และจะถูกลบออกจากเว็บไซต์ภายใน 30 วัน",
   "screening": "กำลังกรอง",
+  "uploading": "กำลังอัปโหลด",
+  "restricted_info": "ความทรงจำนี้มีข้อจำกัดเนื่องจากเนื้อหา (ดู <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">แนวทางและนโยบายการอัปโหลด</a>) และจะถูกลบออกจากเว็บไซต์ภายใน 30 วัน",
+  "check_email": "ตรวจสอบอีเมลของท่านที่ลิงก์กับบัญชี FamilySearch สำหรับคำแนะนำ",
   "upload_failed": "อัปโหลดล้มเหลว ลบและอัปโหลดอีกครั้ง",
-  "uploading": "กำลังอัปโหลด"
+  "remaining_days_count": "{0} วัน",
+  "associated_audio": "ไฟล์เสียงที่เกี่ยวข้อง",
+  "private_memory_tooltip": "ความทรงจำนี้เป็นประเภทส่วนตัว ท่านเท่านั้นที่ดูได้"
 }
