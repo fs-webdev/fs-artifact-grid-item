@@ -1,0 +1,10 @@
+{
+  "duplicate": "Fișier încărcat anterior",
+  "fail_continues": "Încărcare eșuată. Dacă va eșua din nou, încearcă să folosești un format de fișier diferit.",
+  "failure": "Încărcare eșuată",
+  "restricted": "Restricționat",
+  "size": "Fișier de peste 15MB",
+  "try_again": "Încărcare eșuată. Te rugăm să încerci din nou.",
+  "unsupported": "Tipul de fișier nu este compatibil",
+  "uploading": "Se încarcă"
+}

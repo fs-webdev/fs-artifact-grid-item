@@ -1,0 +1,17 @@
+{
+  "add_title": "Tānaki Atu e Hingoá",
+  "associated_audio": "Lea ne Hiki ʻoku Kau Fakataha Mo Iá",
+  "check_email": "Vakaiʻi hoʻo fehokotakiʻanga ʻīmeili ki hoʻo ʻakauni FamilySearch ki ha ngaahi fakahinohino.",
+  "contributed_by": "Fai ʻe : {0}",
+  "contributed_by_link": "Fai ʻe: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "ʻOku ʻikai lava ha taha ʻo sio ki he manatu melie ko ʻení.",
+  "private_memory_tooltip": "ʻOku fakatāutaha ʻa e manatu melie ko ʻení.  Ko koe pē ʻe lava ʻo sio ki aí. ",
+  "processing": "Lolotonga fai e ngāue ki ai ",
+  "processing_fail": "ʻIkai Lava ʻo Fakahoko.  Tamateʻi pea toe upload pe fetuʻutaki ki ha tokoni. ",
+  "remaining_days_count": "ngaahi ʻaho ʻe {0} ",
+  "restricted": "Fakangatangata  ",
+  "restricted_info": "Kuo fakangatangata ʻa e Manatu Melie ko ʻení koeʻuhí ko e ngaahi fakamatala ʻoku ʻasi ʻi lotó (vakai, <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Upload e Ngaahi Fakahinohinó mo e Ngaahi Tuʻutuʻuní</a>) pea ʻe toʻo ia mei he site ʻi loto ʻi he ʻaho ʻe 30.",
+  "screening": "Screening",
+  "upload_failed": "Naʻe ʻikai lava ʻo upload. Tamate‘i, pea toe upload.",
+  "uploading": "Uploading"
+}

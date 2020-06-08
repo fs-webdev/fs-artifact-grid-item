@@ -1,16 +1,17 @@
 {
+  "not_tagged": "Tässä muistossa ei ole merkintöjä.",
   "add_title": "Lisää otsikko",
-  "associated_audio": "Liitetty äänite",
-  "check_email": "Katso ohjeita FamilySearch-tiliisi linkitetystä sähköpostistasi.",
+  "restricted": "Rajoitettu",
   "contributed_by": "Lataaja: {0}",
   "contributed_by_link": "Lataaja: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Tässä muistossa ei ole merkintöjä.",
   "processing": "Käsittelee",
   "processing_fail": "Käsittely epäonnistui. Poista ja lataa uudelleen tai ota yhteys tukeen.",
-  "remaining_days_count": "{0} päivää",
-  "restricted": "Rajoitettu",
-  "restricted_info": "Tätä muistoa on rajoitettu sisällön vuoksi (ks. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Lataamista koskevat ohjeet ja menettelytavat</a>) ja se poistetaan sivustolta 30 päivän kuluessa.",
   "screening": "Seuloo",
+  "uploading": "Ladataan",
+  "restricted_info": "Tätä muistoa on rajoitettu sisällön vuoksi (ks. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Lataamista koskevat ohjeet ja menettelytavat</a>) ja se poistetaan sivustolta 30 päivän kuluessa.",
+  "check_email": "Katso ohjeita FamilySearch-tiliisi linkitetystä sähköpostistasi.",
   "upload_failed": "Tiedoston lataaminen palvelimelle epäonnistui. Poista ja lataa uudelleen.",
-  "uploading": "Ladataan"
+  "remaining_days_count": "{0} päivää",
+  "associated_audio": "Liitetty äänite",
+  "private_memory_tooltip": "Tämä muisto on yksityinen. Vain sinä voit nähdä sen."
 }

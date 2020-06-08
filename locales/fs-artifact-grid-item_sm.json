@@ -1,0 +1,17 @@
+{
+  "add_title": "Faaopoopo le Ulutala",
+  "associated_audio": "Leo e Fesootai",
+  "check_email": "Siaki lau imeli e fesootai i lau faitotoa o le FamilySearch mo faatonuga.",
+  "contributed_by": "Saunia : {0}",
+  "contributed_by_link": "Saunia e: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "E le o faailogaina le manatuaga lea.",
+  "private_memory_tooltip": "O le manatuaga lenei e le faalauaiteleina. E na o oe e mafai ona tagai i ai.",
+  "processing": "Faagaoioiga",
+  "processing_fail": "E Lei Manuia le Faagasologa. Tapeese ma toe-uta i luga pe faafesootai le au lagolago.",
+  "remaining_days_count": "{0} aso",
+  "restricted": "Faatapulaaina",
+  "restricted_info": "O lenei Manatuaga ua faatapulaaina ona o le anotusi (tagai i <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Taiala ma Aiaiga Faavae o le Utaina i Luga</a>) ma o le a aveesea mai i le saite i totonu o le 30 aso.",
+  "screening": "Siakiina",
+  "upload_failed": "E lei manuia le utaina i luga. Tapeese, ma toe uta i luga.",
+  "uploading": "Utaina i Luga"
+}

@@ -1,0 +1,17 @@
+{
+  "add_title": "Shto një Titull",
+  "associated_audio": "Material Zanor i Lidhur",
+  "check_email": "Kontrollojeni postën tuaj elektronike të lidhur me llogarinë tuaj në FamilySearch për udhëzime.",
+  "contributed_by": "Nga: {0}",
+  "contributed_by_link": "Nga: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "Ky kujtim nuk është etiketuar.",
+  "private_memory_tooltip": "Ky kujtim është i fshehtë. Vetëm ju mund ta shihni atë.",
+  "processing": "Po përpunohet",
+  "processing_fail": "Përpunimi Dështoi. Fshijeni dhe ringarkojeni ose vihuni në kontakt me sektorin e përkrahjes",
+  "remaining_days_count": "{0} ditë",
+  "restricted": "Kufizuar",
+  "restricted_info": "Ky Kujtim është kufizuar për shkak të përmbajtjes (shih <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Orientimet dhe Rregulloren për Ngarkimin</a>) dhe do të hiqet nga faqja e internetit brenda 30 ditëve.",
+  "screening": "Po Ekzaminohet",
+  "upload_failed": "Ngarkimi dështoi. Fshijeni dhe ngarkojeni përsëri.",
+  "uploading": "Po ngarkohet"
+}

@@ -1,16 +1,17 @@
 {
+  "not_tagged": "Táto spomienka nie je označená.",
   "add_title": "Pridať názov",
-  "associated_audio": "Pripojené audio",
-  "check_email": "Pokyny nájdete v emaile prepojenom s účtom FamilySearch.",
+  "restricted": "Obmedzený",
   "contributed_by": "Od: {0}",
   "contributed_by_link": "Od: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Táto spomienka nie je označená.",
   "processing": "Spracovávam",
   "processing_fail": "Spracovanie zlyhalo. Odstráňte a znova nahrajte alebo kontaktujte podporu.",
-  "remaining_days_count": "{0} dní",
-  "restricted": "Obmedzený",
-  "restricted_info": "Táto spomienka má kvôli obsahu obmedzený prístup (pozri <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Inštrukcie a pravidlá nahrávania</a>) a bude zo stránky do 30 dní odstránený.",
   "screening": "Preverovanie",
+  "uploading": "Presúvajú sa údaje",
+  "restricted_info": "Táto spomienka má kvôli obsahu obmedzený prístup (pozri <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Inštrukcie a pravidlá nahrávania</a>) a bude zo stránky do 30 dní odstránený.",
+  "check_email": "Pokyny nájdete v emaile prepojenom s účtom FamilySearch.",
   "upload_failed": "Nahrávanie zlyhalo. Odstráňte a nahrajte znovu.",
-  "uploading": "Presúvajú sa údaje"
+  "remaining_days_count": "{0} dní",
+  "associated_audio": "Pripojené audio",
+  "private_memory_tooltip": "Táto spomienka je súkromná. Vidíte ju iba vy."
 }

@@ -1,0 +1,17 @@
+{
+  "add_title": "Гарчиг нэмэх",
+  "associated_audio": "Холбогдох дуу бичлэг",
+  "check_email": "Зааварчилгаа авахдаа FamilySearch бүртгэлтэй холбогдсон э-мэйлээ шалгана уу.",
+  "contributed_by": "{0}-аар/ээр: ",
+  "contributed_by_link": "<span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>-аар/ээр: ",
+  "not_tagged": "Энэ дурсамжид тэмдэглээгүй байна.",
+  "private_memory_tooltip": "Энэ дурсамж хаалттай. Зөвхөн та харах боломжтой.",
+  "processing": "Боловсруулж байна",
+  "processing_fail": "Боловсруулалт амжилтгүй боллоо. Устгаад, дахин оруул эсвэл дэмжлэгтэй холбогдоно уу.",
+  "remaining_days_count": "{0} өдөр",
+  "restricted": "Хязгаарлагдсан",
+  "restricted_info": "Энэ дурсамж агуулгынхаа улмаас хязгаарлагдсан (<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Байршуулах заавар, журам</a>-ыг үзнэ үү) бөгөөд 30 өдрийн дотор сайтаас авагдах болно.",
+  "screening": "Хяналт шалгалт",
+  "upload_failed": "Оруулж чадсангүй. Файлыг устгаад, дахин оруулна уу.",
+  "uploading": "Оруулж байна"
+}

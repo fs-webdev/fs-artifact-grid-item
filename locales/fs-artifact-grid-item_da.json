@@ -1,16 +1,17 @@
 {
+  "not_tagged": "Dette minde er ikke tagget.",
   "add_title": "Tilføj titel",
-  "associated_audio": "Tilknyttet lydfil",
-  "check_email": "Tjek og se instruktioner på din e-mail, der er knyttet til din FamilySearch-konto.",
+  "restricted": "Begrænset adgang",
   "contributed_by": "Ved: {0}",
   "contributed_by_link": "Ved: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Dette minde er ikke tagget.",
   "processing": "Behandler",
   "processing_fail": "Processen mislykkedes. Slet og upload igen eller kontakt support.",
-  "remaining_days_count": "{0} dage",
-  "restricted": "Begrænset adgang",
-  "restricted_info": "Dette minde har begrænset adgang på grund af indhold (se <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Retningslinjer for at uploade</a>) og vil blive fjernet fra hjemmesiden i løbet af 30 dage.",
   "screening": "Screening",
+  "uploading": "Uploader",
+  "restricted_info": "Dette minde har begrænset adgang på grund af indhold (se <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Retningslinjer for at uploade</a>) og vil blive fjernet fra hjemmesiden i løbet af 30 dage.",
+  "check_email": "Tjek og se instruktioner på din e-mail, der er knyttet til din FamilySearch-konto.",
   "upload_failed": "Upload mislykkedes. Slet og upload igen.",
-  "uploading": "Uploader"
+  "remaining_days_count": "{0} dage",
+  "associated_audio": "Tilknyttet lydfil",
+  "private_memory_tooltip": "Dette minde er privat. Kun du kan se det."
 }
