@@ -1,0 +1,10 @@
+{
+  "duplicate": "Tập Tin Đã Được Tải Lên Trước Đây",
+  "fail_continues": "Tải lên thất bại. Nếu tiếp tục thất bại, hãy thử sử dụng định dạng khác của tập tin.",
+  "failure": "Tải Lên Thất Bại",
+  "restricted": "Hạn Chế",
+  "size": "Tập Tin Quá 15 MB",
+  "try_again": "Tải Lên Thất Bại. Vui lòng thử lại lần nữa.",
+  "unsupported": "Loại Tập Tin Không Được Hỗ Trợ",
+  "uploading": "Đang Tải Lên"
+}

@@ -1,0 +1,17 @@
+{
+  "add_title": "Добави име",
+  "associated_audio": "Свързан аудио файл",
+  "check_email": "За инструкции, проверете имейла, с който сте се регистрирали за акаунт във FamilySearch.",
+  "contributed_by": "Качен от: {0}",
+  "contributed_by_link": "Качен от: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "Към това изображение няма отбелязвания.",
+  "private_memory_tooltip": "Този спомен не е с публичен достъп. Само вие можете да го виждате.",
+  "processing": "Обработва се",
+  "processing_fail": "Обработването е неуспешно. Изтрийте файла и го качете отново или се свържете с поддържката.",
+  "remaining_days_count": "{0} дни",
+  "restricted": "Ограничен артефакт",
+  "restricted_info": "Достъпът до този спомен е ограничен поради неговото съдържание (вж. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Насоки и правила за качване</a>) и той ще бъде премахнат от страницата в рамките на 30 дни.",
+  "screening": "Преглеждане",
+  "upload_failed": "Качването е неуспешно. Изтрийте файла и го качете отново.",
+  "uploading": "Качване"
+}

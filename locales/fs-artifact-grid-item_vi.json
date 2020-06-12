@@ -1,0 +1,17 @@
+{
+  "add_title": "Thêm Tựa Đề",
+  "associated_audio": "Âm Thanh Liên Quan",
+  "check_email": "Vui lòng kiểm tra email của bạn mà có liên kết với Tài Khoản FamilySearch để được hướng dẫn.",
+  "contributed_by": "Bởi: {0}",
+  "contributed_by_link": "Bởi: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "Kỷ niệm này không được gắn thẻ.",
+  "private_memory_tooltip": "Kỷ niệm này là riêng tư. Chỉ có bạn mới có thể thấy kỷ niệm đó.",
+  "processing": "Đang Xử Lý",
+  "processing_fail": "Xử Lý Thất Bại. Xóa và tải lên lại hoặc liên lạc với bộ phận hỗ trợ.",
+  "remaining_days_count": "{0} ngày",
+  "restricted": "Hạn Chế",
+  "restricted_info": "Kỷ Niệm này đã bị hạn chế vì lý do nội dung (xin xem <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Những Hướng Dẫn và Chính Sách để Tải Lên</a>) và sẽ bị loại bỏ khỏi trang trong vòng 30 ngày.",
+  "screening": "Đang Kiểm Tra",
+  "upload_failed": "Tải lên thất bại. Xóa, và tải lên lại.",
+  "uploading": "Đang Tải Lên"
+}
