@@ -454,7 +454,7 @@
                 </a>
                 <input class="title-input" type="text" maxlength='140' hidden$="[[!_titleInputActive]]" on-keydown="_handleEnterExitBlur" on-blur="_handleEnterExitBlur" placeholder$="[[_addTitle]]" data-test="GalleryTitleInput"/>
               </div>
-              <span 
+              <span
                 class="private-memory-container"
                 data-test="gridPrivateMemory"
                 hidden="[[isPublic(data.visibility, privateMemoriesEx)]]" 
@@ -476,7 +476,7 @@
                 <div class="contributor" title='[[_getContributorName(data.*)]]' hidden$='[[!_getContributorName(data.*)]]'>
                   <span id='contributor-link' on-click='_openContactCard'></span>
                 </div>
-                <span 
+                <span
                   class="private-memory-container"
                   hidden="[[isPublic(data.visibility, privateMemoriesEx)]]"
                   title="[[i18n('private_memory_tooltip')]]">
@@ -975,8 +975,8 @@
       return hasAttachedAudio;
     },
     isPublic: function (visibility, privateMemoriesEx) {
-        return privateMemoriesEx ? visibility === "PUBLIC" : true;
-      }
+      return privateMemoriesEx ? visibility !== "PRIVATE" : true;
+    }
   });
 })();
 </script>
