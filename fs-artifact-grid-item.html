@@ -51,6 +51,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: space-around;
         border-top: 1px solid #CFD6D7;
         height: 28px;
       }
@@ -466,15 +467,17 @@
           <!-- Contributor Name -->
             <div class="artifact-meta" hidden$="[[_hideContributorName(view, showContributed, _titleInputActive)]]">
               <div class="action-section">
-                <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
-                  <i class="exclamation-icon" hidden$="[[!_titleError]]"></i>
-                  <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden$='[[_hideTitle(data.title, _titleInputActive)]]' data-test="GalleryTitleLink2">[[data.title]]</a>
-                  <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden$='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]' data-test="GalleryAddTitleBtn2">
-                    <i class='add-icon'></i>[[i18n('add_title')]]
-                  </a>
-                </div>
-                <div class="contributor" title='[[_getContributorName(data.*)]]' hidden$='[[!_getContributorName(data.*)]]'>
-                  <span id='contributor-link' on-click='_openContactCard'></span>
+                <div>
+                  <div class="title-2" title='[[data.title]]' on-tap="_stopProp">
+                    <i class="exclamation-icon" hidden$="[[!_titleError]]"></i>
+                    <a class$="[[_calculateTitleClass(_titleError)]]" href$='[[_href]]' on-tap="_titleLinkOverride" hidden$='[[_hideTitle(data.title, _titleInputActive)]]' data-test="GalleryTitleLink2">[[data.title]]</a>
+                    <a href$='[[_href]]?focus=title' class="add-title-link" on-tap="_toggleAddTitleInput" hidden$='[[_hideAddTitle(readOnly, data.title, data.contributorCisUserId, owner, _titleInputActive)]]' data-test="GalleryAddTitleBtn2">
+                      <i class='add-icon'></i>[[i18n('add_title')]]
+                    </a>
+                  </div>
+                  <div class="contributor" title='[[_getContributorName(data.*)]]' hidden$='[[!_getContributorName(data.*)]]'>
+                    <span id='contributor-link' on-click='_openContactCard'></span>
+                  </div>
                 </div>
                 <span
                   class="private-memory-container"
