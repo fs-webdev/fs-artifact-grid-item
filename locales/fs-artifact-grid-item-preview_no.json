@@ -1,0 +1,10 @@
+{
+  "duplicate": "Fil som tidligere er lastet opp",
+  "fail_continues": "Noe gikk galt under opplastingen. Hvis den fortsetter å mislykkes, kan du prøve å bruke et annet filformat.",
+  "failure": "Noe gikk galt under opplastingen",
+  "restricted": "Begrenset",
+  "size": "Fil over 15 MB",
+  "try_again": "Noe gikk galt under opplastingen. Prøv igjen.",
+  "unsupported": "Filtypen støttes ikke",
+  "uploading": "Opplasting"
+}
