@@ -1,0 +1,17 @@
+{
+  "add_title": "Kuria na ulutaga",
+  "associated_audio": "iRogorogo Veiwekani",
+  "check_email": "Dikeva na nomu imeli e semati ki na nomu akaude ni FamilySearch me baleta na idusidusi.",
+  "contributed_by": "Mai vei: {0}",
+  "contributed_by_link": "Mai vei: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
+  "not_tagged": "Na ivakananumi oqo e sega ni vakaitoka",
+  "private_memory_tooltip": "Na vakananumi oqo e sega ni wasei. Ena rawa ni raica ga o iko.",
+  "processing": "Cakacakataka",
+  "processing_fail": "Sega ni Rawa na Kena Cakacakataki Bokoca ka vakavodoka tale se veitaratara ena tabana ni veivuke.",
+  "remaining_days_count": "{0} siga",
+  "restricted": "Vakatabui",
+  "restricted_info": "Na Vakananumi oqo sa vakatabui baleta na lewena (raica na <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">iDusidusi ni Lavelave kei na Lawatu</a>) ka na qai kau tani mai na vanua oqo ena loma ni 30 na siga.",
+  "screening": "Vakasaravi",
+  "upload_failed": "Sega ni Cakacaka na Vakavodoki Oqo! Bokoca, ka vakavodoka tale.",
+  "uploading": "Vakavodoki"
+}
