@@ -439,7 +439,7 @@
               <div class="attached-audio-background" hidden="[[!_hasAttachedAudio(data.associatedArtifacts)]]">
               </div>
               <fs-icon class="attached-audio" title="[[i18n('associated_audio')]]" alt="[[i18n('associated_audio')]]" icon="audio-recording-green-medium" hidden="[[!_hasAttachedAudio(data.associatedArtifacts)]]"></fs-icon>
-              <div hidden="[[screening]]">
+              <div>
                 <i class$='not-tagged-icon [[_getNotTaggedIconClass()]]' hidden$='[[_hideTagIcon(data, selectMode)]]' title='[[i18n("not_tagged")]]' data-test="NotTaggedIcon"></i>
                 <i class='comment-icon' hidden$='[[!data.commentCount]]'>[[data.commentCount]]</i>
               </div>
@@ -946,7 +946,7 @@
       if (selectMode) {
         return true;
       } else {
-        return this._is(data.photoTagCount, 0) ? false : true;
+        return this._is(data.photoTagCount - data.softTagCount || 0, 0) ? false : true;
       }
     },
 
