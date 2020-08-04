@@ -502,13 +502,6 @@
               <!-- Dim the thumbnail for error messages-->
               <div class='overlay' hidden$="[[!_displayMessage]]" on-tap='_goToItem'></div>
 
-              <!--Uploading-->
-              <div class="overlay overlay-message" hidden$="[[!uploading]]" on-tap='_goToItem'>
-                <div class='processing' data-test="Uploading">
-                  [[i18n('uploading')]]
-                </div>
-              </div>
-
               <!-- Upload Failed -->
               <div class="overlay overlay-message" hidden$="[[!uploadFailed]]" on-tap='_goToItem'>
                 <div class='error-text' data-test="UploadFailed">
@@ -527,13 +520,6 @@
               <div class="error-processing overlay overlay-message" hidden$="[[!processingFailed]]" on-tap='_goToItem'>
                 <div class="error-text" data-test="ProcessingFailed">
                   [[i18n('processing_fail')]]
-                </div>
-              </div>
-
-              <!--Screening-->
-              <div class="overlay overlay-message" hidden$="[[!screening]]" on-tap='_goToItem'>
-                <div class='processing ' data-test="Screening">
-                  [[i18n('screening')]]
                 </div>
               </div>
             </template>
@@ -633,10 +619,6 @@
         value: false
       },
       // State Messages
-      screening: {
-        type: Boolean,
-        value: false
-      },
       restricted: {
         type: Boolean,
         value: false
@@ -646,10 +628,6 @@
         value: false
       },
       processingFailed: {
-        type: Boolean,
-        value: false
-      },
-      uploading: {
         type: Boolean,
         value: false
       },
@@ -728,39 +706,16 @@
     },
     _modifyState: function(data, showMessages) {
       if(!showMessages) return;
-      // Reset the states
-      this.uploading = false;
-      this.uploadFailed = false;
-      this.processing = false;
-      this.processingFailed = false;
-      this.screening = false;
-      this.restricted = false;
-      this._displayMessage = false;
+      // Reset these states
+      displayState = data.artifactDisplayState;
+      this.uploadFailed = displayState === 'UPLOAD_FAILED';
+      this.processing = displayState === 'PROCESSING';
+      this.processingFailed = displayState === 'PROCESSING_FAILED';
+      this.restricted = displayState === 'RESTRICTED';
       // If just uploaded without refresh
       // don't check for the state
       if (this.data.recentlyUploaded) return;
-
-      // Check upload state first and if it is not UPLOADED, display either UPLOADING or FAILED message as appropriate
-      // Check processing state next.  If not PROCESSED, display appropriate state message
-      // Check screening state. If not APPROVED, display RESTRICTED or SCREENING message as appropriate
-      if (this.data.uploadState == 'UPLOADING') {
-        this.uploading = true;
-        this._displayMessage = true;
-      } else if(this.data.uploadState == 'FAILED') {
-        this.uploadFailed = true;
-        this._displayMessage = true;
-      } else if (this.data.category !== 'AUDIO' && this.data.imageProcessingState !== 'PROCESSED' && this.data.imageProcessingState !== 'FAILED') {
-        this.processing = true;
-        this._displayMessage = true;
-      } else if (this.data.imageProcessingState === 'FAILED') {
-        this.processingFailed = true;
-        this._displayMessage = true;
-      } else if (this.data.screeningState !== 'APPROVED' && this.data.screeningState !== 'ESCALATE' && this.data.screeningState !== 'RESTRICTED') {
-        this.screening = true;
-        this._displayMessage = true;
-      } else if (this.data.screeningState === 'RESTRICTED') {
-        this.restricted = true;
-      }
+      this._displayMessage = displayState !== 'APPROVED';
     },
     _computeIsActive: function(titleInputActive) {
       if (titleInputActive) return true;
