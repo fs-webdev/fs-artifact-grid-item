@@ -706,15 +706,15 @@
     },
     _modifyState: function(data, showMessages) {
       if(!showMessages) return;
-      // Reset these states
-      displayState = data.artifactDisplayState;
+      // If just uploaded without refresh
+      // don't check for the state
+      if (this.data.recentlyUploaded) return;
+      // Set these states
+      displayState = this.data.artifactDisplayState;
       this.uploadFailed = displayState === 'UPLOAD_FAILED';
       this.processing = displayState === 'PROCESSING';
       this.processingFailed = displayState === 'PROCESSING_FAILED';
       this.restricted = displayState === 'RESTRICTED';
-      // If just uploaded without refresh
-      // don't check for the state
-      if (this.data.recentlyUploaded) return;
       this._displayMessage = displayState !== 'APPROVED';
     },
     _computeIsActive: function(titleInputActive) {
