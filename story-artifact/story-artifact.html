@@ -72,9 +72,11 @@
       <h1 class="story-content-title">[[title]]</h1>
       <div class="story-content-body">
         <div class="story-content-body-overlay"></div>
-        <div class="story-content-thumbnail" hidden$="{{!imageUrl}}">
-          <img src$="[[imageUrl]]"/>
-        </div>
+        <template is="dom-if" if="{{imageUrl}}">
+          <div class="story-content-thumbnail">
+            <img src$="[[imageUrl]]"/>
+          </div>
+        </template>
         <span>[[description]]</span>
       </div>
     </div>
