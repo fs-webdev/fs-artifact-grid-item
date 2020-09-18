@@ -902,7 +902,9 @@
       if (selectMode) {
         return true;
       } else {
-        return this._is(data.photoTagCount - data.softTagCount || 0, 0) ? false : true;
+        // Soft tag count only matters if it's an IMAGE
+        const tagCount = data.category === 'IMAGE' ? data.photoTagCount - data.softTagCount || 0 : data.photoTagCount;
+        return this._is(tagCount, 0) ? false : true;
       }
     },
 
