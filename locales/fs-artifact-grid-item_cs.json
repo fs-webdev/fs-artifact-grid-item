@@ -4,7 +4,7 @@
   "restricted": "Omezený přístup",
   "contributed_by": "Přidáno uživatelem {0}",
   "contributed_by_link": "Přidáno uživatelem <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "processing": "Zpracování…",
+  "processing": "Zpracovává se",
   "processing_fail": "Zpracování se nezdařilo. Artefakt smažte a nahrajte znovu, nebo kontaktujte technickou podporu.",
   "screening": "Prověřování",
   "uploading": "Nahrávání",
