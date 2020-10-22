@@ -1,7 +1,7 @@
 {
   "not_tagged": "Tato vzpomínka není označena.",
   "add_title": "Přidat název",
-  "restricted": "Omezený přístup",
+  "restricted": "Zamítnuto",
   "contributed_by": "Přidáno uživatelem {0}",
   "contributed_by_link": "Přidáno uživatelem <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Zpracovává se",
