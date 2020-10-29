@@ -5,10 +5,11 @@
   <template>
     <style>
       :host {
-        display:block;
+        display: block;
         width: 100%;
         height: 100%;
       }
+
       .thumbnail {
         width: 100%;
         height: 100%;
@@ -22,19 +23,22 @@
         object-position: center 15%;
       }
     </style>
-    <iron-image sizing="cover" position="center 15%" class="thumbnail" src="[[imageUrl]]"></iron-image>
+    <iron-image sizing="cover" position="center 15%" class="thumbnail" src="[[getImageUrl(imageUrl)]]"></iron-image>
   </template>
 </dom-module>
 <script>
-(function() {
-  Polymer({
-    is: 'image-artifact',
-    properties: {
-      imageUrl: {
-        type: String,
-        value: null
+  (function () {
+    Polymer({
+      is: 'image-artifact',
+      properties: {
+        imageUrl: {
+          type: String,
+          value: null
+        }
+      },
+      getImageUrl: function(imageUrl) {
+        return FS.URL.appendParams(imageUrl, {session: FS.User.sessionId || ''})
       }
-    }
-  });
-})();
+    });
+  })();
 </script>
