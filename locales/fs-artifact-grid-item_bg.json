@@ -1,6 +1,6 @@
 {
   "add_title": "Добави име",
-  "associated_audio": "Свързан аудио файл",
+  "associated_audio": "Прикачен аудио файл",
   "check_email": "За инструкции, проверете имейла, с който сте се регистрирали за акаунт във FamilySearch.",
   "contributed_by": "Качен от: {0}",
   "contributed_by_link": "Качен от: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
