@@ -912,13 +912,7 @@
       }
     },
     _hideTagIcon: function(data, selectMode){
-      if (selectMode) {
-        return true;
-      } else {
-        // Soft tag count only matters if it's an IMAGE
-        const tagCount = data.category === 'IMAGE' ? data.photoTagCount - data.softTagCount || 0 : data.photoTagCount;
-        return this._is(tagCount, 0) ? false : true;
-      }
+      return selectMode || data.photoTagCount > 0
     },
 
     /**
