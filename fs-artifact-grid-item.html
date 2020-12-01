@@ -450,7 +450,7 @@
               </div>
               <fs-icon class="attached-audio" title="[[i18n('associated_audio')]]" alt="[[i18n('associated_audio')]]" icon="audio-recording-green-medium" hidden="[[!_hasAttachedAudio(data.associatedArtifacts)]]"></fs-icon>
               <div>
-                <i class$='not-tagged-icon [[_getNotTaggedIconClass()]]' hidden$='[[_hideTagIcon(data, selectMode)]]' title='[[i18n("not_tagged")]]' data-test="NotTaggedIcon"></i>
+                <i class$='not-tagged-icon [[_getNotTaggedIconClass()]]' hidden$='[[_hideTagIcon(data.photoTagCount, selectMode, data.uploadError)]]' title='[[i18n("not_tagged")]]' data-test="NotTaggedIcon"></i>
                 <i class='comment-icon' hidden$='[[!data.commentCount]]'>[[data.commentCount]]</i>
               </div>
             </template>
@@ -911,8 +911,8 @@
         this.fireMetrics({link_name: 'Artifact: Click to View'});
       }
     },
-    _hideTagIcon: function(data, selectMode){
-      return selectMode || data.photoTagCount > 0
+    _hideTagIcon: function(photoTagCount, selectMode, uploadError){
+      return selectMode || photoTagCount > 0 || uploadError;
     },
 
     /**
