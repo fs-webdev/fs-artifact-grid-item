@@ -218,6 +218,9 @@
       loading: {
         type: Boolean,
         value: true
+      },
+      batchUploadEx: {
+        value: function(){ return FS.showEx('batchUploadEx'); }
       }
     },
     listeners: {
@@ -248,7 +251,8 @@
       if (!data || !data.promise || typeof data.promise.then !== 'function') return;
       data.promise.then(function (result){
         if(result.err){
-          this._handleUploadError(result.err);
+          const errorStatus = this.batchUploadEx ? result.err.status : result.err;
+          this._handleUploadError(errorStatus);
           return;
         }
       }.bind(this), this._handleUploadError.bind(this));
