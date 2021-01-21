@@ -469,7 +469,7 @@
               <span
                 class="private-memory-container"
                 data-test="gridPrivateMemory"
-                hidden="[[isPublic(data.visibility, privateMemoriesEx)]]" 
+                hidden="[[isPublic(data.visibility)]]" 
                 title="[[i18n('private_memory_tooltip')]]">
                 <fs-icon class="private-memory-icon" icon="sign-in-small"></fs-icon>
               </span>
@@ -492,7 +492,7 @@
                 </div>
                 <span
                   class="private-memory-container"
-                  hidden="[[isPublic(data.visibility, privateMemoriesEx)]]"
+                  hidden="[[isPublic(data.visibility)]]"
                   title="[[i18n('private_memory_tooltip')]]">
                   <fs-icon class="private-memory-icon" icon="sign-in-small"></fs-icon>
                 </span>
@@ -682,10 +682,6 @@
       _titleError: {
         type: Boolean,
         value: false
-      },
-      privateMemoriesEx: {
-        type: Boolean,
-        value: function() { return FS.showEx('privateMemoriesEx') }
       }
     },
     observers: [
@@ -943,8 +939,8 @@
       }
       return hasAttachedAudio;
     },
-    isPublic: function (visibility, privateMemoriesEx) {
-      return privateMemoriesEx ? visibility !== "PRIVATE" : true;
+    isPublic: function (visibility) {
+      return visibility !== "PRIVATE";
     }
   });
 })();
