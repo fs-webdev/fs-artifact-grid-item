@@ -450,7 +450,7 @@
               </div>
               <fs-icon class="attached-audio" title="[[i18n('associated_audio')]]" alt="[[i18n('associated_audio')]]" icon="audio-recording-green-medium" hidden="[[!_hasAttachedAudio(data.associatedArtifacts)]]"></fs-icon>
               <div>
-                <i class$='not-tagged-icon [[_getNotTaggedIconClass()]]' hidden$='[[_hideTagIcon(data.photoTagCount, selectMode, data.uploadError)]]' title='[[i18n("not_tagged")]]' data-test="NotTaggedIcon"></i>
+                <i class$='not-tagged-icon [[_getNotTaggedIconClass()]]' hidden$='[[_hideTagIcon(data.photoTagCount, selectMode, data.uploadError, updateFailed)]]' title='[[i18n("not_tagged")]]' data-test="NotTaggedIcon"></i>
                 <i class='comment-icon' hidden$='[[!data.commentCount]]'>[[data.commentCount]]</i>
               </div>
             </template>
@@ -530,6 +530,13 @@
               <div class="error-processing overlay overlay-message" hidden$="[[!processingFailed]]" on-tap='_goToItem'>
                 <div class="error-text" data-test="ProcessingFailed">
                   [[i18n('processing_fail')]]
+                </div>
+              </div>
+
+              <!--Error Editing Story-->
+              <div class="error-processing overlay overlay-message" hidden$="[[!updateFailed]]" on-tap='_goToItem'>
+                <div class="error-text">
+                  [[i18n('update_fail')]]
                 </div>
               </div>
             </template>
@@ -730,6 +737,7 @@
       this.uploadFailed = displayState === 'UPLOAD_FAILED';
       this.processing = displayState === 'PROCESSING';
       this.processingFailed = displayState === 'PROCESSING_FAILED';
+      this.updateFailed = displayState === 'UPDATE_FAILED';
       this.restricted = displayState === 'RESTRICTED';
       this._displayMessage = displayState !== 'APPROVED';
     },
@@ -911,8 +919,8 @@
         this.fireMetrics({link_name: 'Artifact: Click to View'});
       }
     },
-    _hideTagIcon: function(photoTagCount, selectMode, uploadError){
-      return selectMode || photoTagCount > 0 || uploadError;
+    _hideTagIcon: function(photoTagCount, selectMode, uploadError, updateFailed){
+      return selectMode || photoTagCount > 0 || uploadError || updateFailed;
     },
 
     /**

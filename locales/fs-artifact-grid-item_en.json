@@ -6,6 +6,7 @@
   "contributed_by_link": "By: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Processing",
   "processing_fail": "Processing Failed. Delete and re-upload or contact support.",
+  "update_fail": "There was a problem saving the story. Verify your latest updates and re-save.",
   "screening": "Screening",
   "uploading": "Uploading",
   "restricted_info": "This Memory has been restricted due to content (see <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Upload Guidelines and Policies</a>) and will be removed from the site within 30 days.",
