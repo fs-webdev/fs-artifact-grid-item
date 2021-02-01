@@ -251,7 +251,7 @@
       if (!data || !data.promise || typeof data.promise.then !== 'function') return;
       data.promise.then(function (result){
         if(result.err){
-          const errorStatus = this.batchUploadEx ? result.err.status : result.err;
+          const errorStatus = result.err.status || result.err;
           this._handleUploadError(errorStatus);
           return;
         }
