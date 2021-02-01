@@ -6,6 +6,7 @@
   "contributed_by_link": "Hozzáadta: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Feldolgozás alatt",
   "processing_fail": "A feldolgozás sikertelen. Töröld és töltsd fel újra vagy vedd fel a kapcsolatot a támogatócsoporttal.",
+  "update_fail": "Hiba történt a történet mentésekor. Ellenőrizd a legújabb frissítéseket, és mentsd el újra.",
   "screening": "Ellenőrzés",
   "uploading": "Feltöltés alatt",
   "restricted_info": "Ez az emlék korlátozott hozzáférésű a tartalma miatt (lásd <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Feltöltési irányelvek és eljárásrendek</a>) és 30 napon belül eltávolításra kerül az oldalról.",

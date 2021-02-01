@@ -6,6 +6,7 @@
   "contributed_by_link": "Door: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Aan het verwerken",
   "processing_fail": "Verwerking mislukt. Verwijder en upload nog eens, of neem contact op met support.",
+  "update_fail": "Er is een probleem opgetreden bij het opslaan van het verhaal. Controleer uw recentste wijzigingen en sla het opnieuw op.",
   "screening": "Controle",
   "uploading": "Aan het uploaden",
   "restricted_info": "De toegang tot deze herinnering is beperkt vanwege de inhoud (zie <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Uploadrichtlijnen en -beleidsregels</a>) en wordt binnen 30 dagen van de site verwijderd.",
