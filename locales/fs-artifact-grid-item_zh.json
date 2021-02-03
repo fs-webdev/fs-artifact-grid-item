@@ -6,6 +6,7 @@
   "contributed_by_link": "建立者：<span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "處理中",
   "processing_fail": "處理失敗。刪除且重新上傳或聯絡支援。",
+  "update_fail": "出現問題，無法儲存故事。請核對你最後的更新並重新儲存。",
   "screening": "檢測中",
   "uploading": "上傳中",
   "restricted_info": "此回憶由於內容的關係已受到限制（見<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">上傳準則和政策</a>），將於30天內從網站中移除。",

@@ -1,17 +1,18 @@
 {
+  "not_tagged": "Această amintire nu este etichetată.",
   "add_title": "Adaugă titlu",
-  "associated_audio": "Fișier audio asociat",
-  "check_email": "Verifică e-mailul asociat contului tău FamilySearch pentru instrucțiuni.",
+  "restricted": "Restricționat",
   "contributed_by": "De: {0}",
   "contributed_by_link": "De: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Această amintire nu este etichetată.",
-  "private_memory_tooltip": "Această amintire este privată. Doar tu o poți vedea.",
   "processing": "Se procesează",
   "processing_fail": "Procesare eșuată. Șterge și încarcă din nou sau contactează asistența.",
-  "remaining_days_count": "{0} zile",
-  "restricted": "Restricționat",
-  "restricted_info": "Această amintire a fost restricționată din cauza conținutului (vezi <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Îndrumările și regulile pentru fișierele încărcate</a>) și va fi ștearsă de pe site în 30 de zile.",
+  "update_fail": "A fost o problemă la salvarea povestirii. Verifică ultimele tale actualizări și salvează din nou.",
   "screening": "Verificare",
+  "uploading": "Se încarcă",
+  "restricted_info": "Această amintire a fost restricționată din cauza conținutului (vezi <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Îndrumările și regulile pentru fișierele încărcate</a>) și va fi ștearsă de pe site în 30 de zile.",
+  "check_email": "Verifică e-mailul asociat contului tău FamilySearch pentru instrucțiuni.",
   "upload_failed": "Încărcare eșuată. Șterge și încarcă din nou.",
-  "uploading": "Se încarcă"
+  "remaining_days_count": "{0} zile",
+  "associated_audio": "Fișier audio asociat",
+  "private_memory_tooltip": "Această amintire este privată. Doar tu o poți vedea."
 }

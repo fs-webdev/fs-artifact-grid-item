@@ -1,17 +1,18 @@
 {
+  "not_tagged": "E le o faailogaina le manatuaga lea.",
   "add_title": "Faaopoopo le Ulutala",
-  "associated_audio": "Leo e Fesootai",
-  "check_email": "Siaki lau imeli e fesootai i lau faitotoa o le FamilySearch mo faatonuga.",
+  "restricted": "Faatapulaaina",
   "contributed_by": "Saunia : {0}",
   "contributed_by_link": "Saunia e: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "E le o faailogaina le manatuaga lea.",
-  "private_memory_tooltip": "O le manatuaga lenei e le faalauaiteleina. E na o oe e mafai ona tagai i ai.",
   "processing": "Faagaoioiga",
   "processing_fail": "E Lei Manuia le Faagasologa. Tapeese ma toe-uta i luga pe faafesootai le au lagolago.",
-  "remaining_days_count": "{0} aso",
-  "restricted": "Faatapulaaina",
-  "restricted_info": "O lenei Manatuaga ua faatapulaaina ona o le anotusi (tagai i <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Taiala ma Aiaiga Faavae o le Utaina i Luga</a>) ma o le a aveesea mai i le saite i totonu o le 30 aso.",
+  "update_fail": "Sa i ai se faaletonu i le sefeina o le tala. Tagai i au faafouga sili ona lata mai ma toe sefe.",
   "screening": "Siakiina",
+  "uploading": "Utaina i Luga",
+  "restricted_info": "O lenei Manatuaga ua faatapulaaina ona o le anotusi (tagai i <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Taiala ma Aiaiga Faavae o le Utaina i Luga</a>) ma o le a aveesea mai i le saite i totonu o le 30 aso.",
+  "check_email": "Siaki lau imeli e fesootai i lau faitotoa o le FamilySearch mo faatonuga.",
   "upload_failed": "E lei manuia le utaina i luga. Tapeese, ma toe uta i luga.",
-  "uploading": "Utaina i Luga"
+  "remaining_days_count": "{0} aso",
+  "associated_audio": "Leo e Fesootai",
+  "private_memory_tooltip": "O le manatuaga lenei e le faalauaiteleina. E na o oe e mafai ona tagai i ai."
 }
