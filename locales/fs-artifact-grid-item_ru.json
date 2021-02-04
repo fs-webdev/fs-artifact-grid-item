@@ -6,6 +6,7 @@
   "contributed_by_link": "Предоставлено: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Обработка",
   "processing_fail": "Обработка не удалась. Удалите и загрузите еще раз или свяжитесь со службой поддержки",
+  "update_fail": "При сохранении истории возникла проблема. Проверьте последние изменения, внесенные вами, и сохраните повторно.",
   "screening": "Проверка",
   "uploading": "Загрузка",
   "restricted_info": "Содержание этого воспоминания не соответствует требованиям сайта (см. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Правила по загрузке</a>), и оно будет удалено с сайта в течение 30 дней.",

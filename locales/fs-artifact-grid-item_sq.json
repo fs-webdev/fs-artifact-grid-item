@@ -1,17 +1,18 @@
 {
+  "not_tagged": "Ky kujtim nuk është etiketuar.",
   "add_title": "Shto një Titull",
-  "associated_audio": "Material Zanor i Lidhur",
-  "check_email": "Kontrollojeni postën tuaj elektronike të lidhur me llogarinë tuaj në FamilySearch për udhëzime.",
+  "restricted": "Kufizuar",
   "contributed_by": "Nga: {0}",
   "contributed_by_link": "Nga: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Ky kujtim nuk është etiketuar.",
-  "private_memory_tooltip": "Ky kujtim është i fshehtë. Vetëm ju mund ta shihni atë.",
   "processing": "Po përpunohet",
   "processing_fail": "Përpunimi Dështoi. Fshijeni dhe ringarkojeni ose vihuni në kontakt me sektorin e përkrahjes",
-  "remaining_days_count": "{0} ditë",
-  "restricted": "Kufizuar",
-  "restricted_info": "Ky Kujtim është kufizuar për shkak të përmbajtjes (shih <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Orientimet dhe Rregulloren për Ngarkimin</a>) dhe do të hiqet nga faqja e internetit brenda 30 ditëve.",
+  "update_fail": "Pati një problem gjatë ruajtjes së historisë. Verifikojini përditësimet tuaja më të fundit dhe ruajeni përsëri.",
   "screening": "Po Ekzaminohet",
+  "uploading": "Po ngarkohet",
+  "restricted_info": "Ky Kujtim është kufizuar për shkak të përmbajtjes (shih <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Orientimet dhe Rregulloren për Ngarkimin</a>) dhe do të hiqet nga faqja e internetit brenda 30 ditëve.",
+  "check_email": "Kontrollojeni postën tuaj elektronike të lidhur me llogarinë tuaj në FamilySearch për udhëzime.",
   "upload_failed": "Ngarkimi dështoi. Fshijeni dhe ngarkojeni përsëri.",
-  "uploading": "Po ngarkohet"
+  "remaining_days_count": "{0} ditë",
+  "associated_audio": "Material Zanor i Lidhur",
+  "private_memory_tooltip": "Ky kujtim është i fshehtë. Vetëm ju mund ta shihni atë."
 }

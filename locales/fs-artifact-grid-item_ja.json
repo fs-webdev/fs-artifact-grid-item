@@ -6,6 +6,7 @@
   "contributed_by_link": "提供者：<span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "処理中",
   "processing_fail": "処理できませんでした。削除して再度アップロードするか，サポートに連絡してください。",
+  "update_fail": "ストーリーを保存する際に問題が発生しました。最新の更新を確認して，もう一度保存してください。",
   "screening": "検査中",
   "uploading": "アップロード中",
   "restricted_info": "この思い出はコンテンツのために制限されました（<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">アップロードの指針と方針</a>を参照）。30日以内にサイトから削除されます。",

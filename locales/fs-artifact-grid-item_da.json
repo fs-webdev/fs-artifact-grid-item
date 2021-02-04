@@ -6,6 +6,7 @@
   "contributed_by_link": "Ved: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Behandler",
   "processing_fail": "Processen mislykkedes. Slet og upload igen eller kontakt support.",
+  "update_fail": "Der var et problem med at gemme beretningen. Bekræft dine seneste opdateringer og gemme igen.",
   "screening": "Screening",
   "uploading": "Uploader",
   "restricted_info": "Dette minde har begrænset adgang på grund af indhold (se <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Retningslinjer for at uploade</a>) og vil blive fjernet fra hjemmesiden i løbet af 30 dage.",

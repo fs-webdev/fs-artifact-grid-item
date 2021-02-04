@@ -6,6 +6,7 @@
   "contributed_by_link": "Par : <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Traitement en cours",
   "processing_fail": "Échec du traitement. Supprimez et téléversez de nouveau le fichier, ou prenez contact avec l’assistance.",
+  "update_fail": "Il y a eu un problème d’enregistrement de l’anecdote. Vérifiez vos dernières mises à jour et enregistrez à nouveau.",
   "screening": "Vérification",
   "uploading": "Téléversement en cours",
   "restricted_info": "Du fait de son contenu, l’affichage de ce souvenir est interdit et sera supprimé du site dans les trente jours (voir les <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">règles et directives de téléversement</a>).",

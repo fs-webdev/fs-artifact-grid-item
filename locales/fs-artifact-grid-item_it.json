@@ -6,6 +6,7 @@
   "contributed_by_link": "Inserito da: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "In elaborazione",
   "processing_fail": "Elaborazione non riuscita. Cancella e ricarica oppure contatta l’assistenza.",
+  "update_fail": "C’è stato un problema nel salvataggio della storia. Verifica i tuoi ultimi aggiornamenti e salva nuovamente.",
   "screening": "Controllo in corso",
   "uploading": "Caricamento in corso",
   "restricted_info": "Questo ricordo è stato sottoposto a restrizioni a causa del contenuto (vedi <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Linee guida e direttive per il caricamento</a>) e sarà rimosso dal sito entro 30 giorni.",
