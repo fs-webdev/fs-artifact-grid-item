@@ -6,6 +6,7 @@
   "contributed_by_link": "Von: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Wird verarbeitet",
   "processing_fail": "Verarbeitung fehlgeschlagen. Bitte löschen und erneut hochladen oder den Support kontaktieren.",
+  "update_fail": "Beim Speichern der Geschichte ist ein Problem aufgetreten. Überprüfen Sie Ihre letzten Änderungen und speichern Sie sie dann erneut.",
   "screening": "Überprüfung läuft",
   "uploading": "Wird hochgeladen",
   "restricted_info": "Der Zugriff auf diese Erinnerung ist aufgrund ihres Inhalts beschränkt (siehe <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Richtlinien und Bestimmungen für das Hochladen</a>) und wird innerhalb von 30 Tagen von der Website entfernt.",

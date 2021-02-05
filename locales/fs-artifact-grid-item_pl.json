@@ -6,6 +6,7 @@
   "contributed_by_link": "Przez: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Przetwarzanie",
   "processing_fail": "Przetwarzanie nieudane. Usuń i ponownie prześlij lub skontaktuj się z działem wsparcia.",
+  "update_fail": "Wystąpił błąd podczas zapisywania historii. Zweryfikuj swoje ostatnie zmiany i zapisz ponownie.",
   "screening": "Sprawdzanie",
   "uploading": "Przesyłanie",
   "restricted_info": "Na to wspomnienie zostały nałożone ograniczenia ze względu na jego treść (zob. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Prześlij wskazówki i zasady</a>) i zostanie ono usunięte z tej strony w ciągu 30 dni.",

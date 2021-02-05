@@ -6,6 +6,7 @@
   "contributed_by_link": "Por: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Processando",
   "processing_fail": "Falha no Processamento Remova e reenvie o artefato ou entre em contato com o suporte.",
+  "update_fail": "Houve um problema ao salvar a história. Verifique as atualizações mais recentes e salve novamente.",
   "screening": "Avaliando",
   "uploading": "Enviando",
   "restricted_info": "Esta recordação foi restrita por causa do conteúdo (ver as <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Normas e Diretrizes para o Envio</a>) e será removida em até 30 dias.",

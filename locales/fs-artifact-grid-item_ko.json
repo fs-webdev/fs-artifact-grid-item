@@ -6,6 +6,7 @@
   "contributed_by_link": "작성자: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "작업 중",
   "processing_fail": "처리 실패 삭제하고 다시 업로드하거나 지원 팀에 연락하십시오.",
+  "update_fail": "이야기를 저장하던 중 문제가 발생했습니다. 가장 최근에 수정한 사항을 확인한 후 다시 저장하세요.",
   "screening": "심사 중",
   "uploading": "업로드 중",
   "restricted_info": "이 추억은 내용(<a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">업로드 지침 및 정책 참조</a>) 때문에 제한되었으며 30일 이내에 사이트에서 삭제될 예정입니다.",

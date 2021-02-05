@@ -1,17 +1,18 @@
 {
+  "not_tagged": "Dette minnet er ikke merket.",
   "add_title": "Legg til tittel",
-  "associated_audio": "Tilknyttet lydopptak",
-  "check_email": "Sjekk e-postadressen som er knyttet til din FamilySearch-konto, for instruksjoner.",
+  "restricted": "Begrenset",
   "contributed_by": "Av: {0}",
   "contributed_by_link": "Av: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
-  "not_tagged": "Dette minnet er ikke merket.",
-  "private_memory_tooltip": "Dette minnet er privat. Bare du kan se det.",
   "processing": "Behandler",
   "processing_fail": "Behandlingen mislyktes. Slett og last opp på nytt, eller kontakt brukerstøtte.",
-  "remaining_days_count": "{0} dager",
-  "restricted": "Begrenset",
-  "restricted_info": "Dette minnet er begrenset på grunn av innhold (se <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Retningslinjer for opplasting</a>) og vil bli fjernet fra nettstedet innen 30 dager.",
+  "update_fail": "Det oppsto et problem ved lagring av historien. Bekreft dine siste oppdateringer og lagre på nytt.",
   "screening": "Sortering",
+  "uploading": "Opplasting",
+  "restricted_info": "Dette minnet er begrenset på grunn av innhold (se <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Retningslinjer for opplasting</a>) og vil bli fjernet fra nettstedet innen 30 dager.",
+  "check_email": "Sjekk e-postadressen som er knyttet til din FamilySearch-konto, for instruksjoner.",
   "upload_failed": "Noe gikk galt under opplastingen. Slett og last opp igjen.",
-  "uploading": "Opplasting"
+  "remaining_days_count": "{0} dager",
+  "associated_audio": "Tilknyttet lydopptak",
+  "private_memory_tooltip": "Dette minnet er privat. Bare du kan se det."
 }

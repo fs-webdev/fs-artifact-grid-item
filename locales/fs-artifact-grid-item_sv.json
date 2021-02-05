@@ -6,6 +6,7 @@
   "contributed_by_link": "Av: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Bearbetas",
   "processing_fail": "Bearbetningen misslyckades. Radera och ladda upp på nytt eller kontakta support.",
+  "update_fail": "Ett problem uppstod när berättelsen sparades. Kontrollera dina senaste uppdateringar och spara på nytt.",
   "screening": "Granskning",
   "uploading": "Laddar upp",
   "restricted_info": "Det här minnet har omgetts med restriktioner på grund av innehållet (se <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Riktlinjer och föreskrifter för uppladdning</a>) och tas bort från webbplatsen inom 30 dagar.",

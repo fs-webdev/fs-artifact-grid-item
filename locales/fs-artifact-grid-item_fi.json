@@ -6,6 +6,7 @@
   "contributed_by_link": "Lataaja: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Käsittelee",
   "processing_fail": "Käsittely epäonnistui. Poista ja lataa uudelleen tai ota yhteys tukeen.",
+  "update_fail": "Kertomuksen tallentamisessa oli ongelma. Tarkista viimeisimmät päivityksesi ja tallenna uudelleen.",
   "screening": "Seuloo",
   "uploading": "Ladataan",
   "restricted_info": "Tätä muistoa on rajoitettu sisällön vuoksi (ks. <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Lataamista koskevat ohjeet ja menettelytavat</a>) ja se poistetaan sivustolta 30 päivän kuluessa.",

@@ -6,6 +6,7 @@
   "contributed_by_link": "Por: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>{0}</span>",
   "processing": "Procesando",
   "processing_fail": "No se pudo procesar. Eliminar y volver a cargar o contacta a Soporte.",
+  "update_fail": "Hubo un problema al guardar la historia. Verifica los últimos cambios que hiciste y vuelve a guardar.",
   "screening": "Verificando",
   "uploading": "Cargando",
   "restricted_info": "Este recuerdo ha sido restringido debido al contenido (ver <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Normas y Pautas de carga</a>) y se suprimirá del sitio dentro de 30 días.",
