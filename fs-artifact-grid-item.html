@@ -907,12 +907,40 @@
         return (data.value.ftUserInfo) ? data.value.ftUserInfo.contactName : data.value.contributorContactName;
       }
     },
+    _getArtifactType: function(artifact) {
+      var type = artifact.category;
+      if (type === 'IMAGE') {
+        if (this._imageContentCategory === 'PHOTO') {
+          type = 'IMAGE-PHOTO';
+        } else if (this._imageContentCategory === 'DOCUMENT') {
+          type = 'IMAGE-DOC';
+        }
+      } else if (type === 'TEXT') {
+        type = 'STORY'
+      }
+      return this._toProperCase(type);
+    },
+    _toProperCase: function(str) {
+      if (str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
+          if (/\s+/.test(match)) {
+            return "";
+          }
+
+          if (index == 0 || (index > 0 && str[index - 1] === '-')) {
+            return match.toUpperCase();
+          }
+
+          return match.toLowerCase();
+        });
+      }
+    },
     _fireGoToItemMetrics: function(e) {
       if (!this.selectMode && !this.data.tombstoned) {
         if (e.target.classList.contains('not-tagged-icon')) {
-          this.fireMetrics({link_name: 'Artifact: Add Tag Icon'});
+          this.fireMetrics({link_name: this._getArtifactType(this.data) + ': Add Tag Icon'});
         }
-        this.fireMetrics({link_name: 'Artifact: Click to View'});
+        this.fireMetrics({link_name: this._getArtifactType(this.data) + ': Click to View'});
       }
     },
     _hideTagIcon: function(photoTagCount, selectMode, uploadError, updateFailed, editableByCaller){
