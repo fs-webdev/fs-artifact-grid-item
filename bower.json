@@ -32,7 +32,8 @@
     "fs-metrics": "fs-webdev/fs-metrics#1.x",
     "fs-icon": "fs-webdev/fs-icon#^2.0.0",
     "fs-dialog": "fs-webdev/fs-dialog#5.x",
-    "fs-inner-html": "fs-webdev/fs-inner-html#1.x"
+    "fs-inner-html": "fs-webdev/fs-inner-html#1.x",
+    "fs-memories-util-behavior": "fs-webdev/fs-memories-util-behavior#2.x"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
