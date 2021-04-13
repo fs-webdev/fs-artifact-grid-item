@@ -12,6 +12,7 @@
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../fs-metrics/fs-metrics.html">
 <link rel="import" href="../fs-icon/fs-icon.html">
+<link rel="import" href="../fs-memories-util-behavior/fs-memories-util-behavior.html">
 
 <!-- @demo demo/index.html -->
 
@@ -561,7 +562,8 @@
       OakAJAXBehavior,
       WCI18n(),
       OakI18nBehavior,
-      FsBehaviors.Metrics
+      FsBehaviors.Metrics,
+      FsMemoriesUtilBehavior
     ],
     properties: {
       /**
@@ -910,9 +912,9 @@
     _fireGoToItemMetrics: function(e) {
       if (!this.selectMode && !this.data.tombstoned) {
         if (e.target.classList.contains('not-tagged-icon')) {
-          this.fireMetrics({link_name: 'Artifact: Add Tag Icon'});
+          this.fireMetrics({link_name: this.getArtifactType(this.data) + ': Add Tag Icon'});
         }
-        this.fireMetrics({link_name: 'Artifact: Click to View'});
+        this.fireMetrics({link_name: this.getArtifactType(this.data) + ': Click to View'});
       }
     },
     _hideTagIcon: function(photoTagCount, selectMode, uploadError, updateFailed, editableByCaller){
