@@ -1,0 +1,18 @@
+{
+  "add_title": "21.1146 Add Title",
+  "associated_audio": "21.1159 Associated Audio",
+  "check_email": "21.1156 Check your email linked to your FamilySearch account for instructions.",
+  "contributed_by": "21.1148 By: [[0]]",
+  "contributed_by_link": "21.1149 By: <span class='style-scope fs-artifact-grid-item contributor-name' on-tap='_openContactCard'>[[0]]</span>",
+  "not_tagged": "21.1145 This memory is not tagged.",
+  "private_memory_tooltip": "21.1160 This memory is private. Only you can see it.",
+  "processing": "21.1150 Processing",
+  "processing_fail": "21.1151 Processing Failed. Delete and re-upload or contact support.",
+  "remaining_days_count": "21.1158 [[0]] days",
+  "restricted": "21.1147 Restricted",
+  "restricted_info": "21.1155 This Memory has been restricted due to content (see <a target='blank' href=\"https://www.lds.org/legal/familysearch-upload-guidelines-and-policies\">Upload Guidelines and Policies</a>) and will be removed from the site within 30 days.",
+  "screening": "21.1153 Screening",
+  "update_fail": "21.1152 There was a problem saving the story. Verify your latest updates and re-save.",
+  "upload_failed": "21.1157 Upload failed. Delete, and upload again.",
+  "uploading": "21.1154 Uploading"
+}

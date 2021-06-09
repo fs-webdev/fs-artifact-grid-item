@@ -1,0 +1,10 @@
+{
+  "duplicate": "21.1139 File Previously Uploaded",
+  "fail_continues": "21.1144 Upload failed. If it continues to fail, try using a different file format.",
+  "failure": "21.1137 Upload Failed",
+  "restricted": "21.1138 Restricted",
+  "size": "21.1140 File Over 15MB",
+  "try_again": "21.1143 Upload Failed. Please try again.",
+  "unsupported": "21.1141 Unsupported File Type",
+  "uploading": "21.1142 Uploading"
+}
